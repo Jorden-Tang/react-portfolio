@@ -94,10 +94,26 @@ const HomePage = (props) =>{
                     </ul>
                 </div>
                 <div className = "skills">
-                    
-                </div>
+                    <ul>
+                        <li>
+                            <img src = {require('../images/java_logo.png')}></img>
+                            <div className = "skill_bar">
+                                <div className = "progress"></div>
+                            </div>
+                        </li>
+                        <li>Python</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JAVASCRIPT</li>
+                    </ul>
 
-               
+                    <ul>
+                        <li>MySQL</li>
+                        <li>MongoDB</li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
             </div>
             {/* <div className = "section" id = "project_section">
                 <div className = "project_container">
