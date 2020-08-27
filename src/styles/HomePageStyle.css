@@ -140,7 +140,7 @@
 .timeline{
     margin-top: 100px;
     margin-bottom: 100px;
-    width: 50%;
+    width: 1200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -151,7 +151,7 @@
 .timeline::before{
     content: '';
     height: 100%;
-    width: 5px;
+    width: 2px;
     background-color: darkgrey;
     position: absolute;
     left: 50%;
@@ -160,23 +160,27 @@
 .timeline ul{
     list-style-type: none;
     width: 100%;
+
 }
 
 
 .timeline ul li{
     width: 50%;
     clear: both;
+    height: 200px;
+    margin-bottom: 20px;
 }
 
 
-.content::before{
+.timeline ul li:before{
     content: '';
-    border-radius: 20px;
-    background-color: red;
-    width: 20px;
-    height: 20px;
+    border-radius: 50%;
+    background-color: darkseagreen;
+    width: 10px;
+    height: 10px;
     position: absolute;
-    left: 49.6%;
+    left: 49.4%;
+    border: 4px solid green;
 }
 
 .timeline ul li:nth-child(odd){
@@ -197,7 +201,31 @@
 .timeline ul li:nth-child(even) .content{
     padding-left: 10%;
     padding-right: 10%;
+    
 }
+
+
+.timeline ul li p{
+    font-size: 1.2rem;
+    background-color:  darkcyan;
+    font-weight: 500;
+    padding: 4px;
+    border-radius: 4px;
+    color: white;
+}
+
+.timeline ul li:nth-child(even) p{
+    position: absolute;
+    left: 35%;
+
+}
+
+.timeline ul li:nth-child(odd) p{
+    position: absolute;
+    right: 35%;
+}
+
+
 
 .skills{
     width: 40%;
@@ -207,14 +235,16 @@
 }
 
 .content{
+    width: auto;
     line-height: 1.5;
-
+    display: flex;
 }
 
 .content img{
     width: 150px;
     height: 150px;
-    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
     
 }
 
@@ -224,7 +254,7 @@
 }
 
 .content span{
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-family: 'Balsamiq Sans', cursive;
 }
 
@@ -267,7 +297,8 @@
 
 
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1400px) {
+
     #experience_section{
         display: flex; 
         flex-direction: column;
@@ -291,18 +322,35 @@
 
     }
 
+    #parallax{
+        height: 50vh;
+    }
+
+  
+
+    .content img{
+        margin-top: 60px;
+        position: relative;
+        left: -50px;
+    }
+
+    .content div{
+        margin-top: 60px;
+    }
+
     .timeline ul li{
+        margin-top: 50px;
         width: 100%;
         clear: both;
         float: right !important;
         text-align: left !important;
     }
 
+    .timeline ul li:before{
+        left: 1.8%;
+    }
     .timeline::before{
         left: 2%;
-    }
-    .content::before{
-        left: 1.4%;
     }
 
     .timeline ul li:nth-child(odd) .content{
@@ -317,6 +365,18 @@
         padding-bottom: 10%;
     }
 
+    .timeline ul li:nth-child(even) p{
+        width: 100px;
+        left: 2%;
+        left: 50px;
+    }
+
+    .timeline ul li:nth-child(odd) p{
+        width: 100px;
+        left: 50px;
+    
+    }
+
     #logo{
         display: none;
     }
@@ -325,8 +385,9 @@
     }
 
     #nav_link{
-        width: 100vw;
+        width: 90vw;
     }
+
 }
 
 
