@@ -62,24 +62,35 @@ const HomePage = (props) =>{
                     <ul>
                         <li>
                             <div className = "content">
-                                <h2>2020-Present</h2>
-                                <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span>
+                                <img  src = {require('../images/leetcode_logo.png')}></img>
+                                <h2>2020-Present Seeking Opportunity</h2>
+                                <span>Working on personal projects on Github, doing LeetCode questions</span>
+                        
                             </div>
                         </li>
                         <li>
                             <div className = "content">
-                                <h2>2019-2020</h2>
-                                <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span>
+                                <img src = {require('../images/dojo_logo.png')} style = {{backgroundColor: "rgba(0,0,0,0.3)", borderRadius: "5px"}}></img>
+                                <h2>2019-2020 Coding Dojo</h2>
+                                <span>Full-Stack Web Development BootCamp. 1000 hands-on hours on Django, SpringBoot, React.js Stacks</span>
+                                <p>(Projects see below)</p>
+                             
                             </div>
                         </li>
                         <li>
                             <div className = "content">
-                                <h2>2016-2019</h2>
-                                <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span>
+                                <img  src = {require('../images/ucsd_logo.png')}></img>
+                                <h2>2016-2019 UCSD Under Grad</h2>
+                                <span> Bachelor Degree Of Science in Mathmatics-Computer Science, Focus on Software Engineering And Programming</span>
                             </div>
                         </li>
                     </ul>
                 </div>
+                <div className = "skills">
+                    <h1>Techanical Skills</h1>
+                </div>
+
+               
             </div>
             <div className = "section" id = "project_section">
                 <div className = "project_container">
