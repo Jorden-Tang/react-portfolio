@@ -69,6 +69,7 @@
     font-weight: bold;
     text-decoration: none;
     color: white;
+    
 }
 
 .menu_bar a img{
@@ -78,6 +79,7 @@
     width: 15px;
     height: 15px;
     transition: 0.5s;
+    
 }
 
 .menu_bar a:hover img{
@@ -208,10 +210,16 @@
 .timeline ul li p{
     font-size: 1.2rem;
     background-color:  darkcyan;
+    width: 130px;
+    text-align: center;
     font-weight: 500;
     padding: 4px;
-    border-radius: 4px;
+    border-radius: 10px;
     color: white;
+    border: 2px solid darkgreen;
+    -webkit-box-shadow: -2px 10px 21px -3px rgba(0,0,0,0.45);
+    -moz-box-shadow: -2px 10px 21px -3px rgba(0,0,0,0.45);
+    box-shadow: -2px 10px 21px -3px rgba(0,0,0,0.45);
 }
 
 .timeline ul li:nth-child(even) p{
@@ -245,6 +253,23 @@
     height: 70px;
 }
 
+.w_50{
+    width: 50%;
+}
+
+.w_60{
+    width: 60%;
+}
+.w_70{
+    width: 70%;
+}
+.w_80{
+    width: 80%;
+}
+.w_90{
+    width: 90%;
+}
+
 .skills ul li{
     display: flex;
     align-items: center;
@@ -259,10 +284,13 @@
     display: flex;
     align-items: center;
     padding-left: 5px;
+    -webkit-box-shadow: -2px 10px 21px -3px rgba(0,0,0,0.45);
+    -moz-box-shadow: -2px 10px 21px -3px rgba(0,0,0,0.45);
+    box-shadow: -2px 10px 21px -3px rgba(0,0,0,0.45);
 }
 
 .progress{
-    width: 70%;
+   
     height: 70%;
     background: repeating-linear-gradient(45deg, transparent, transparent 10px,  rgba(8, 92, 92, 0.952) 10px, rgb(11, 90, 86) 20px), rgb(11, 155, 155);
     border-radius: 5px;
@@ -341,7 +369,8 @@
     #experience_section{
         display: flex; 
         flex-direction: column;
-        justify-content: center;
+        justify-items: center;
+        align-content: space-between;
     }
 
     .timeline{
@@ -350,6 +379,7 @@
     }
     .skills{
         width: 100%;
+        margin-top: 0px;
     }
 
 
@@ -373,6 +403,7 @@
         left: -50px;
     }
 
+
     .content div{
         margin-top: 60px;
     }
@@ -386,10 +417,10 @@
     }
 
     .timeline ul li:before{
-        left: 1.8%;
+        left: 12px;
     }
     .timeline::before{
-        left: 2%;
+        left: 20px;
     }
 
     .timeline ul li:nth-child(odd) .content{

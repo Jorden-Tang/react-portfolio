@@ -73,7 +73,7 @@ const HomePage = (props) =>{
                         </li>
                         <li>
                             <div className = "content">
-                                <img src = {require('../images/dojo_logo.png')} style = {{backgroundColor: "rgba(0,0,0,0.3)", borderRadius: "5px"}}></img>
+                                <img src = {require('../images/dojo_logo.png')}></img>
                                 <div>
                                 <h2>Coding Dojo</h2>
                                 <span>Full-Stack Web Development BootCamp. 1000 hands-on hours on Django, SpringBoot, React.js Stacks</span>
@@ -91,6 +91,16 @@ const HomePage = (props) =>{
                                 <p>2016-2019</p>
                             </div>
                         </li>
+                        <li>
+                            <div className = "content">
+                                <img  src = {require('../images/citrus_college_logo.png')} ></img>
+                                <div>
+                                <h2> College Student</h2>
+                                <span> Associate Degree Of  Mathmatics, Calculus, Linear Algebra, Introduction To Programming</span>
+                                </div>
+                                <p>2013-2016</p>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 <div className = "skills">
@@ -98,24 +108,116 @@ const HomePage = (props) =>{
                         <li>
                             <img src = {require('../images/java_logo.png')}></img>
                             <div className = "skill_bar">
-                                <div className = "progress"></div>
+                                <div className = "progress w_90" ></div>
                             </div>
                         </li>
-                        <li>Python</li>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>JAVASCRIPT</li>
-                    </ul>
+                        <li>
+                            <img src = {require('../images/javascript_logo.png')}></img>
+                            <div className = "skill_bar">
+                                <div className = "progress w_90" ></div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src = {require('../images/python_logo.png')}></img>
+                            <div className = "skill_bar">
+                                <div className = "progress w_70"></div>
+                            </div>
+                        </li>
 
+                        <li>
+                            <img src = {require('../images/c++_logo.png')}></img>
+                            <div className = "skill_bar">
+                                <div className = "progress w_70"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src = {require('../images/jquery_logo.png')}></img>
+                            <div className = "skill_bar">
+                                <div className = "progress w_70"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src = {require('../images/aws_logo.png')}></img>
+                            <div className = "skill_bar">
+                                <div className = "progress w_50"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src = {require('../images/nginx_logo.png')}></img>
+                            <div className = "skill_bar">
+                                <div className = "progress w_50"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src = {require('../images/socket_logo.png')}></img>
+                            <div className = "skill_bar w_70">
+                                <div className = "progress w_50"></div>
+                            </div>
+                        </li>
+                    </ul>
                     <ul>
-                        <li>MySQL</li>
-                        <li>MongoDB</li>
-                        <li></li>
-                        <li></li>
+                        <li>
+                            <img src = {require('../images/mongodb_logo.png')}></img>
+                            <div className = "skill_bar">
+                                <div className = "progress w_90"></div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <img src = {require('../images/mysql_logo.png')}></img>
+                            <div className = "skill_bar ">
+                                <div className = "progress w_90"></div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <img src = {require('../images/sqlite_logo.png')}></img>
+                            <div className = "skill_bar">
+                                <div className = "progress w_90"></div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <img src = {require('../images/react_logo.png')}></img>
+                            <div className = "skill_bar">
+                                <div className = "progress w_90"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src = {require('../images/html_logo.png')}></img>
+                            <div className = "skill_bar">
+                                <div className = "progress w_80"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src = {require('../images/css_logo.png')}></img>
+                            <div className = "skill_bar">
+                                <div className = "progress w_80"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src = {require('../images/flask_logo.png')}></img>
+                            <div className = "skill_bar">
+                                <div className = "progress w_70"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src = {require('../images/django_logo.png')}></img>
+                            <div className = "skill_bar">
+                                <div className = "progress w_70"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src = {require('../images/express_logo.png')}></img>
+                            <div className = "skill_bar">
+                                <div className = "progress w_90"></div>
+                            </div>
+                        </li>
+
                     </ul>
                 </div>
             </div>
-            {/* <div className = "section" id = "project_section">
+            <div className = "section" id = "project_section">
                 <div className = "project_container">
                     <ul>
                         <li>
@@ -173,7 +275,7 @@ const HomePage = (props) =>{
                         </li>
                     </ul>
                 </div>
-            </div> */}
+            </div>
             <div className = "section" id = "contact_section"> 
                 <h1>contact</h1>
             </div>
