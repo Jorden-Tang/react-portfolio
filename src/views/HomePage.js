@@ -223,7 +223,7 @@ const HomePage = (props) =>{
                         <li>
                             <div className = "project_content">
                                 <div className = "demo_video_container">
-                                <HoverVideoPlayer
+                                <HoverVideoPlayer style = {{borderRadius: "5px"}}
                                     videoSrc= {require('../videos/video1.mp4')}
                                     pausedOverlay={
                                         <img src="thumbnail-image.jpg" alt="" />
