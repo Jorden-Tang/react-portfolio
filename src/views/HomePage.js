@@ -23,18 +23,14 @@ const HomePage = (props) =>{
     }, [])
 
     return(
-        <div className = "body">
+        <div className = "body" style = {{overflow: "hidden"}}>
             <div className = "menu_bar"     
                 style={{ transition: '1s ease' , backgroundColor: navBackground ? 'white' : 'transparent', color: navBackground ? 'black': 'white', boxShadow:  navBackground ? '0px 10px 30px 1px rgba(0,0,0,0.3)': ''}}>
                 <div id = "logo">
-                    Jorden Tang
+                    Tang
                 </div>
                 <div id = "nav_link">
-                    <a className = "nav_tab" href= "#about_me_section" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>
-                        About Me
-                        <img src={require('../images/down_arrow.svg')} />
-                    </a>
-                    <a href= "#experience_section" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>Experience 
+                    <a href= "#experience_section" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>About Me
                     <img src={require('../images/down_arrow.svg')} />
                     </a>
                     <a href= "#project_section" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>Projects
@@ -50,14 +46,18 @@ const HomePage = (props) =>{
                 </div>
             </div>
 
-            <div className = "section" id = "about_me_section">
+            <div className = "section" >
                 <div id = "parallax">
-                    <h1 >Hello I'm Jorden Tang</h1> 
-                    <h2 >passionate web developer, software engineer residing in LA.</h2>
+                   
+                        <h1 >Hello I'm <span style = {{color: "pink"}}>Jorden Tang</span></h1> 
+                        <h2 ><span style = {{color: "#dc143c"}}>PASSIONATE</span> web developer, software engineer residing in LA <i class="fas fa-city"></i></h2>
+                    
                 </div>
             </div>
-
-            <div className = "section" id = "experience_section"> 
+            <div className = "section" id = "experience_section">
+                <h1 className = "section_header">About Me
+                    <div className = "underline"></div>
+                </h1>
                 <div className = "timeline">
                     <ul>
                         <li>
@@ -217,8 +217,13 @@ const HomePage = (props) =>{
                     </ul>
                 </div>
             </div>
+            
             <div className = "section" id = "project_section">
+            <h1 className = "section_header">My Work
+                    <div className = "underline"></div>
+                </h1>
                 <div className = "project_container">
+                    
                     <ul>
                         <li>
                             <div className = "project_content">
