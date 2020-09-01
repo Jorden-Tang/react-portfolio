@@ -23,6 +23,21 @@ const HomePage = (props) =>{
     }, [])
 
     return(
+        <>  
+           
+            <ul className = "social_media">
+                <li>
+                    <i class="fab fa-linkedin" onClick = {()=>{window.open("https://www.google.com", "_blank")}}></i>
+                    <a>LINKKK</a>
+                </li>
+                <li>
+                    <i class="fab fa-linkedin" onClick = {()=>{window.open("https://www.google.com", "_blank")}}></i>
+                </li>
+                <li>
+                    <i class="fab fa-linkedin" onClick = {()=>{window.open("https://www.google.com", "_blank")}}></i>
+                </li> 
+            </ul>
+
         <div className = "body" style = {{overflow: "hidden"}}>
             <div className = "menu_bar"     
                 style={{ transition: '1s ease' , backgroundColor: navBackground ? 'white' : 'transparent', color: navBackground ? 'black': 'white', boxShadow:  navBackground ? '0px 10px 30px 1px rgba(0,0,0,0.3)': ''}}>
@@ -223,7 +238,6 @@ const HomePage = (props) =>{
                     <div className = "underline"></div>
                 </h1>
                 <div className = "project_container">
-                    
                     <ul>
                         <li>
                             <div className = "project_content">
@@ -288,6 +302,7 @@ const HomePage = (props) =>{
                 
             </script>
         </div>
+        </>
     )
 }
 
