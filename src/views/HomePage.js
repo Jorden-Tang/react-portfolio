@@ -7,36 +7,43 @@ import HoverVideoPlayer from 'react-hover-video-player';
 
 const HomePage = (props) =>{
     const [navBackground, setNavBackground] = useState(false)
-    const navRef = useRef()
-    navRef.current = navBackground
-    useEffect(() => {
-      const handleScroll = () => {
-        const show = window.scrollY > 120
-        if (navRef.current !== show) {
-          setNavBackground(show)
+    const [sideNavDisplay, setSideNavDisplay] = useState(true);
+
+    const onScrollYCheck = () =>{
+        console.log(window.scrollY)
+        if(window.scrollY > 120){
+            setNavBackground(true);
         }
-      }
-      document.addEventListener('scroll', handleScroll)
-      return () => {
-        document.removeEventListener('scroll', handleScroll)
-      }
-    }, [])
+        else{
+            setNavBackground(false);
+        }
+
+
+        if(window.scrollY > 200){
+            setSideNavDisplay(false);
+        }
+        else{
+            setSideNavDisplay(true);
+        }
+    }
+
+    window.addEventListener('scroll', onScrollYCheck);
+
+
 
     return(
-        <>  
-           
-            <ul className = "social_media">
-                <li>
-                    <i class="fab fa-linkedin" onClick = {()=>{window.open("https://www.google.com", "_blank")}}></i>
-                    <a>LINKKK</a>
-                </li>
-                <li>
-                    <i class="fab fa-linkedin" onClick = {()=>{window.open("https://www.google.com", "_blank")}}></i>
-                </li>
-                <li>
-                    <i class="fab fa-linkedin" onClick = {()=>{window.open("https://www.google.com", "_blank")}}></i>
-                </li> 
-            </ul>
+        <>             
+        <div id = "social_media"  style = {{opacity : sideNavDisplay ? '0' : '1'}}>
+            <a style = {{bottom: "300px"}}>
+                <i class="fab fa-linkedin" ></i>
+            </a>                
+            <a style = {{bottom: "360px"}}>
+                <i class="fab fa-linkedin" ></i>
+            </a>
+            <a style = {{bottom: "420px"}}>
+                <i class="fab fa-linkedin" ></i>
+            </a> 
+        </div>
 
         <div className = "body" style = {{overflow: "hidden"}}>
             <div className = "menu_bar"     
@@ -44,7 +51,7 @@ const HomePage = (props) =>{
                 <div id = "logo">
                     Tang
                 </div>
-                <div id = "nav_link">
+                <div id = "nav_link" >
                     <a href= "#experience_section" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>About Me
                     <img src={require('../images/down_arrow.svg')} />
                     </a>
