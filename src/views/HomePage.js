@@ -2,7 +2,9 @@ import React from 'react'
 import {useState, useRef, useEffect} from 'react'
 import '../styles/HomePageStyle.css'
 import '../styles/InteractiveBG.css'
-import HoverVideoPlayer from 'react-hover-video-player';
+import fruitGuideBackGround from '../images/project_asset/fruitscrollguide.PNG'
+import GameBackGround from '../images/project_asset/2dgame.PNG'
+
 
 
 const HomePage = (props) =>{
@@ -19,7 +21,7 @@ const HomePage = (props) =>{
         }
 
 
-        if(window.scrollY > 200){
+        if(window.scrollY > 300){
             setSideNavDisplay(false);
         }
         else{
@@ -29,22 +31,23 @@ const HomePage = (props) =>{
 
     window.addEventListener('scroll', onScrollYCheck);
 
-
-
     return(
         <>             
-        <div id = "social_media"  style = {{opacity : sideNavDisplay ? '0' : '1'}}>
-            <a style = {{bottom: "300px"}}>
-                <i class="fab fa-linkedin" ></i>
+
+        <div id = "social_media"  style = {{opacity : sideNavDisplay ? '0' : '0.8'}}>
+            <a style = {{bottom: "200px", backgroundColor: "#006cbf"}}>
+                <button onClick = {()=>{window.open("https://www.linkedin.com/in/jorden-tang-6b329a196/", "_blank")}}>Connect</button>
+                <img src = {require('../images/linkedin.png')}></img>
             </a>                
-            <a style = {{bottom: "360px"}}>
-                <i class="fab fa-linkedin" ></i>
+            <a style = {{bottom: "260px", backgroundColor: "#3b5998"}}>
+            <button>Connect</button>
+            <img src = {require('../images/facebook.png')}></img>
             </a>
-            <a style = {{bottom: "420px"}}>
-                <i class="fab fa-linkedin" ></i>
+            <a style = {{bottom: "320px", backgroundColor: "#00c80f"}}>
+            <button>Connect</button>
+            <img src = {require('../images/wechat.png')}></img>
             </a> 
         </div>
-
         <div className = "body" style = {{overflow: "hidden"}}>
             <div className = "menu_bar"     
                 style={{ transition: '1s ease' , backgroundColor: navBackground ? 'white' : 'transparent', color: navBackground ? 'black': 'white', boxShadow:  navBackground ? '0px 10px 30px 1px rgba(0,0,0,0.3)': ''}}>
@@ -120,7 +123,7 @@ const HomePage = (props) =>{
                                 <h2> College Student</h2>
                                 <span> Associate Degree Of  Mathmatics, Calculus, Linear Algebra, Introduction To Programming</span>
                                 </div>
-                                <p>2013-2016</p>
+                                <p>2013-2015</p>
                             </div>
                         </li>
                     </ul>
@@ -245,61 +248,33 @@ const HomePage = (props) =>{
                     <div className = "underline"></div>
                 </h1>
                 <div className = "project_container">
-                    <ul>
-                        <li>
-                            <div className = "project_content">
-                                <div className = "demo_video_container">
-                                <HoverVideoPlayer style = {{borderRadius: "5px"}}
-                                    videoSrc= {require('../videos/video1.mp4')}
-                                    pausedOverlay={
-                                        <img src="thumbnail-image.jpg" alt="" />
-                                    }
-                                    loadingOverlay={
-                                        <div className="loading-spinner-overlay" />
-                                    }
-                                    />
+
+                            <div className = "project_content" style = {{backgroundImage: `url(${fruitGuideBackGround})`}}>
+                                <div id = "fruitScrollGuide" className = "project_inner"  >
+                                    <button>live Demo</button> 
+                                    <button>learn more</button>
                                 </div>
-                                <h3>Fruit Scroll Guide</h3>
-                                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque varius morbi enim nunc. Dignissim suspendisse in est ante in nibh mauris cursus.</span>
                             </div>
-                        </li>
-                        <li>
-                            <div className = "project_content">
-                                <div className = "demo_video_container">
-                                <HoverVideoPlayer 
-                                    videoSrc= {require('../videos/video1.mp4')}
-                                    pausedOverlay={
-                                        <img src="thumbnail-image.jpg" alt="" />
-                                    }
-                                    loadingOverlay={
-                                        <div className="loading-spinner-overlay" />
-                                    }
-                                    />
+ 
+                            <div className = "project_content" style = {{backgroundImage: `url(${GameBackGround})`}}>
+
+                                <div id = "2dplatform" className = "project_inner">
+                                    <button>live demo</button> 
+                                    <button>learn more</button>
                                 </div>
-                            
-                                <h3>Fruit Scroll Guide</h3>
-                                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque varius morbi enim nunc. Dignissim suspendisse in est ante in nibh mauris cursus.</span>
+                            </div>
                              
-                            </div>
-                        </li>
-                        <li>
                             <div className = "project_content">
-                            <div className = "demo_video_container">
-                                <HoverVideoPlayer
-                                    videoSrc= {require('../videos/video1.mp4')}
-                                    pausedOverlay={
-                                        <img src="thumbnail-image.jpg" alt="" />
-                                    }
-                                    loadingOverlay={
-                                        <div className="loading-spinner-overlay" />
-                                    }
-                                    />
+
+                                <div id = "candyshop" className = "project_inner">
+                                    <button>live demo</button> 
+                                    <button>learn more</button>
                                 </div>
-                                <h3>Fruit Scroll Guide</h3>
-                                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque varius morbi enim nunc. Dignissim suspendisse in est ante in nibh mauris cursus.</span>
                             </div>
-                        </li>
-                    </ul>
+                            
+     
+
+        
                 </div>
             </div>
             <div className = "section" id = "contact_section"> 
@@ -309,6 +284,8 @@ const HomePage = (props) =>{
                 
             </script>
         </div>
+
+
         </>
     )
 }
