@@ -4,12 +4,31 @@ import '../styles/HomePageStyle.css'
 import '../styles/InteractiveBG.css'
 import fruitGuideBackGround from '../images/project_asset/fruitscrollguide.PNG'
 import GameBackGround from '../images/project_asset/2dgame.PNG'
-
+import {TweenMax, Power3, TimelineLite,TweenLite, gsap} from 'gsap/all'
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
 const HomePage = (props) =>{
     const [navBackground, setNavBackground] = useState(false)
     const [sideNavDisplay, setSideNavDisplay] = useState(true);
+    let tl = gsap.timeline();
+    let skillItem = useRef(null)
+    let skillContainer = useRef(null)
+    let intro = useRef(null)
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    useEffect(()=>{
+        gsap.from(intro, {duration: 1.5, ease: "bounce", y : -300, scale: 0.9, opacity: 0});
+        gsap.from('#parallax h2',{duration: 2, ease: "bounce", x: 100, opacity: 0});
+
+        tl.from('.content img', {scrollTrigger: '#timeline',duration: 1.5, opacity: 0, y: 30, stagger: 0.1, stagger: 0.3, delay: 1} )
+        tl.from('.progress', {duration: 0.5, ease: "power", width: 0, stagger: 0.1})
+        
+        
+
+    
+    }, [])
 
     const onScrollYCheck = () =>{
         console.log(window.scrollY)
@@ -28,12 +47,10 @@ const HomePage = (props) =>{
             setSideNavDisplay(true);
         }
     }
-
     window.addEventListener('scroll', onScrollYCheck);
 
     return(
         <>             
-
         <div id = "social_media"  style = {{opacity : sideNavDisplay ? '0' : '0.8'}}>
             <a style = {{bottom: "200px", backgroundColor: "#006cbf"}}>
                 <button onClick = {()=>{window.open("https://www.linkedin.com/in/jorden-tang-6b329a196/", "_blank")}}>Connect</button>
@@ -73,16 +90,13 @@ const HomePage = (props) =>{
 
             <div className = "section" >
                 <div id = "parallax">
-                   
-                        <h1 >Hello I'm <span style = {{color: "pink"}}>Jorden Tang</span></h1> 
+                        
+                        <h1 ref={el =>{intro = el}}>Hello I'm <span style = {{color: "pink"}}>Jorden Tang</span></h1> 
                         <h2 ><span style = {{color: "#dc143c"}}>PASSIONATE</span> web developer, software engineer residing in LA <i class="fas fa-city"></i></h2>
                     
                 </div>
             </div>
             <div className = "section" id = "experience_section">
-                <h1 className = "section_header">About Me
-                    <div className = "underline"></div>
-                </h1>
                 <div className = "timeline">
                     <ul>
                         <li>
@@ -128,53 +142,56 @@ const HomePage = (props) =>{
                         </li>
                     </ul>
                 </div>
-                <div className = "skills">
+                <div className = "skills" ref={el=>{skillContainer = el}}>
                     <ul>
                         <li>
-                            <img src = {require('../images/java_logo.png')}></img>
+                            <img 
+                                ref={el => {skillItem = el}}
+                                src = {require('../images/java_logo.png')}></img>
+                                
+                            <div  className = "skill_bar">
+                                <div className = "progress w_90" ></div>
+                            </div>
+                        </li>
+                        <li>
+                            <img ref={el => {skillItem = el}} src = {require('../images/javascript_logo.png')}></img>
                             <div className = "skill_bar">
                                 <div className = "progress w_90" ></div>
                             </div>
                         </li>
                         <li>
-                            <img src = {require('../images/javascript_logo.png')}></img>
-                            <div className = "skill_bar">
-                                <div className = "progress w_90" ></div>
-                            </div>
-                        </li>
-                        <li>
-                            <img src = {require('../images/python_logo.png')}></img>
+                            <img ref={el => {skillItem = el}}  src = {require('../images/python_logo.png')}></img>
                             <div className = "skill_bar">
                                 <div className = "progress w_70"></div>
                             </div>
                         </li>
 
                         <li>
-                            <img src = {require('../images/c++_logo.png')}></img>
+                            <img ref={el => {skillItem = el}} src = {require('../images/c++_logo.png')}></img>
                             <div className = "skill_bar">
                                 <div className = "progress w_70"></div>
                             </div>
                         </li>
                         <li>
-                            <img src = {require('../images/jquery_logo.png')}></img>
+                            <img ref={el => {skillItem = el}} src = {require('../images/jquery_logo.png')}></img>
                             <div className = "skill_bar">
                                 <div className = "progress w_70"></div>
                             </div>
                         </li>
                         <li>
-                            <img src = {require('../images/aws_logo.png')}></img>
+                            <img ref={el => {skillItem = el}} src = {require('../images/aws_logo.png')}></img>
                             <div className = "skill_bar">
                                 <div className = "progress w_50"></div>
                             </div>
                         </li>
                         <li>
-                            <img src = {require('../images/nginx_logo.png')}></img>
+                            <img ref={el => {skillItem = el}}  src = {require('../images/nginx_logo.png')}></img>
                             <div className = "skill_bar">
                                 <div className = "progress w_50"></div>
                             </div>
                         </li>
                         <li>
-                            <img src = {require('../images/socket_logo.png')}></img>
+                            <img ref={el => {skillItem = el}}  src = {require('../images/socket_logo.png')}></img>
                             <div className = "skill_bar w_70">
                                 <div className = "progress w_50"></div>
                             </div>
