@@ -22,13 +22,33 @@ const HomePage = (props) =>{
         gsap.from(intro, {duration: 1.5, ease: "bounce", y : -300, scale: 0.9, opacity: 0});
         gsap.from('#parallax h2',{duration: 2, ease: "bounce", x: 100, opacity: 0});
 
-        tl.from('.content img', {scrollTrigger: '#timeline',duration: 1.5, opacity: 0, y: 30, stagger: 0.1, stagger: 0.3, delay: 1} )
-        tl.from('.progress', {duration: 0.5, ease: "power", width: 0, stagger: 0.1})
-        
-        
+        gsap.from('.content img', 
+            {scrollTrigger: {
+                trigger: '.timeline',
+                start: "0px, 40%",
+                end: "bottom, 300px",
+                toggleActions: 'restart none none none',
+            },
+            duration: 2, 
+            opacity: 0,
+            y: 40, 
+            delay: 0.5,
+            stagger:0.2},)
 
-    
+        gsap.from('.progress', 
+        {scrollTrigger: {
+            trigger: '.skills',
+            start: "0px, 40%",
+            end: "bottom, 300px",
+            toggleActions: 'restart none none none',
+        }, 
+        duration: 1, ease: "power", width: 0, stagger: 0.1})
+        
     }, [])
+
+    const onHomeClick = () =>{
+        window.scrollTo(0,0);
+    }
 
     const onScrollYCheck = () =>{
         console.log(window.scrollY)
@@ -68,7 +88,7 @@ const HomePage = (props) =>{
         <div className = "body" style = {{overflow: "hidden"}}>
             <div className = "menu_bar"     
                 style={{ transition: '1s ease' , backgroundColor: navBackground ? 'white' : 'transparent', color: navBackground ? 'black': 'white', boxShadow:  navBackground ? '0px 10px 30px 1px rgba(0,0,0,0.3)': ''}}>
-                <div id = "logo">
+                <div id = "logo" onClick= {onHomeClick}>
                     Tang
                 </div>
                 <div id = "nav_link" >
@@ -83,9 +103,9 @@ const HomePage = (props) =>{
                     </a>
                 </div>
 
-                <div id = "blog">
+                <button id = "blog">
                     Blog
-                </div>
+                </button>
             </div>
 
             <div className = "section" >
@@ -261,9 +281,6 @@ const HomePage = (props) =>{
             </div>
             
             <div className = "section" id = "project_section">
-            <h1 className = "section_header">My Work
-                    <div className = "underline"></div>
-                </h1>
                 <div className = "project_container">
 
                             <div className = "project_content" style = {{backgroundImage: `url(${fruitGuideBackGround})`}}>
