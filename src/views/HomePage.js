@@ -4,6 +4,8 @@ import '../styles/HomePageStyle.css'
 import '../styles/InteractiveBG.css'
 import fruitGuideBackGround from '../images/project_asset/fruitscrollguide.PNG'
 import GameBackGround from '../images/project_asset/2dgame.PNG'
+import candyShopBackGround from '../images/project_asset/candyshop.jpg'
+import portfolioBackGround from '../images/project_asset/portfolio.PNG'
 import {TweenMax, Power3, TimelineLite,TweenLite, gsap} from 'gsap/all'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -43,7 +45,15 @@ const HomePage = (props) =>{
             toggleActions: 'restart none none none',
         }, 
         duration: 1, ease: "power", width: 0, stagger: 0.1})
-        
+
+        gsap.from('.project_content', 
+        {scrollTrigger: {
+            trigger: '.project_content',
+            start: "0px, 50%",
+           
+            toggleActions: 'restart none none none',
+        }, 
+        duration: 1, ease: "power", y: 50, opacity: 0, stagger: 0.25})
     }, [])
 
     const onHomeClick = () =>{
@@ -284,31 +294,54 @@ const HomePage = (props) =>{
                 <div className = "project_container">
 
                             <div className = "project_content" style = {{backgroundImage: `url(${fruitGuideBackGround})`}}>
+
                                 <div id = "fruitScrollGuide" className = "project_inner"  >
-                                    <button>live Demo</button> 
-                                    <button>learn more</button>
+                                    <div className = "project_tools">
+                                    
+                                    </div>
+                                    <div className = "project_info">
+                                        <button className = "project_link">live demo</button> 
+                                        <button className = "project_github">learn more</button>
+                                    </div>
                                 </div>
                             </div>
  
                             <div className = "project_content" style = {{backgroundImage: `url(${GameBackGround})`}}>
 
-                                <div id = "2dplatform" className = "project_inner">
-                                    <button>live demo</button> 
-                                    <button>learn more</button>
+                                <div id = "plat" className = "project_inner">                   
+                                    <div className = "project_tools">
+                                    
+                                    </div>
+                                    <div className = "project_info">
+                                        <button className = "project_link">live demo</button> 
+                                        <button className = "project_github">learn more</button>
+                                    </div>
                                 </div>
                             </div>
                              
-                            <div className = "project_content">
-
-                                <div id = "candyshop" className = "project_inner">
-                                    <button>live demo</button> 
-                                    <button>learn more</button>
+                            <div className = "project_content" style = {{backgroundImage : `url(${portfolioBackGround})`}}>
+                                <div id = "2dplatform" className = "project_inner">                                
+                                    <div className = "project_tools">
+                                    
+                                    </div>
+                                    <div className = "project_info">
+                                        <button className = "project_link">live demo</button> 
+                                        <button className = "project_github">learn more</button>
+                                    </div>
                                 </div>
-                            </div>
-                            
-     
 
-        
+                            </div> 
+                            <div className = "project_content" style = {{backgroundImage : `url(${candyShopBackGround})`}}>
+                                <div id = "candyshop" className = "project_inner">    
+                                    <div className = "project_tools">
+                                    
+                                    </div>
+                                    <div className = "project_info">
+                                        <button className = "project_link">live demo</button> 
+                                        <button className = "project_github">learn more</button>
+                                    </div>
+                                </div>
+                            </div> 
                 </div>
             </div>
             <div className = "section" id = "contact_section"> 
