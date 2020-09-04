@@ -27,8 +27,8 @@ const HomePage = (props) =>{
         gsap.from('.content img', 
             {scrollTrigger: {
                 trigger: '.timeline',
-                start: "0px, 40%",
-                end: "bottom, 300px",
+                start: "0px, 50%",
+                end: "bottom, 400px",
                 toggleActions: 'restart none none none',
             },
             duration: 2, 
@@ -39,21 +39,21 @@ const HomePage = (props) =>{
 
         gsap.from('.progress', 
         {scrollTrigger: {
-            trigger: '.skills',
-            start: "0px, 40%",
-            end: "bottom, 300px",
-            toggleActions: 'restart none none none',
+            trigger: '#experience_start',
+            start: "0px, 50%",
+            end: "bottom, 40%",
+            toggleActions: 'restart none reverse none',
         }, 
-        duration: 1, ease: "power", width: 0, stagger: 0.1})
+        duration: 1, ease: "power", width: 0, stagger: 0.2})
 
         gsap.from('.project_content', 
         {scrollTrigger: {
-            trigger: '.project_content',
-            start: "0px, 50%",
-           
-            toggleActions: 'restart none none none',
+            trigger: '#project_start',
+            start: "0px, 40%",
+            end: "bottom, 40%",
+            toggleActions: 'restart none reverse none',
         }, 
-        duration: 1, ease: "power", y: 50, opacity: 0, stagger: 0.25})
+        duration: 1, ease: "power", y: 50, opacity: 0, stagger: 0.2})
     }, [])
 
     const onHomeClick = () =>{
@@ -102,20 +102,20 @@ const HomePage = (props) =>{
                     Tang
                 </div>
                 <div id = "nav_link" >
-                    <a href= "#experience_section" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>About Me
+                    <a href= "#experience_start" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>About Me
                     <img src={require('../images/down_arrow.svg')} />
                     </a>
-                    <a href= "#project_section" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>Projects
+                    <a href= "#project_start" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>Projects
                     <img src={require('../images/down_arrow.svg')} />
                     </a>
-                    <a href= "#contact_section" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>Contact
+                    <a href= "#contact_start" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>Contact
                     <img src={require('../images/down_arrow.svg')} />
                     </a>
                 </div>
 
-                <button id = "blog">
+                <div id = "blog">
                     Blog
-                </button>
+                </div>
             </div>
 
             <div className = "section" >
@@ -126,6 +126,7 @@ const HomePage = (props) =>{
                     
                 </div>
             </div>
+            <svg id = "experience_start" style = {{backgroundColor: "#345e6c"}}  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300"><path fill="rgb(230 233 190)" fill-opacity="1" d="M0,192L60,192C120,192,240,192,360,197.3C480,203,600,213,720,234.7C840,256,960,288,1080,293.3C1200,299,1320,277,1380,266.7L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
             <div className = "section" id = "experience_section">
                 <div className = "timeline">
                     <ul>
@@ -289,52 +290,66 @@ const HomePage = (props) =>{
                     </ul>
                 </div>
             </div>
-            
+            <svg id = "project_start"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style = {{ zIndex: "-2",position: "relative",backgroundColor: "rgb(230, 233, 190)"}}><path fill="rgb(63,68,77)" fill-opacity="1" d="M0,128L60,144C120,160,240,192,360,202.7C480,213,600,203,720,186.7C840,171,960,149,1080,138.7C1200,128,1320,128,1380,128L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
             <div className = "section" id = "project_section">
                 <div className = "project_container">
 
                             <div className = "project_content" style = {{backgroundImage: `url(${fruitGuideBackGround})`}}>
 
                                 <div id = "fruitScrollGuide" className = "project_inner"  >
+                                    <h2>Game Price Guide</h2>
                                     <div className = "project_tools">
-                                    
+                                        <img src={require('../images/react_logo.png')}></img>
+                                        <img src={require('../images/javascript_logo.png')}></img>
+                                        <img src={require('../images/aws_logo.png')}></img>
+                                        <img src={require('../images/express_logo.png')}></img>
+                                        <img src={require('../images/mongodb_logo.png')}></img>
+                                        <img src={require('../images/nodejs_logo.png')}></img>
+
                                     </div>
                                     <div className = "project_info">
                                         <button className = "project_link">live demo</button> 
-                                        <button className = "project_github">learn more</button>
+                                        <button className = "project_github">Github</button>
                                     </div>
                                 </div>
                             </div>
  
                             <div className = "project_content" style = {{backgroundImage: `url(${GameBackGround})`}}>
 
-                                <div id = "plat" className = "project_inner">                   
+                                <div id = "plat" className = "project_inner">
+                                    <h2>Simple Platform Game</h2>                   
                                     <div className = "project_tools">
-                                    
+                                        <img src={require('../images/java_logo.png')}></img>
+                                        <img src={require('../images/eclipse_logo.png')}></img>   
                                     </div>
                                     <div className = "project_info">
                                         <button className = "project_link">live demo</button> 
-                                        <button className = "project_github">learn more</button>
+                                        <button className = "project_github">Github</button>
                                     </div>
                                 </div>
                             </div>
                              
                             <div className = "project_content" style = {{backgroundImage : `url(${portfolioBackGround})`}}>
-                                <div id = "2dplatform" className = "project_inner">                                
+                                <div id = "2dplatform" className = "project_inner">
+                                    <h2>Portfolio</h2>                                
                                     <div className = "project_tools">
-                                    
+                                        <img src={require('../images/react_logo.png')}></img>
+                                        <img src={require('../images/javascript_logo.png')}></img>
+
                                     </div>
                                     <div className = "project_info">
                                         <button className = "project_link">live demo</button> 
-                                        <button className = "project_github">learn more</button>
+                                        <button className = "project_github">Github</button>
                                     </div>
                                 </div>
 
                             </div> 
                             <div className = "project_content" style = {{backgroundImage : `url(${candyShopBackGround})`}}>
-                                <div id = "candyshop" className = "project_inner">    
+                                <div id = "candyshop" className = "project_inner">
+                                    <h2>Candy Shop</h2>   
                                     <div className = "project_tools">
-                                    
+                                        <img src={require('../images/django_logo.png')}></img>
+                                        <img src={require('../images/python_logo.png')}></img>
                                     </div>
                                     <div className = "project_info">
                                         <button className = "project_link">live demo</button> 
@@ -344,15 +359,25 @@ const HomePage = (props) =>{
                             </div> 
                 </div>
             </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgb(63,68,77)" fill-opacity="1" d="M0,96L720,288L1440,128L1440,0L720,0L0,0Z"></path></svg>
             <div className = "section" id = "contact_section"> 
-                <h1>contact</h1>
+                <h1>Get In Touch</h1>
+                <form>
+                    <div id = "name_input">
+                        <label>Your Name:</label>
+                        <input type="text"></input>
+                    </div>
+                    <div id = "email_input">
+                        <label>Email:</label>
+                        <input type="text"></input>
+                    </div>
+                    <div id = "message">
+                        <input type = "textfield"></input>
+                    </div>
+                </form>  
             </div>
-            <script>
-                
-            </script>
+  
         </div>
-
-
         </>
     )
 }
