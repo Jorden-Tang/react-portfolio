@@ -11,6 +11,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
 const HomePage = (props) =>{
+    const initialFormContent = {name: "", company : "", email: "", message: ""}
+    const [emailContent, setEmailContent] = useState(initialFormContent);
+
     const [navBackground, setNavBackground] = useState(false)
     const [sideNavDisplay, setSideNavDisplay] = useState(true);
     let tl = gsap.timeline();
@@ -29,7 +32,7 @@ const HomePage = (props) =>{
                 trigger: '.timeline',
                 start: "0px, 50%",
                 end: "bottom, 400px",
-                toggleActions: 'restart none none none',
+                toggleActions: 'restart none reverse none',
             },
             duration: 2, 
             opacity: 0,
@@ -60,8 +63,19 @@ const HomePage = (props) =>{
         window.scrollTo(0,0);
     }
 
+    const onFormChange = (e) =>{
+        e.preventDefault();
+        const {name, value} = e.target;
+        setEmailContent({...emailContent, [name]: value});
+        console.log(emailContent);
+    }
+
+    const onFormSubmit = (e) =>{
+        e.preventDefault();
+        setEmailContent(initialFormContent);
+    }
+
     const onScrollYCheck = () =>{
-        console.log(window.scrollY)
         if(window.scrollY > 120){
             setNavBackground(true);
         }
@@ -84,15 +98,15 @@ const HomePage = (props) =>{
         <div id = "social_media"  style = {{opacity : sideNavDisplay ? '0' : '0.8'}}>
             <a style = {{bottom: "200px", backgroundColor: "#006cbf"}}>
                 <button onClick = {()=>{window.open("https://www.linkedin.com/in/jorden-tang-6b329a196/", "_blank")}}>Connect</button>
-                <img src = {require('../images/linkedin.png')}></img>
+                <i class="fab fa-linkedin-in" style = {{width: "60px"}}></i>
             </a>                
             <a style = {{bottom: "260px", backgroundColor: "#3b5998"}}>
             <button>Connect</button>
-            <img src = {require('../images/facebook.png')}></img>
+            <i class="fab fa-facebook-f" style = {{width: "60px"}}></i>
             </a>
             <a style = {{bottom: "320px", backgroundColor: "#00c80f"}}>
             <button>Connect</button>
-            <img src = {require('../images/wechat.png')}></img>
+            <i class="fab fa-weixin" style = {{width: "60px"}}></i>
             </a> 
         </div>
         <div className = "body" style = {{overflow: "hidden"}}>
@@ -102,7 +116,7 @@ const HomePage = (props) =>{
                     Tang
                 </div>
                 <div id = "nav_link" >
-                    <a href= "#experience_start" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>About Me
+                    <a href= "#experience_start" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>TimeLine
                     <img src={require('../images/down_arrow.svg')} />
                     </a>
                     <a href= "#project_start" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>Projects
@@ -122,13 +136,14 @@ const HomePage = (props) =>{
                 <div id = "parallax">
                         
                         <h1 ref={el =>{intro = el}}>Hello I'm <span style = {{color: "pink"}}>Jorden Tang</span></h1> 
-                        <h2 ><span style = {{color: "#dc143c"}}>PASSIONATE</span> web developer, software engineer residing in LA <i class="fas fa-city"></i></h2>
+                        <h2><span style = {{color: "#dc143c"}}>PASSIONATE</span> web developer, software engineer residing in LA <i class="fas fa-city"></i></h2>
                     
                 </div>
             </div>
-            <svg id = "experience_start" style = {{backgroundColor: "#345e6c"}}  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300"><path fill="rgb(230 233 190)" fill-opacity="1" d="M0,192L60,192C120,192,240,192,360,197.3C480,203,600,213,720,234.7C840,256,960,288,1080,293.3C1200,299,1320,277,1380,266.7L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+            <svg  style = {{backgroundColor: "#345e6c"}}  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300"><path fill="rgb(230 233 190)" fill-opacity="1" d="M0,192L60,192C120,192,240,192,360,197.3C480,203,600,213,720,234.7C840,256,960,288,1080,293.3C1200,299,1320,277,1380,266.7L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
             <div className = "section" id = "experience_section">
-                <div className = "timeline">
+                <div className = "timeline" id = "experience_start ">
+                    <h1 id = "experience_start"></h1>
                     <ul>
                         <li>
                             <div className = "content">
@@ -174,125 +189,47 @@ const HomePage = (props) =>{
                     </ul>
                 </div>
                 <div className = "skills" ref={el=>{skillContainer = el}}>
-                    <ul>
-                        <li>
-                            <img 
-                                ref={el => {skillItem = el}}
-                                src = {require('../images/java_logo.png')}></img>
-                                
-                            <div  className = "skill_bar">
-                                <div className = "progress w_90" ></div>
-                            </div>
-                        </li>
-                        <li>
-                            <img ref={el => {skillItem = el}} src = {require('../images/javascript_logo.png')}></img>
-                            <div className = "skill_bar">
-                                <div className = "progress w_90" ></div>
-                            </div>
-                        </li>
-                        <li>
-                            <img ref={el => {skillItem = el}}  src = {require('../images/python_logo.png')}></img>
-                            <div className = "skill_bar">
-                                <div className = "progress w_70"></div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <img ref={el => {skillItem = el}} src = {require('../images/c++_logo.png')}></img>
-                            <div className = "skill_bar">
-                                <div className = "progress w_70"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <img ref={el => {skillItem = el}} src = {require('../images/jquery_logo.png')}></img>
-                            <div className = "skill_bar">
-                                <div className = "progress w_70"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <img ref={el => {skillItem = el}} src = {require('../images/aws_logo.png')}></img>
-                            <div className = "skill_bar">
-                                <div className = "progress w_50"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <img ref={el => {skillItem = el}}  src = {require('../images/nginx_logo.png')}></img>
-                            <div className = "skill_bar">
-                                <div className = "progress w_50"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <img ref={el => {skillItem = el}}  src = {require('../images/socket_logo.png')}></img>
-                            <div className = "skill_bar w_70">
-                                <div className = "progress w_50"></div>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <img src = {require('../images/mongodb_logo.png')}></img>
-                            <div className = "skill_bar">
-                                <div className = "progress w_90"></div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <img src = {require('../images/mysql_logo.png')}></img>
-                            <div className = "skill_bar ">
-                                <div className = "progress w_90"></div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <img src = {require('../images/sqlite_logo.png')}></img>
-                            <div className = "skill_bar">
-                                <div className = "progress w_90"></div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <img src = {require('../images/react_logo.png')}></img>
-                            <div className = "skill_bar">
-                                <div className = "progress w_90"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <img src = {require('../images/html_logo.png')}></img>
-                            <div className = "skill_bar">
-                                <div className = "progress w_80"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <img src = {require('../images/css_logo.png')}></img>
-                            <div className = "skill_bar">
-                                <div className = "progress w_80"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <img src = {require('../images/flask_logo.png')}></img>
-                            <div className = "skill_bar">
-                                <div className = "progress w_70"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <img src = {require('../images/django_logo.png')}></img>
-                            <div className = "skill_bar">
-                                <div className = "progress w_70"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <img src = {require('../images/express_logo.png')}></img>
-                            <div className = "skill_bar">
-                                <div className = "progress w_90"></div>
-                            </div>
-                        </li>
-
-                    </ul>
+                    <h1 >SKILL SET
+                        <hr></hr>
+                    </h1>
+                    <div>
+                    <div className = "skill_row row_odd" >
+                        <img src = {require('../images/java_logo.png')}></img>
+                        <img src = {require('../images/javascript_logo.png')}></img>
+                        <img src = {require('../images/python_logo.png')}></img>
+                        <img src = {require('../images/c++_logo.png')}></img>
+                        <img src = {require('../images/jquery_logo.png')}></img>
+                    </div>
+                    <div className = "skill_row row_even">
+                        <img src = {require('../images/aws_logo.png')}></img>
+                        <img src = {require('../images/nginx_logo.png')}></img>
+                        <img src = {require('../images/socket_logo.png')}></img>
+                        <img src = {require('../images/mongodb_logo.png')}></img>
+                        <img src = {require('../images/mysql_logo.png')}></img>
+                    </div>
+                    <div className = "skill_row row_odd">
+                        <img src = {require('../images/sqlite_logo.png')}></img>
+                        <img src = {require('../images/react_logo.png')}></img>
+                        <img src = {require('../images/html_logo.png')}></img>
+                        <img src = {require('../images/css_logo.png')}></img>
+                        <img src = {require('../images/flask_logo.png')}></img>
+                    </div>
+                    <div className = "skill_row row_even">
+                        <img src = {require('../images/django_logo.png')}></img>
+                        <img src = {require('../images/express_logo.png')}></img>
+                        <img style = {{opacity: "0"}}></img>
+                        <img style = {{opacity: "0"}}></img>
+                        <img style = {{opacity: "0"}}></img>
+                    </div>
+                    </div>
+                    <div id="skill_info">
+        
+                    </div>
                 </div>
             </div>
-            <svg id = "project_start"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style = {{ zIndex: "-2",position: "relative",backgroundColor: "rgb(230, 233, 190)"}}><path fill="rgb(63,68,77)" fill-opacity="1" d="M0,128L60,144C120,160,240,192,360,202.7C480,213,600,203,720,186.7C840,171,960,149,1080,138.7C1200,128,1320,128,1380,128L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
-            <div className = "section" id = "project_section">
-                <div className = "project_container">
+            <svg  id = "project_start"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style = {{ zIndex: "-2",position: "relative",backgroundColor: "rgb(230, 233, 190)"}}><path fill="rgb(63,68,77)" fill-opacity="1" d="M0,128L60,144C120,160,240,192,360,202.7C480,213,600,203,720,186.7C840,171,960,149,1080,138.7C1200,128,1320,128,1380,128L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+            <div  className = "section" id = "project_section">
+                <div  className = "project_container">
 
                             <div className = "project_content" style = {{backgroundImage: `url(${fruitGuideBackGround})`}}>
 
@@ -359,24 +296,30 @@ const HomePage = (props) =>{
                             </div> 
                 </div>
             </div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgb(63,68,77)" fill-opacity="1" d="M0,96L720,288L1440,128L1440,0L720,0L0,0Z"></path></svg>
+            <svg  style = {{backgroundColor: "cadetblue"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgb(63,68,77)" fill-opacity="1" d="M0,96L720,288L1440,128L1440,0L720,0L0,0Z"></path></svg>
             <div className = "section" id = "contact_section"> 
                 <h1>Get In Touch</h1>
-                <form>
+                <form id = "contact_start">
                     <div id = "name_input">
-                        <label>Your Name:</label>
-                        <input type="text"></input>
+                        <label>Name :</label>
+                        <input type="text" name = "name" value = {emailContent.name} onChange = {onFormChange}></input>
+                    </div>
+                    <div id = "company_input">
+                        <label>Company :</label>
+                        <input type="text" name = "company" value = {emailContent.company} onChange = {onFormChange}></input>
                     </div>
                     <div id = "email_input">
-                        <label>Email:</label>
-                        <input type="text"></input>
+                        <label>Email :</label>
+                        <input type="text" name = "email"  value = {emailContent.email} onChange = {onFormChange}></input>
                     </div>
-                    <div id = "message">
-                        <input type = "textfield"></input>
+                    <div id = "message_input">
+                        <label>Message :</label>
+                        <textarea name = "message" value = {emailContent.message} onChange = {onFormChange}></textarea>
                     </div>
+                    <hr></hr>
+                    <button onClick={onFormSubmit}>Submit</button>
                 </form>  
             </div>
-  
         </div>
         </>
     )
