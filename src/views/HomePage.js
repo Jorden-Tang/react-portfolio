@@ -233,78 +233,125 @@ const HomePage = (props) =>{
 
                         <img className ="skill_img" src = {require('../images/jquery_logo.png')}></img>
                         <div className =" skill_details row_1" >
-                            <img src = {require('../images/jquery_logo.png')} ></img>
+                            <div>
+                                <img src = {require('../images/jquery_logo.png')} ></img>
+                                <p>jquery</p>
+                            </div>
                             <span>Javascript is blahala</span>
                         </div>
-
 
                     </div>
                     <div className = "skill_row row_even">
                         <img className ="skill_img" src = {require('../images/aws_logo.png')}></img>
                         <div className ="javascript_detail skill_details row_2" >
                             <div>
-                            <img src = {require('../images/java_logo.png')} ></img>
-                            <p>Java</p>
+                                <img src = {require('../images/aws_logo.png')} ></img>
+                                <p>Amazon Web Service</p>
                             </div>
                             <span>Javascript is blahala</span>
                         </div>
+
                         <img className ="skill_img" src = {require('../images/nginx_logo.png')}></img>
                         <div className ="javascript_detail skill_details row_2" >
-                            <img src = {require('../images/java_logo.png')} ></img>
+                            <div>
+                                <img src = {require('../images/nginx_logo.png')} ></img>
+                                <p>NGINX</p>
+                            </div>
                             <span>Javascript is blahala</span>
                         </div>
+
+
                         <img className ="skill_img" src = {require('../images/socket_logo.png')}></img>
                         <div className ="javascript_detail skill_details row_2" >
-                            <img src = {require('../images/java_logo.png')} ></img>
+                            <div>
+                                <img src = {require('../images/socket_logo.png')} ></img>
+                                <p>Socket.io</p>
+                            </div>
                             <span>Javascript is blahala</span>
                         </div>
                         <img className ="skill_img" src = {require('../images/mongodb_logo.png')}></img>
                         <div className ="javascript_detail skill_details row_2" >
-                            <img src = {require('../images/java_logo.png')} ></img>
+                            <div>
+                                <img src = {require('../images/mongodb_logo.png')} ></img>
+                                <p>MongoDB</p>
+                            </div>
                             <span>Javascript is blahala</span>
                         </div>
                         <img className ="skill_img" src = {require('../images/mysql_logo.png')}></img>
                         <div className ="javascript_detail skill_details row_2" >
-                            <img src = {require('../images/java_logo.png')} ></img>
+                            <div>
+                                <img src = {require('../images/mysql_logo.png')} ></img>
+                                <p>Mysql Database</p>
+                            </div>
                             <span>Javascript is blahala</span>
                         </div>
                     </div>
+                    
                     <div className = "skill_row row_odd">
                         <img className ="skill_img " src = {require('../images/sqlite_logo.png')}></img>
                         <div className ="javascript_detail skill_details row_3" >
-                            <img src = {require('../images/java_logo.png')} ></img>
+                            <div>
+                                <img src = {require('../images/sqlite_logo.png')} ></img>
+                                <p>sqlite Database</p>
+                            </div>
                             <span>Javascript is blahala</span>
                         </div>
+
+
                         <img className ="skill_img" src = {require('../images/react_logo.png')}></img>
                         <div className ="javascript_detail skill_details row_3" >
-                            <img src = {require('../images/java_logo.png')} ></img>
+                            <div>
+                                <img src = {require('../images/react_logo.png')} ></img>
+                                <p>React.js</p>
+                            </div>
                             <span>Javascript is blahala</span>
                         </div>
+
+
                         <img className ="skill_img" src = {require('../images/html_logo.png')}></img>
                         <div className ="javascript_detail skill_details row_3" >
-                            <img src = {require('../images/java_logo.png')} ></img>
+                            <div>
+                                <img src = {require('../images/html_logo.png')} ></img>
+                                <p>HTML 5</p>
+                            </div>
                             <span>Javascript is blahala</span>
                         </div>
+
+
                         <img className ="skill_img" src = {require('../images/css_logo.png')}></img>
                         <div className ="javascript_detail skill_details row_3" >
-                            <img src = {require('../images/java_logo.png')} ></img>
+                            <div>
+                                <img src = {require('../images/css_logo.png')} ></img>
+                                <p>CSS 3</p>
+                            </div>
                             <span>Javascript is blahala</span>
                         </div>
+
+
                         <img className ="skill_img" src = {require('../images/flask_logo.png')}></img>
                         <div className ="javascript_detail skill_details row_3" >
-                            <img src = {require('../images/java_logo.png')} ></img>
+                            <div>
+                                <img src = {require('../images/flask_logo.png')} ></img>
+                                <p>FLASK</p>
+                            </div>
                             <span>Javascript is blahala</span>
                         </div>
                     </div>
                     <div className = "skill_row row_even">
                         <img className ="skill_img" src = {require('../images/django_logo.png')}></img>
                         <div className ="javascript_detail skill_details row_4" >
-                            <img src = {require('../images/java_logo.png')} ></img>
+                            <div>
+                                <img src = {require('../images/django_logo.png')} ></img>
+                                <p>Django</p>
+                            </div>
                             <span>Javascript is blahala</span>
                         </div>
                         <img className ="skill_img" src = {require('../images/express_logo.png')}></img>
                         <div className ="javascript_detail skill_details row_4" >
-                            <img src = {require('../images/java_logo.png')} ></img>
+                            <div>
+                                <img src = {require('../images/express_logo.png')} ></img>
+                                <p>Express.js</p>
+                            </div>
                             <span>Javascript is blahala</span>
                         </div>
                         <img className ="skill_img" style = {{opacity: "0"}}></img>
@@ -314,7 +361,7 @@ const HomePage = (props) =>{
                     
                     </div>
                     <div id="skill_info">
-                        <p>Hover For More Details</p>
+                       
                     </div>
                 </div>
             </div>

@@ -369,11 +369,11 @@
 .skill_details{
     width: 700px;
     height: 500px;
-    background-color: white;
+    background-color: rgb(230, 233, 190);
     position: absolute;
     opacity: 0;
     transition: 0.5s;
-    border-radius: 10px 0px 10px 0px;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -414,8 +414,10 @@
 #skill_info{
     width: 700px;
     height: 500px;
-    background-color: rgba(41, 29, 29, 0.2);
-    border-radius: 10px 0px 10px 0px;
+    border-radius: 10px;
+    background-image: url('../images/character.svg');
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .skill_img:hover{
@@ -426,7 +428,7 @@
 
 .skill_img:hover +.skill_details{
     opacity: 1;
-    transition: 0.5s;
+    transition: 0.3s;
   
 }
 
@@ -745,11 +747,6 @@
         left: 703px;
     }
     
-
-    .skill_details{
-        width: 700px;
-    }
-
 
     #experience_section{
         display: flex; 
