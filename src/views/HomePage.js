@@ -31,7 +31,7 @@ const HomePage = (props) =>{
             {scrollTrigger: {
                 trigger: '.timeline',
                 start: "0px, 50%",
-                end: "bottom, 400px",
+                end: "bottom, 40%",
                 toggleActions: 'restart none reverse none',
             },
             duration: 2, 
@@ -40,14 +40,14 @@ const HomePage = (props) =>{
             delay: 0.5,
             stagger:0.2},)
 
-        gsap.from('.progress', 
+        gsap.from('.skill_row', 
         {scrollTrigger: {
             trigger: '#experience_start',
             start: "0px, 50%",
             end: "bottom, 40%",
             toggleActions: 'restart none reverse none',
         }, 
-        duration: 1, ease: "power", width: 0, stagger: 0.2})
+        duration: 1, ease: "power", y: 50, opacity: 0, stagger: 0.2})
 
         gsap.from('.project_content', 
         {scrollTrigger: {
@@ -189,41 +189,119 @@ const HomePage = (props) =>{
                     </ul>
                 </div>
                 <div className = "skills" ref={el=>{skillContainer = el}}>
-                    <h1 >SKILL SET
-                        <hr></hr>
-                    </h1>
                     <div>
                     <div className = "skill_row row_odd" >
-                        <img src = {require('../images/java_logo.png')}></img>
-                        <img src = {require('../images/javascript_logo.png')}></img>
-                        <img src = {require('../images/python_logo.png')}></img>
-                        <img src = {require('../images/c++_logo.png')}></img>
-                        <img src = {require('../images/jquery_logo.png')}></img>
+                        <img className = "skill_img si_java" src = {require('../images/java_logo.png')}></img>
+                        <div className ="java_detail skill_details row_1" >
+                            <img src = {require('../images/java_logo.png')} ></img>
+                            <span>Java is a OOP Language</span>
+                        </div>
+                        <img className ="skill_img" src = {require('../images/javascript_logo.png')}></img>
+                        <div className ="javascript_detail skill_details row_1" >
+                            <img src = {require('../images/java_logo.png')} ></img>
+                            <span>Javascript is blahala</span>
+                        </div>
+                        <img className ="skill_img" src = {require('../images/python_logo.png')}></img>
+                        <div className ="javascript_detail skill_details row_1" >
+                            <img src = {require('../images/java_logo.png')} ></img>
+                            <span>Javascript is blahala</span>
+                        </div>
+                        <img className ="skill_img" src = {require('../images/c++_logo.png')}></img>
+                        <div className ="javascript_detail skill_details row_1" >
+                            <img src = {require('../images/java_logo.png')} ></img>
+                            <span>Javascript is blahala</span>
+                        </div>
+                        <img className ="skill_img" src = {require('../images/jquery_logo.png')}></img>
+                        <div className ="javascript_detail skill_details row_1" >
+                            <img src = {require('../images/java_logo.png')} ></img>
+                            <span>Javascript is blahala</span>
+                        </div>
                     </div>
                     <div className = "skill_row row_even">
-                        <img src = {require('../images/aws_logo.png')}></img>
-                        <img src = {require('../images/nginx_logo.png')}></img>
-                        <img src = {require('../images/socket_logo.png')}></img>
-                        <img src = {require('../images/mongodb_logo.png')}></img>
-                        <img src = {require('../images/mysql_logo.png')}></img>
+                        <img className ="skill_img" src = {require('../images/aws_logo.png')}></img>
+                        <div className ="javascript_detail skill_details row_2" >
+                            <img src = {require('../images/java_logo.png')} ></img>
+                            <span>Javascript is blahala</span>
+                        </div>
+                        <img className ="skill_img" src = {require('../images/nginx_logo.png')}></img>
+                        <div className ="javascript_detail skill_details row_2" >
+                            <img src = {require('../images/java_logo.png')} ></img>
+                            <span>Javascript is blahala</span>
+                        </div>
+                        <img className ="skill_img" src = {require('../images/socket_logo.png')}></img>
+                        <div className ="javascript_detail skill_details row_2" >
+                            <img src = {require('../images/java_logo.png')} ></img>
+                            <span>Javascript is blahala</span>
+                        </div>
+                        <img className ="skill_img" src = {require('../images/mongodb_logo.png')}></img>
+                        <div className ="javascript_detail skill_details row_2" >
+                            <img src = {require('../images/java_logo.png')} ></img>
+                            <span>Javascript is blahala</span>
+                        </div>
+                        <img className ="skill_img" src = {require('../images/mysql_logo.png')}></img>
+                        <div className ="javascript_detail skill_details row_2" >
+                            <img src = {require('../images/java_logo.png')} ></img>
+                            <span>Javascript is blahala</span>
+                        </div>
                     </div>
                     <div className = "skill_row row_odd">
-                        <img src = {require('../images/sqlite_logo.png')}></img>
-                        <img src = {require('../images/react_logo.png')}></img>
-                        <img src = {require('../images/html_logo.png')}></img>
-                        <img src = {require('../images/css_logo.png')}></img>
-                        <img src = {require('../images/flask_logo.png')}></img>
+                        <img className ="skill_img " src = {require('../images/sqlite_logo.png')}></img>
+                        <div className ="javascript_detail skill_details row_3" >
+                            <img src = {require('../images/java_logo.png')} ></img>
+                            <span>Javascript is blahala</span>
+                        </div>
+                        <img className ="skill_img" src = {require('../images/react_logo.png')}></img>
+                        <div className ="javascript_detail skill_details row_3" >
+                            <img src = {require('../images/java_logo.png')} ></img>
+                            <span>Javascript is blahala</span>
+                        </div>
+                        <img className ="skill_img" src = {require('../images/html_logo.png')}></img>
+                        <div className ="javascript_detail skill_details row_3" >
+                            <img src = {require('../images/java_logo.png')} ></img>
+                            <span>Javascript is blahala</span>
+                        </div>
+                        <img className ="skill_img" src = {require('../images/css_logo.png')}></img>
+                        <div className ="javascript_detail skill_details row_3" >
+                            <img src = {require('../images/java_logo.png')} ></img>
+                            <span>Javascript is blahala</span>
+                        </div>
+                        <img className ="skill_img" src = {require('../images/flask_logo.png')}></img>
+                        <div className ="javascript_detail skill_details row_3" >
+                            <img src = {require('../images/java_logo.png')} ></img>
+                            <span>Javascript is blahala</span>
+                        </div>
                     </div>
                     <div className = "skill_row row_even">
-                        <img src = {require('../images/django_logo.png')}></img>
-                        <img src = {require('../images/express_logo.png')}></img>
-                        <img style = {{opacity: "0"}}></img>
-                        <img style = {{opacity: "0"}}></img>
-                        <img style = {{opacity: "0"}}></img>
+                        <img className ="skill_img" src = {require('../images/django_logo.png')}></img>
+                        <div className ="javascript_detail skill_details row_4" >
+                            <img src = {require('../images/java_logo.png')} ></img>
+                            <span>Javascript is blahala</span>
+                        </div>
+                        <img className ="skill_img" src = {require('../images/express_logo.png')}></img>
+                        <div className ="javascript_detail skill_details row_4" >
+                            <img src = {require('../images/java_logo.png')} ></img>
+                            <span>Javascript is blahala</span>
+                        </div>
+                        <img className ="skill_img" style = {{opacity: "0"}}></img>
+                        <img className ="skill_img" style = {{opacity: "0"}}></img>
+                        <img className ="skill_img" style = {{opacity: "0"}}></img>
                     </div>
+                    
                     </div>
                     <div id="skill_info">
-        
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
                     </div>
                 </div>
             </div>
