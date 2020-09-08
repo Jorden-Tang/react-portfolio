@@ -6,6 +6,7 @@ import fruitGuideBackGround from '../images/project_asset/fruitscrollguide.PNG'
 import GameBackGround from '../images/project_asset/2dgame.PNG'
 import candyShopBackGround from '../images/project_asset/candyshop.jpg'
 import portfolioBackGround from '../images/project_asset/portfolio.PNG'
+import treeBackGround from '../images/tree_background.png'
 import {TweenMax, Power3, TimelineLite,TweenLite, gsap} from 'gsap/all'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -133,8 +134,9 @@ const HomePage = (props) =>{
             </div>
 
             <div className = "section" >
+                
                 <div id = "parallax">
-                        
+                        <div id = "background_tree"></div>
                         <h1 ref={el =>{intro = el}}>Hello I'm <span style = {{color: "pink"}}>Jorden Tang</span></h1> 
                         <h2><span style = {{color: "#dc143c"}}>PASSIONATE</span> web developer, software engineer residing in LA <i class="fas fa-city"></i></h2>
                     
@@ -193,34 +195,57 @@ const HomePage = (props) =>{
                     <div className = "skill_row row_odd" >
                         <img className = "skill_img si_java" src = {require('../images/java_logo.png')}></img>
                         <div className ="java_detail skill_details row_1" >
-                            <img src = {require('../images/java_logo.png')} ></img>
-                            <span>Java is a OOP Language</span>
+                
+                            <div>
+                                <img src = {require('../images/java_logo.png')} ></img>
+                                <p>Java</p>
+                            </div>
+                            <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span>
                         </div>
                         <img className ="skill_img" src = {require('../images/javascript_logo.png')}></img>
-                        <div className ="javascript_detail skill_details row_1" >
-                            <img src = {require('../images/java_logo.png')} ></img>
+                        <div className ="skill_details row_1" >
+                            <div>
+                                <img src = {require('../images/javascript_logo.png')} ></img>
+                                <p>Javascript</p>
+                            </div>
                             <span>Javascript is blahala</span>
+                            
                         </div>
                         <img className ="skill_img" src = {require('../images/python_logo.png')}></img>
-                        <div className ="javascript_detail skill_details row_1" >
-                            <img src = {require('../images/java_logo.png')} ></img>
+                        <div className ="skill_details row_1" >
+                            <div>
+                                <img src = {require('../images/python_logo.png')} ></img>
+                                <p>Python</p>
+                            </div>
                             <span>Javascript is blahala</span>
                         </div>
+
+
                         <img className ="skill_img" src = {require('../images/c++_logo.png')}></img>
-                        <div className ="javascript_detail skill_details row_1" >
-                            <img src = {require('../images/java_logo.png')} ></img>
+                        <div className ="skill_details row_1" >
+                        <div>
+                                <img src = {require('../images/c++_logo.png')} ></img>
+                                <p>c++</p>
+                            </div>
                             <span>Javascript is blahala</span>
                         </div>
+
+
                         <img className ="skill_img" src = {require('../images/jquery_logo.png')}></img>
-                        <div className ="javascript_detail skill_details row_1" >
-                            <img src = {require('../images/java_logo.png')} ></img>
+                        <div className =" skill_details row_1" >
+                            <img src = {require('../images/jquery_logo.png')} ></img>
                             <span>Javascript is blahala</span>
                         </div>
+
+
                     </div>
                     <div className = "skill_row row_even">
                         <img className ="skill_img" src = {require('../images/aws_logo.png')}></img>
                         <div className ="javascript_detail skill_details row_2" >
+                            <div>
                             <img src = {require('../images/java_logo.png')} ></img>
+                            <p>Java</p>
+                            </div>
                             <span>Javascript is blahala</span>
                         </div>
                         <img className ="skill_img" src = {require('../images/nginx_logo.png')}></img>
@@ -289,19 +314,7 @@ const HomePage = (props) =>{
                     
                     </div>
                     <div id="skill_info">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                        <p>Hover For More Details</p>
                     </div>
                 </div>
             </div>

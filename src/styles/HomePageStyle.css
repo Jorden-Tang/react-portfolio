@@ -50,7 +50,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    line-height: 1.5;
+
+}
+
+#background_tree{
+    background-image: url("../images/tree_background.png");
+    background-color: #345e6c;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 87vh;
+    width: 100%;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-filter: blur(8px);
 }
 
 #social_media{
@@ -355,37 +369,52 @@
 .skill_details{
     width: 700px;
     height: 500px;
-    background-color: blue;
+    background-color: white;
     position: absolute;
     opacity: 0;
-    transition: 0.3s;
+    transition: 0.5s;
+    border-radius: 10px 0px 10px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.skill_details img{
+    width: 150px;
+    height: 150px;
 }
 
+.skill_details span{
+    font-size: 16px;
+}
+
+
 .row_1{
-    top: 410px;
-    left: -20px;
+    top: 407px;
+    left: -23px;
 }
 
 .row_2{
-    top: 320px;
-    left: -20px;
+    top: 317px;
+    left: -23px;
 }
 
 .row_3{
-    top: 230px;
-    left: -20px;
+    top: 227px;
+    left: -23px;
 }
 
 .row_4{
-    top: 140px;
-    left: -20px;
+    top: 137px;
+    left: -23px;
+    
 }
 
 
 #skill_info{
     width: 700px;
     height: 500px;
-    background-color: rgba(41, 29, 29, 0.1);
+    background-color: rgba(41, 29, 29, 0.2);
     border-radius: 10px 0px 10px 0px;
 }
 
@@ -395,10 +424,10 @@
     transition: 0.3s;
 }
 
-
 .skill_img:hover +.skill_details{
     opacity: 1;
-    transition: 0.3s;
+    transition: 0.5s;
+  
 }
 
 .skill_row{
@@ -663,9 +692,6 @@
     border: 0px;
 }
 
-
-
-
 #message_input{
     height: 300px !important;
     display: flex;
@@ -701,24 +727,30 @@
 
     .row_1{
         top: -70px;
-        left: 705px;
+        left: 703px;
     }
     
     .row_2{
         top: -160px;
-        left: 705px;
+        left: 703px;
     }
     
     .row_3{
         top: -250px;
-        left: 705px;
+        left: 703px;
     }
     
     .row_4{
         top: -340px;
-        left: 705px;
+        left: 703px;
     }
     
+
+    .skill_details{
+        width: 700px;
+    }
+
+
     #experience_section{
         display: flex; 
         flex-direction: column;
