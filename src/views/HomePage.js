@@ -17,6 +17,8 @@ const HomePage = (props) =>{
 
     const [navBackground, setNavBackground] = useState(false)
     const [sideNavDisplay, setSideNavDisplay] = useState(true);
+    const [projectModalOpen, setProjectModalOpen] = useState(false);
+
     let tl = gsap.timeline();
     let skillItem = useRef(null)
     let skillContainer = useRef(null)
@@ -52,7 +54,7 @@ const HomePage = (props) =>{
 
         gsap.from('.project_content', 
         {scrollTrigger: {
-            trigger: '#project_start',
+            trigger: '#project_section',
             start: "0px, 40%",
             end: "bottom, 40%",
             toggleActions: 'restart none reverse none',
@@ -120,7 +122,7 @@ const HomePage = (props) =>{
                     <a href= "#experience_start" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>TimeLine
                     <img src={require('../images/down_arrow.svg')} />
                     </a>
-                    <a href= "#project_start" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>Projects
+                    <a href= "#project_section" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>Projects
                     <img src={require('../images/down_arrow.svg')} />
                     </a>
                     <a href= "#contact_start" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>Contact
@@ -367,12 +369,14 @@ const HomePage = (props) =>{
                     </div>
                 </div>
             </div>
-            <svg  id = "project_start"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style = {{ zIndex: "-2",position: "relative",backgroundColor: "rgb(230, 233, 190)"}}><path fill="rgb(63,68,77)" fill-opacity="1" d="M0,128L60,144C120,160,240,192,360,202.7C480,213,600,203,720,186.7C840,171,960,149,1080,138.7C1200,128,1320,128,1380,128L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+            <svg    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style = {{ zIndex: "-2",position: "relative",backgroundColor: "rgb(230, 233, 190)"}}><path fill="rgb(63,68,77)" fill-opacity="1" d="M0,128L60,144C120,160,240,192,360,202.7C480,213,600,203,720,186.7C840,171,960,149,1080,138.7C1200,128,1320,128,1380,128L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
             <div  className = "section" id = "project_section">
-                <div  className = "project_container">
-
+                        <div className = "project_detail_window" style = {{opacity: projectModalOpen ? "1" : "0", display: projectModalOpen?  "block" : "none", transition: "0.3s"}}>
+                                <button onClick = {()=> {setProjectModalOpen(false)}}><i class="fas fa-times"></i></button>
+                                <div style = {{height: "2000px", width: "100%"}}></div>
+                        </div>
+                <div  className = "project_container"  style = {{pointerEvents : projectModalOpen ? "none" : "all" , filter: projectModalOpen ? "blur(8px)" : "blur(0px)", transiton: "0.6s"}}>
                             <div className = "project_content" style = {{backgroundImage: `url(${fruitGuideBackGround})`}}>
-
                                 <div id = "fruitScrollGuide" className = "project_inner"  >
                                     <h2>Game Price Guide</h2>
                                     <div className = "project_tools">
@@ -382,17 +386,14 @@ const HomePage = (props) =>{
                                         <img src={require('../images/express_logo.png')}></img>
                                         <img src={require('../images/mongodb_logo.png')}></img>
                                         <img src={require('../images/nodejs_logo.png')}></img>
-
                                     </div>
                                     <div className = "project_info">
-                                        <button className = "project_link">live demo</button> 
+                                        <button className = "project_link" onClick = {()=>{setProjectModalOpen(true)}}>live demo</button> 
                                         <button className = "project_github">Github</button>
                                     </div>
                                 </div>
                             </div>
- 
                             <div className = "project_content" style = {{backgroundImage: `url(${GameBackGround})`}}>
-
                                 <div id = "plat" className = "project_inner">
                                     <h2>Simple Platform Game</h2>                   
                                     <div className = "project_tools">
@@ -429,8 +430,9 @@ const HomePage = (props) =>{
                                         <img src={require('../images/python_logo.png')}></img>
                                     </div>
                                     <div className = "project_info">
-                                        <button className = "project_link">live demo</button> 
-                                        <button className = "project_github">learn more</button>
+                                        {/* <button className = "project_link">live demo</button> 
+                                        <button className = "project_github">learn more</button> */}
+                                        <span>Under Development</span>
                                     </div>
                                 </div>
                             </div> 

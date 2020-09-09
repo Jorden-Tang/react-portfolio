@@ -22,10 +22,10 @@
 }
 
 /* width */
-::-webkit-scrollbar {
+ ::-webkit-scrollbar {
     width: 0px;
   }
-  
+   
   /* Track
   ::-webkit-scrollbar-track {
     background: white;
@@ -50,7 +50,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
 }
 
 #background_tree{
@@ -71,11 +70,11 @@
     transition: 1s;
     color: white;
     font-size: 30px;
+    z-index: 10;
 }
 
 
 #social_media a img{
-    
     border-radius: 5px;
     width: 50px;
     height: 50px;
@@ -194,6 +193,7 @@
     width: 100vw;
 }
 
+
 #logo{
     font-family: 'Monofett', cursive;
     font-size: 3rem;
@@ -240,7 +240,6 @@
 .timeline{
     height: 900px;
     max-height: 900px;
-     
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -496,14 +495,16 @@
     justify-content: space-evenly;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 100px;
     background-color: rgb(63,68,77);
+    position: relative;
 }
 
 .project_container{
     width: 70vw;
     min-width: 530px;
     height: auto;
-    margin-top: 40px;
+    margin-top: 40px;    
 }
 
 .project_content{
@@ -575,8 +576,34 @@
     font-size: 20px;
     border-radius: 5px;
 }
+
+
 .project_button button{
     padding: 5px
+}
+
+.project_detail_window{
+    width: 35vw;
+    height: 70vh;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    background-color: rgb(152, 182, 174);
+    z-index: 3;
+    overflow: scroll;
+}
+
+.project_detail_window button{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    color: white;
+    background-color: gray;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
 }
 
 .project_link{
