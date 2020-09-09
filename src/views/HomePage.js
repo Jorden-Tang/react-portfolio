@@ -200,7 +200,9 @@ const HomePage = (props) =>{
                                 <img src = {require('../images/java_logo.png')} ></img>
                                 <p>Java</p>
                             </div>
-                            <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span>
+                            <span>Java is a class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. 
+                                  It is a general-purpose programming language intended to let application developers write once, run anywhere ,meaning that compiled Java code can run on all platforms that support Java without the need for recompilation.
+                            </span>
                         </div>
                         <img className ="skill_img" src = {require('../images/javascript_logo.png')}></img>
                         <div className ="skill_details row_1" >
@@ -208,7 +210,7 @@ const HomePage = (props) =>{
                                 <img src = {require('../images/javascript_logo.png')} ></img>
                                 <p>Javascript</p>
                             </div>
-                            <span>Javascript is blahala</span>
+                            <span>JavaScript often abbreviated as JS, is a programming language that conforms to the ECMAScript specification.JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions. Alongside HTML and CSS, JavaScript is one of the core technologies of the World Wide Web.</span>
                             
                         </div>
                         <img className ="skill_img" src = {require('../images/python_logo.png')}></img>
@@ -217,7 +219,7 @@ const HomePage = (props) =>{
                                 <img src = {require('../images/python_logo.png')} ></img>
                                 <p>Python</p>
                             </div>
-                            <span>Javascript is blahala</span>
+                            <span>Python is an interpreted, high-level and general-purpose programming language.  Its language constructs and object-oriented approach aim to help programmers write clear, logical code for small and large-scale projects. Python is dynamically typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly, procedural), object-oriented, and functional programming. </span>
                         </div>
 
 
@@ -227,7 +229,7 @@ const HomePage = (props) =>{
                                 <img src = {require('../images/c++_logo.png')} ></img>
                                 <p>c++</p>
                             </div>
-                            <span>Javascript is blahala</span>
+                            <span>C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or "C with Classes". The language has expanded significantly over time, and modern C++ now has object-oriented, generic, and functional features in addition to facilities for low-level memory manipulation. It is almost always implemented as a compiled language, and many vendors provide C++ compilers, including the Free Software Foundation, LLVM, Microsoft, Intel, Oracle, and IBM, so it is available on many platforms.</span>
                         </div>
 
 
@@ -237,7 +239,7 @@ const HomePage = (props) =>{
                                 <img src = {require('../images/jquery_logo.png')} ></img>
                                 <p>jquery</p>
                             </div>
-                            <span>Javascript is blahala</span>
+                            <span>jQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax. jQuery's syntax is designed to make it easier to navigate a document, select DOM elements, create animations, handle events, and develop Ajax applications. jQuery also provides capabilities for developers to create plug-ins on top of the JavaScript library. This enables developers to create abstractions for low-level interaction and animation, advanced effects and high-level, themeable widgets. The modular approach to the jQuery library allows the creation of powerful dynamic web pages and Web applications.</span>
                         </div>
 
                     </div>
@@ -248,7 +250,7 @@ const HomePage = (props) =>{
                                 <img src = {require('../images/aws_logo.png')} ></img>
                                 <p>Amazon Web Service</p>
                             </div>
-                            <span>Javascript is blahala</span>
+                            <span>Amazon Web Services (AWS) is a subsidiary of Amazon providing on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered pay-as-you-go basis. These cloud computing web services provide a variety of basic abstract technical infrastructure and distributed computing building blocks and tools. One of these services is Amazon Elastic Compute Cloud (EC2), which allows users to have at their disposal a virtual cluster of computers, available all the time, through the Internet.</span>
                         </div>
 
                         <img className ="skill_img" src = {require('../images/nginx_logo.png')}></img>
@@ -257,7 +259,7 @@ const HomePage = (props) =>{
                                 <img src = {require('../images/nginx_logo.png')} ></img>
                                 <p>NGINX</p>
                             </div>
-                            <span>Javascript is blahala</span>
+                            <span>Nginx, stylized as NGINX or nginx or NginX, is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. The software was created by Igor Sysoev and publicly released in 2004. Nginx is free and open-source software, released under the terms of the 2-clause BSD license.</span>
                         </div>
 
 
@@ -267,7 +269,7 @@ const HomePage = (props) =>{
                                 <img src = {require('../images/socket_logo.png')} ></img>
                                 <p>Socket.io</p>
                             </div>
-                            <span>Javascript is blahala</span>
+                            <span>Socket.IO is a JavaScript library for realtime web applications. It enables realtime, bi-directional communication between web clients and servers. It has two parts: a client-side library that runs in the browser, and a server-side library for Node.js. Both components have a nearly identical API. Like Node.js, it is event-driven.</span>
                         </div>
                         <img className ="skill_img" src = {require('../images/mongodb_logo.png')}></img>
                         <div className ="javascript_detail skill_details row_2" >
@@ -275,7 +277,7 @@ const HomePage = (props) =>{
                                 <img src = {require('../images/mongodb_logo.png')} ></img>
                                 <p>MongoDB</p>
                             </div>
-                            <span>Javascript is blahala</span>
+                            <span>MongoDB is a cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas. MongoDB is developed by MongoDB Inc. and licensed under the Server Side Public License.</span>
                         </div>
                         <img className ="skill_img" src = {require('../images/mysql_logo.png')}></img>
                         <div className ="javascript_detail skill_details row_2" >
@@ -283,7 +285,7 @@ const HomePage = (props) =>{
                                 <img src = {require('../images/mysql_logo.png')} ></img>
                                 <p>Mysql Database</p>
                             </div>
-                            <span>Javascript is blahala</span>
+                            <span>MySQL is an open-source relational database management system. Its name is a combination of "My", the name of co-founder Michael Widenius's daughter, and "SQL", the abbreviation for Structured Query Language.</span>
                         </div>
                     </div>
                     
@@ -294,7 +296,7 @@ const HomePage = (props) =>{
                                 <img src = {require('../images/sqlite_logo.png')} ></img>
                                 <p>sqlite Database</p>
                             </div>
-                            <span>Javascript is blahala</span>
+                            <span>SQLite is a relational database management system contained in a C library. In contrast to many other database management systems, SQLite is not a client–server database engine. Rather, it is embedded into the end program.</span>
                         </div>
 
 
@@ -304,7 +306,7 @@ const HomePage = (props) =>{
                                 <img src = {require('../images/react_logo.png')} ></img>
                                 <p>React.js</p>
                             </div>
-                            <span>Javascript is blahala</span>
+                            <span>React is an open-source JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications.</span>
                         </div>
 
 
@@ -314,7 +316,7 @@ const HomePage = (props) =>{
                                 <img src = {require('../images/html_logo.png')} ></img>
                                 <p>HTML 5</p>
                             </div>
-                            <span>Javascript is blahala</span>
+                            <span>HTML5 is a markup language used for structuring and presenting content on the World Wide Web. It is the fifth and latest major version of HTML that is a World Wide Web Consortium recommendation.</span>
                         </div>
 
 
@@ -324,7 +326,7 @@ const HomePage = (props) =>{
                                 <img src = {require('../images/css_logo.png')} ></img>
                                 <p>CSS 3</p>
                             </div>
-                            <span>Javascript is blahala</span>
+                            <span>Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a markup language like HTML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.</span>
                         </div>
 
 
@@ -334,7 +336,7 @@ const HomePage = (props) =>{
                                 <img src = {require('../images/flask_logo.png')} ></img>
                                 <p>FLASK</p>
                             </div>
-                            <span>Javascript is blahala</span>
+                            <span>Flask is a micro web framework written in Python. It is classified as a microframework because it does not require particular tools or libraries. It has no database abstraction layer, form validation, or any other components where pre-existing third-party libraries provide common functions.</span>
                         </div>
                     </div>
                     <div className = "skill_row row_even">
@@ -344,7 +346,7 @@ const HomePage = (props) =>{
                                 <img src = {require('../images/django_logo.png')} ></img>
                                 <p>Django</p>
                             </div>
-                            <span>Javascript is blahala</span>
+                            <span>Django is a Python-based free and open-source web framework that follows the model-view-controller architectural pattern. It is maintained by the Django Software Foundation, an American independent organization established as a 501 non-profit.</span>
                         </div>
                         <img className ="skill_img" src = {require('../images/express_logo.png')}></img>
                         <div className ="javascript_detail skill_details row_4" >
@@ -352,7 +354,7 @@ const HomePage = (props) =>{
                                 <img src = {require('../images/express_logo.png')} ></img>
                                 <p>Express.js</p>
                             </div>
-                            <span>Javascript is blahala</span>
+                            <span>Express.js, or simply Express, is a web application framework for Node.js, released as free and open-source software under the MIT License. It is designed for building web applications and APIs. It has been called the de facto standard server framework for Node.js.</span>
                         </div>
                         <img className ="skill_img" style = {{opacity: "0"}}></img>
                         <img className ="skill_img" style = {{opacity: "0"}}></img>

@@ -335,6 +335,8 @@
     right: 35%;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 
 .skills{
     position: relative;
@@ -385,9 +387,17 @@
 }
 
 .skill_details span{
-    font-size: 16px;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    width: 500px;
+    height: 200px;
 }
 
+.skill_details p{
+    font-size: 30px;
+    font-weight: bolder;
+    
+}
 
 .row_1{
     top: 407px;
@@ -411,6 +421,7 @@
 }
 
 
+
 #skill_info{
     width: 700px;
     height: 500px;
@@ -429,8 +440,8 @@
 .skill_img:hover +.skill_details{
     opacity: 1;
     transition: 0.3s;
-  
 }
+
 
 .skill_row{
     width: 600px;
@@ -445,18 +456,6 @@
 .row_odd{
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
