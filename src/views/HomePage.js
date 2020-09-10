@@ -1,7 +1,9 @@
 import React from 'react'
 import {useState, useRef, useEffect} from 'react'
+import  ProjectWindow from '../components/project_window'
 import '../styles/HomePageStyle.css'
 import '../styles/InteractiveBG.css'
+
 import fruitGuideBackGround from '../images/project_asset/fruitscrollguide.PNG'
 import GameBackGround from '../images/project_asset/2dgame.PNG'
 import candyShopBackGround from '../images/project_asset/candyshop.jpg'
@@ -17,12 +19,13 @@ const HomePage = (props) =>{
 
     const [navBackground, setNavBackground] = useState(false)
     const [sideNavDisplay, setSideNavDisplay] = useState(true);
-    const [projectModalOpen, setProjectModalOpen] = useState(false);
+    const [projectModalOpen1, setProjectModalOpen1] = useState(false);
+    const [projectModalOpen2, setProjectModalOpen2] = useState(false);
+    const [projectModalOpen3, setProjectModalOpen3] = useState(false);
 
     let tl = gsap.timeline();
-    let skillItem = useRef(null)
-    let skillContainer = useRef(null)
     let intro = useRef(null)
+    let projectSection = useRef(false);
 
     gsap.registerPlugin(ScrollTrigger);
 
@@ -60,6 +63,7 @@ const HomePage = (props) =>{
             toggleActions: 'restart none reverse none',
         }, 
         duration: 1, ease: "power", y: 50, opacity: 0, stagger: 0.2})
+        
     }, [])
 
     const onHomeClick = () =>{
@@ -192,7 +196,7 @@ const HomePage = (props) =>{
                         </li>
                     </ul>
                 </div>
-                <div className = "skills" ref={el=>{skillContainer = el}}>
+                <div className = "skills" >
                     <div>
                     <div className = "skill_row row_odd" >
                         <img className = "skill_img si_java" src = {require('../images/java_logo.png')}></img>
@@ -365,17 +369,22 @@ const HomePage = (props) =>{
                     
                     </div>
                     <div id="skill_info">
-                       
                     </div>
                 </div>
             </div>
-            <svg    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style = {{ zIndex: "-2",position: "relative",backgroundColor: "rgb(230, 233, 190)"}}><path fill="rgb(63,68,77)" fill-opacity="1" d="M0,128L60,144C120,160,240,192,360,202.7C480,213,600,203,720,186.7C840,171,960,149,1080,138.7C1200,128,1320,128,1380,128L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+            <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style = {{ zIndex: "-2",position: "relative",backgroundColor: "rgb(230, 233, 190)"}}><path fill="rgb(63,68,77)" fill-opacity="1" d="M0,128L60,144C120,160,240,192,360,202.7C480,213,600,203,720,186.7C840,171,960,149,1080,138.7C1200,128,1320,128,1380,128L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
             <div  className = "section" id = "project_section">
-                        <div className = "project_detail_window" style = {{opacity: projectModalOpen ? "1" : "0", display: projectModalOpen?  "block" : "none", transition: "0.3s"}}>
-                                <button onClick = {()=> {setProjectModalOpen(false)}}><i class="fas fa-times"></i></button>
-                                <div style = {{height: "2000px", width: "100%"}}></div>
-                        </div>
-                <div  className = "project_container"  style = {{pointerEvents : projectModalOpen ? "none" : "all" , filter: projectModalOpen ? "blur(8px)" : "blur(0px)", transiton: "0.6s"}}>
+                <ProjectWindow setOnChange = {setProjectModalOpen1} onChange = {projectModalOpen1}>
+                    
+               </ProjectWindow>
+               <ProjectWindow setOnChange = {setProjectModalOpen2} onChange = {projectModalOpen2}>
+               
+               </ProjectWindow>
+
+                <ProjectWindow setOnChange = {setProjectModalOpen3} onChange = {projectModalOpen3}>
+               
+                </ProjectWindow>
+                <div  className = "project_container"  style = {{pointerEvents : projectModalOpen1 || projectModalOpen2 || projectModalOpen3 ? "none" : "all" , filter: projectModalOpen1 || projectModalOpen2 || projectModalOpen3 ? "blur(8px)" : "blur(0px)", transiton: "0.6s"}}>
                             <div className = "project_content" style = {{backgroundImage: `url(${fruitGuideBackGround})`}}>
                                 <div id = "fruitScrollGuide" className = "project_inner"  >
                                     <h2>Game Price Guide</h2>
@@ -388,7 +397,7 @@ const HomePage = (props) =>{
                                         <img src={require('../images/nodejs_logo.png')}></img>
                                     </div>
                                     <div className = "project_info">
-                                        <button className = "project_link" onClick = {()=>{setProjectModalOpen(true)}}>live demo</button> 
+                                        <button className = "project_link" onClick = {()=>{setProjectModalOpen1(true)}}>live demo</button> 
                                         <button className = "project_github">Github</button>
                                     </div>
                                 </div>
@@ -401,7 +410,7 @@ const HomePage = (props) =>{
                                         <img src={require('../images/eclipse_logo.png')}></img>   
                                     </div>
                                     <div className = "project_info">
-                                        <button className = "project_link">live demo</button> 
+                                        <button className = "project_link" onClick = {()=>{setProjectModalOpen2(true)}}>live demo</button> 
                                         <button className = "project_github">Github</button>
                                     </div>
                                 </div>
@@ -416,7 +425,7 @@ const HomePage = (props) =>{
 
                                     </div>
                                     <div className = "project_info">
-                                        <button className = "project_link">live demo</button> 
+                                        <button className = "project_link" onClick = {()=>{setProjectModalOpen3(true)}}>live demo</button> 
                                         <button className = "project_github">Github</button>
                                     </div>
                                 </div>
