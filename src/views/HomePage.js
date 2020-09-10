@@ -11,12 +11,27 @@ import portfolioBackGround from '../images/project_asset/portfolio.PNG'
 import treeBackGround from '../images/tree_background.png'
 import {TweenMax, Power3, TimelineLite,TweenLite, gsap} from 'gsap/all'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import fruit1 from '../images/fruitscrollguide/fruit_1.PNG'
+import fruit2 from '../images/fruitscrollguide/fruit_2.PNG'
+import fruit3 from '../images/fruitscrollguide/fruit_3.PNG'
+import fruit4 from '../images/fruitscrollguide/fruit_4.PNG'
+import fruit5 from '../images/fruitscrollguide/fruit_5.PNG'
+import fruit6 from '../images/fruitscrollguide/fruit_6.PNG'
+
+import gameVideo from '../images/2d_game/2dgame.mp4'
+
+
+
 
 
 const HomePage = (props) =>{
     const initialFormContent = {name: "", company : "", email: "", message: ""}
     const [emailContent, setEmailContent] = useState(initialFormContent);
+ 
+    var req = require.context("../images/fruitscrollguide", false, /.*\.PNG$/);
+    console.log(req);
 
+    const fruitImgs = [fruit1, fruit2, fruit3,fruit4,fruit5, fruit6];
     const [navBackground, setNavBackground] = useState(false)
     const [sideNavDisplay, setSideNavDisplay] = useState(true);
     const [projectModalOpen1, setProjectModalOpen1] = useState(false);
@@ -29,6 +44,7 @@ const HomePage = (props) =>{
 
     gsap.registerPlugin(ScrollTrigger);
 
+  
     useEffect(()=>{
         gsap.from(intro, {duration: 1.5, ease: "bounce", y : -300, scale: 0.9, opacity: 0});
         gsap.from('#parallax h2',{duration: 2, ease: "bounce", x: 100, opacity: 0});
@@ -66,9 +82,20 @@ const HomePage = (props) =>{
         
     }, [])
 
+    if(fruitImgs == undefined){
+        return (
+            <div>Loading</div>
+        )
+    }
+
     const onHomeClick = () =>{
         window.scrollTo(0,0);
     }
+
+
+    
+      
+     
 
     const onFormChange = (e) =>{
         e.preventDefault();
@@ -374,14 +401,14 @@ const HomePage = (props) =>{
             </div>
             <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style = {{ zIndex: "-2",position: "relative",backgroundColor: "rgb(230, 233, 190)"}}><path fill="rgb(63,68,77)" fill-opacity="1" d="M0,128L60,144C120,160,240,192,360,202.7C480,213,600,203,720,186.7C840,171,960,149,1080,138.7C1200,128,1320,128,1380,128L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
             <div  className = "section" id = "project_section">
-                <ProjectWindow setOnChange = {setProjectModalOpen1} onChange = {projectModalOpen1}>
-                    
+                <ProjectWindow setOnChange = {setProjectModalOpen1} onChange = {projectModalOpen1} images = {fruitImgs} >
+
                </ProjectWindow>
-               <ProjectWindow setOnChange = {setProjectModalOpen2} onChange = {projectModalOpen2}>
+               <ProjectWindow setOnChange = {setProjectModalOpen2} onChange = {projectModalOpen2} images = {[]} video = {gameVideo}>
                
                </ProjectWindow>
 
-                <ProjectWindow setOnChange = {setProjectModalOpen3} onChange = {projectModalOpen3}>
+                <ProjectWindow setOnChange = {setProjectModalOpen3} onChange = {projectModalOpen3} images = {fruitImgs}>
                
                 </ProjectWindow>
                 <div  className = "project_container"  style = {{pointerEvents : projectModalOpen1 || projectModalOpen2 || projectModalOpen3 ? "none" : "all" , filter: projectModalOpen1 || projectModalOpen2 || projectModalOpen3 ? "blur(8px)" : "blur(0px)", transiton: "0.6s"}}>
