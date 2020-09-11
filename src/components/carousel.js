@@ -3,12 +3,12 @@ import {useState, useEffect, useRef} from 'react'
 import "../styles/carousel.css"
 import ImageComp from '../components/ImageComp'
 
-const Carousel = ({imagesArr}) =>{
+const Carousel = ({imagesArr, widthRatio}) =>{
     const sliderArray = [];
     const [x, setX] = useState(0);
 
     for(let i = 0; i < imagesArr.length; i++){
-        sliderArray.push(<ImageComp src = {imagesArr[i]}></ImageComp>)
+        sliderArray.push(<ImageComp width = {widthRatio} src = {imagesArr[i]}></ImageComp>)
     };
 
     const goLeft = () =>{
@@ -28,7 +28,6 @@ const Carousel = ({imagesArr}) =>{
             setX(x-100);
         }
     }
-    
 
     return(
         <div className = "slider">

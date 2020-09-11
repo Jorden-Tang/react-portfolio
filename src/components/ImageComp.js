@@ -1,12 +1,15 @@
 import React from 'react'
+import '../styles/carousel.css'
 
-const ImageComp = ({src}) =>{
+const ImageComp = ({src, width}) =>{
+
     let imgStyle = {
-        width: "100%",
+        width: width == undefined ? '100%' : `${width}%`,
         height: "auto"
     };
 
-    return <img src={src} alt = "slide_img" style = {imgStyle}></img>
+
+    return <img className ="fade-in" src={src} alt = "slide_img" style = {imgStyle}></img>
 }
 
 export default ImageComp;

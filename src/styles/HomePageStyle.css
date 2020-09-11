@@ -19,12 +19,14 @@
     width: 100vw;
     display: flex;
     flex-direction: column;
+
 }
 
 /* width */
  ::-webkit-scrollbar {
     width: 0px;
     height: 0px;
+
   }
    
   /* Track
@@ -41,6 +43,17 @@
   ::-webkit-scrollbar-thumb:hover {
     background: darkgray;
   } */
+
+
+#overlay{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0,0,0,0.7);
+    -webkit-filter: blur(0px);
+    z-index: 3;
+    transition: 0.2s;
+}
 
 #parallax{
     background-color: #345e6c;
@@ -116,13 +129,6 @@
     background-color: white;
     transition: 0.3s;
 }
-
-
-
-
-
-
-
 
 /* @keyframes arrow_right {
     from {left: 0px; top: 43.5%;}
@@ -542,7 +548,8 @@
 
 .project_inner h2{
     font-family: 'Syne', sans-serif;
-    font-size: 30px;
+    font-size: 22px;
+    color: rgb(52 94 108);
 }
 
 
@@ -571,12 +578,13 @@
 }
 
 .project_info button{
-    width: 100px;
+    width: auto;
     height: 40px;
     border: 1px solid darkgreen;
     font-family: 'Syne', sans-serif;
     font-size: 20px;
     border-radius: 5px;
+    padding: 5px;
 }
 
 
@@ -804,7 +812,7 @@
     }
 
     .timeline{
-        width: 100%;
+        width: 90%;
         height: auto;
     }
 
@@ -812,13 +820,32 @@
         height: 100px;
     }
     .skills{
-        width: 95%;
+        width: 90%;
         margin-left: auto;
         margin-right: auto;
-       
-        height: auto;
+        height: 900px;
+        display: flex;
+        flex-direction: column;
+    }
+    .skill_details{
+        display: none;
+    }
+    .skill_img{
+        width:  9vw;
+        height: 9vw;
+    }
+    .skill_row{
+        width: 100%;
+        justify-content: space-evenly;
+        height: 110px;
+    }
+    .row_even{
+        padding: 0;
     }
 
+    .row_odd{
+        padding: 0;
+    }
     #parallax h1{
         font-size: 2rem;
         background-color: rgba(199, 209, 199, 0.144);
@@ -833,20 +860,19 @@
         height: 100vh;
     }
 
-    .content img{
-        margin-top: 60px;
-        position: relative;
-        left: -50px;
-    }
 
 
-    .content div{
-        margin-top: 60px;
+
+
+    .content{
+        display: flex;
+        flex-direction: row-reverse;
+        margin-bottom: 30px;
+        justify-content: center;
+        height: 120px;
+        align-items: center;
     }
 
-    content{
-        padding-bottom: 0px;
-    }
     .timeline ul li{
         margin-top: 50px;
         width: 100%;
@@ -855,6 +881,16 @@
         text-align: left !important;
     }
 
+    .content img{
+        width: 120px;
+        height: 120px;
+    }
+
+    .content div h2{
+        font-size: 25px;
+    }
+    
+    
     .timeline ul li:before{
         left: 12px;
     }
@@ -876,14 +912,14 @@
 
     .timeline ul li:nth-child(even) p{
         width: 100px;
-        left: 2%;
-        left: 50px;
+        left: 0px;
+        margin-bottom: 200px;
     }
 
     .timeline ul li:nth-child(odd) p{
         width: 100px;
-        left: 50px;
-    
+        left: 0px;
+        margin-bottom: 200px;
     }
 
     #logo{
@@ -895,12 +931,6 @@
 
 
 
-    .content img{
-        width: 100px;
-        height: 100px;
-        margin-left: 20px;
-        margin-right: 20px;  
-    }
 
    .timeline ul li{
         margin: 0;

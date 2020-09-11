@@ -7,6 +7,7 @@ import '../styles/InteractiveBG.css'
 import fruitGuideBackGround from '../images/project_asset/fruitscrollguide.PNG'
 import GameBackGround from '../images/project_asset/2dgame.PNG'
 import candyShopBackGround from '../images/project_asset/candyshop.jpg'
+import blogBackGround from '../images/project_asset/blog.jpg'
 import portfolioBackGround from '../images/project_asset/portfolio.PNG'
 import treeBackGround from '../images/tree_background.png'
 import {TweenMax, Power3, TimelineLite,TweenLite, gsap} from 'gsap/all'
@@ -16,7 +17,12 @@ import fruit2 from '../images/fruitscrollguide/fruit_2.PNG'
 import fruit3 from '../images/fruitscrollguide/fruit_3.PNG'
 import fruit4 from '../images/fruitscrollguide/fruit_4.PNG'
 import fruit5 from '../images/fruitscrollguide/fruit_5.PNG'
-import fruit6 from '../images/fruitscrollguide/fruit_6.PNG'
+
+import porf1 from '../images/portfolio/por_1.png'
+import porf2 from '../images/portfolio/por_2.png'
+import porf3 from '../images/portfolio/por_3.png'
+import porf4 from '../images/portfolio/por_4.png'
+
 
 import gameVideo from '../images/2d_game/2dgame.mp4'
 
@@ -27,11 +33,8 @@ import gameVideo from '../images/2d_game/2dgame.mp4'
 const HomePage = (props) =>{
     const initialFormContent = {name: "", company : "", email: "", message: ""}
     const [emailContent, setEmailContent] = useState(initialFormContent);
- 
-    var req = require.context("../images/fruitscrollguide", false, /.*\.PNG$/);
-    console.log(req);
-
-    const fruitImgs = [fruit1, fruit2, fruit3,fruit4,fruit5, fruit6];
+    const fruitImgs = [fruit1, fruit2, fruit3,fruit4,fruit5];
+    const porfImgs = [porf1, porf2, porf3, porf4];
     const [navBackground, setNavBackground] = useState(false)
     const [sideNavDisplay, setSideNavDisplay] = useState(true);
     const [projectModalOpen1, setProjectModalOpen1] = useState(false);
@@ -93,10 +96,6 @@ const HomePage = (props) =>{
     }
 
 
-    
-      
-     
-
     const onFormChange = (e) =>{
         e.preventDefault();
         const {name, value} = e.target;
@@ -128,7 +127,8 @@ const HomePage = (props) =>{
     window.addEventListener('scroll', onScrollYCheck);
 
     return(
-        <>             
+        <>
+        <div id = "overlay" className = "fade-in"  style = {{display : projectModalOpen1 || projectModalOpen2 || projectModalOpen3 ? "block" : "none"}}></div>      
         <div id = "social_media"  style = {{opacity : sideNavDisplay ? '0' : '0.8'}}>
             <a style = {{bottom: "200px", backgroundColor: "#006cbf"}}>
                 <button onClick = {()=>{window.open("https://www.linkedin.com/in/jorden-tang-6b329a196/", "_blank")}}>Connect</button>
@@ -144,6 +144,16 @@ const HomePage = (props) =>{
             </a> 
         </div>
         <div className = "body" style = {{overflow: "hidden"}}>
+            <ProjectWindow setOnChange = {setProjectModalOpen1} onChange = {projectModalOpen1} images = {fruitImgs}>
+
+            </ProjectWindow>
+            <ProjectWindow setOnChange = {setProjectModalOpen2} onChange = {projectModalOpen2} images = {[]} video = {gameVideo}>
+
+            </ProjectWindow>
+
+            <ProjectWindow setOnChange = {setProjectModalOpen3} onChange = {projectModalOpen3} images = {porfImgs} widthRatio = {40}>
+
+            </ProjectWindow>
             <div className = "menu_bar"     
                 style={{ transition: '1s ease' , backgroundColor: navBackground ? 'white' : 'transparent', color: navBackground ? 'black': 'white', boxShadow:  navBackground ? '0px 10px 30px 1px rgba(0,0,0,0.3)': ''}}>
                 <div id = "logo" onClick= {onHomeClick}>
@@ -172,7 +182,6 @@ const HomePage = (props) =>{
                         <div id = "background_tree"></div>
                         <h1 ref={el =>{intro = el}}>Hello I'm <span style = {{color: "pink"}}>Jorden Tang</span></h1> 
                         <h2><span style = {{color: "#dc143c"}}>PASSIONATE</span> web developer, software engineer residing in LA <i class="fas fa-city"></i></h2>
-                    
                 </div>
             </div>
             <svg  style = {{backgroundColor: "#345e6c"}}  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300"><path fill="rgb(230 233 190)" fill-opacity="1" d="M0,192L60,192C120,192,240,192,360,197.3C480,203,600,213,720,234.7C840,256,960,288,1080,293.3C1200,299,1320,277,1380,266.7L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
@@ -188,7 +197,6 @@ const HomePage = (props) =>{
                                 <span>Working on personal projects on Github, doing LeetCode questions</span>
                                 </div>
                                 <p>2020-Now</p>
-                        
                             </div>
                         </li>
                         <li>
@@ -228,7 +236,6 @@ const HomePage = (props) =>{
                     <div className = "skill_row row_odd" >
                         <img className = "skill_img si_java" src = {require('../images/java_logo.png')}></img>
                         <div className ="java_detail skill_details row_1" >
-                
                             <div>
                                 <img src = {require('../images/java_logo.png')} ></img>
                                 <p>Java</p>
@@ -401,17 +408,9 @@ const HomePage = (props) =>{
             </div>
             <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style = {{ zIndex: "-2",position: "relative",backgroundColor: "rgb(230, 233, 190)"}}><path fill="rgb(63,68,77)" fill-opacity="1" d="M0,128L60,144C120,160,240,192,360,202.7C480,213,600,203,720,186.7C840,171,960,149,1080,138.7C1200,128,1320,128,1380,128L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
             <div  className = "section" id = "project_section">
-                <ProjectWindow setOnChange = {setProjectModalOpen1} onChange = {projectModalOpen1} images = {fruitImgs} >
-
-               </ProjectWindow>
-               <ProjectWindow setOnChange = {setProjectModalOpen2} onChange = {projectModalOpen2} images = {[]} video = {gameVideo}>
-               
-               </ProjectWindow>
-
-                <ProjectWindow setOnChange = {setProjectModalOpen3} onChange = {projectModalOpen3} images = {fruitImgs}>
-               
-                </ProjectWindow>
-                <div  className = "project_container"  style = {{pointerEvents : projectModalOpen1 || projectModalOpen2 || projectModalOpen3 ? "none" : "all" , filter: projectModalOpen1 || projectModalOpen2 || projectModalOpen3 ? "blur(8px)" : "blur(0px)", transiton: "0.6s"}}>
+                <div  className = "project_container"  style = {{pointerEvents : projectModalOpen1 || projectModalOpen2 || projectModalOpen3 ? "none" : "all" , 
+                                                                 filter: projectModalOpen1 || projectModalOpen2 || projectModalOpen3 ? "blur(30px)" : "blur(0px)", 
+                                                               }}>
                             <div className = "project_content" style = {{backgroundImage: `url(${fruitGuideBackGround})`}}>
                                 <div id = "fruitScrollGuide" className = "project_inner"  >
                                     <h2>Game Price Guide</h2>
@@ -424,8 +423,7 @@ const HomePage = (props) =>{
                                         <img src={require('../images/nodejs_logo.png')}></img>
                                     </div>
                                     <div className = "project_info">
-                                        <button className = "project_link" onClick = {()=>{setProjectModalOpen1(true)}}>live demo</button> 
-                                        <button className = "project_github">Github</button>
+                                        <button className = "project_link" onClick = {()=>{setProjectModalOpen1(true)}}>Learn More</button>
                                     </div>
                                 </div>
                             </div>
@@ -437,8 +435,8 @@ const HomePage = (props) =>{
                                         <img src={require('../images/eclipse_logo.png')}></img>   
                                     </div>
                                     <div className = "project_info">
-                                        <button className = "project_link" onClick = {()=>{setProjectModalOpen2(true)}}>live demo</button> 
-                                        <button className = "project_github">Github</button>
+                                        <button className = "project_link" onClick = {()=>{setProjectModalOpen2(true)}}>Learn More</button> 
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -452,8 +450,8 @@ const HomePage = (props) =>{
 
                                     </div>
                                     <div className = "project_info">
-                                        <button className = "project_link" onClick = {()=>{setProjectModalOpen3(true)}}>live demo</button> 
-                                        <button className = "project_github">Github</button>
+                                        <button className = "project_link" onClick = {()=>{setProjectModalOpen3(true)}}>Learn More</button> 
+                                      
                                     </div>
                                 </div>
 
@@ -464,11 +462,29 @@ const HomePage = (props) =>{
                                     <div className = "project_tools">
                                         <img src={require('../images/django_logo.png')}></img>
                                         <img src={require('../images/python_logo.png')}></img>
+                                        <img src={require('../images/css_logo.png')}></img>
+                                        <img src={require('../images/nginx_logo.png')}></img>
                                     </div>
                                     <div className = "project_info">
                                         {/* <button className = "project_link">live demo</button> 
                                         <button className = "project_github">learn more</button> */}
-                                        <span>Under Development</span>
+                                        <button className = "project_link" style = {{backgroundColor:"black", pointerEvents: "none"}}>Under Development</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className = "project_content" style = {{backgroundImage : `url(${blogBackGround})`}}>
+                                <div id = "candyshop" className = "project_inner">
+                                    <h2>Personal Blog</h2>   
+                                    <div className = "project_tools">
+                                        <img src={require('../images/django_logo.png')}></img>
+                                        <img src={require('../images/python_logo.png')}></img>
+                                        <img src={require('../images/nginx_logo.png')}></img> 
+                                        <img src={require('../images/css_logo.png')}></img>
+                                    </div>
+                                    <div className = "project_info">
+                                        {/* <button className = "project_link">live demo</button> 
+                                        <button className = "project_github">learn more</button> */}
+                                        <button className = "project_link" style = {{backgroundColor:"black", pointerEvents: "none"}}>Under Development</button>
                                     </div>
                                 </div>
                             </div> 

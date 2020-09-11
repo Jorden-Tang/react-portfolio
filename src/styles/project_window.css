@@ -1,19 +1,23 @@
 .project_detail_window{
-    width: 40vw;
+    width: 1000px;
     height: 1000px;
-    position: absolute;
-    top: 70%;
+    position: fixed;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
     overflow: scroll;
     margin: 0px;
     padding: 0px;
     background-color: white;
-    
+    z-index: 3;
 }
-
-
 .project_detail_window button:hover{
     color: black;   
+}
+
+@media screen and (max-width: 1150px) {
+    .project_detail_window{
+        width: 500px;
+        height: 700px;
+    }
 }
