@@ -144,14 +144,13 @@ const HomePage = (props) =>{
             </a> 
         </div>
         <div className = "body" style = {{overflow: "hidden"}}>
-            <ProjectWindow setOnChange = {setProjectModalOpen1} onChange = {projectModalOpen1} images = {fruitImgs}>
+            <ProjectWindow link = "https://github.com/Jorden-Tang/React-Scroll-Price" setOnChange = {setProjectModalOpen1} onChange = {projectModalOpen1} images = {fruitImgs} autoPlay = {true}content = {"with 126 active users, Scroll Guide project provides search & analysis functionality for in-game items. User can search items with multiple parameters in real time. Users can gain access to game party appointment system by register an account."}>
+            </ProjectWindow>
+            <ProjectWindow link= "https://github.com/Jorden-Tang/2d_platform_rpg" setOnChange = {setProjectModalOpen2} onChange = {projectModalOpen2} images = {[]} video = {gameVideo}>
 
             </ProjectWindow>
-            <ProjectWindow setOnChange = {setProjectModalOpen2} onChange = {projectModalOpen2} images = {[]} video = {gameVideo}>
 
-            </ProjectWindow>
-
-            <ProjectWindow setOnChange = {setProjectModalOpen3} onChange = {projectModalOpen3} images = {porfImgs} widthRatio = {40}>
+            <ProjectWindow link="https://github.com/Jorden-Tang/react-portfolio" setOnChange = {setProjectModalOpen3} onChange = {projectModalOpen3} images = {porfImgs} widthRatio = {40} autoPlay = {false}>
 
             </ProjectWindow>
             <div className = "menu_bar"     
@@ -423,7 +422,8 @@ const HomePage = (props) =>{
                                         <img src={require('../images/nodejs_logo.png')}></img>
                                     </div>
                                     <div className = "project_info">
-                                        <button className = "project_link" onClick = {()=>{setProjectModalOpen1(true)}}>Learn More</button>
+                                        <button className = "project_link" onClick = {()=>{setProjectModalOpen1(true)}}> <i class="fas fa-book-open"></i> Learn More</button>
+                                        <button className = "project_link" onClick={()=> window.open("http://www.fruitscrollguide.ml", "_blank")}><i class="fas fa-external-link-alt"></i> Website Link</button>
                                     </div>
                                 </div>
                             </div>
@@ -435,7 +435,7 @@ const HomePage = (props) =>{
                                         <img src={require('../images/eclipse_logo.png')}></img>   
                                     </div>
                                     <div className = "project_info">
-                                        <button className = "project_link" onClick = {()=>{setProjectModalOpen2(true)}}>Learn More</button> 
+                                        <button className = "project_link" onClick = {()=>{setProjectModalOpen2(true)}}> <i class="fas fa-book-open"></i> Learn More</button> 
                                         
                                     </div>
                                 </div>
@@ -450,8 +450,8 @@ const HomePage = (props) =>{
 
                                     </div>
                                     <div className = "project_info">
-                                        <button className = "project_link" onClick = {()=>{setProjectModalOpen3(true)}}>Learn More</button> 
-                                      
+                                        <button className = "project_link" onClick = {()=>{setProjectModalOpen3(true)}}> <i class="fas fa-book-open"></i> Learn More</button> 
+                                        <button className = "project_link" onClick={()=>{window.scrollTo(0,0)}}><i class="fas fa-external-link-alt"></i> Website Link</button>
                                     </div>
                                 </div>
 
@@ -468,7 +468,7 @@ const HomePage = (props) =>{
                                     <div className = "project_info">
                                         {/* <button className = "project_link">live demo</button> 
                                         <button className = "project_github">learn more</button> */}
-                                        <button className = "project_link" style = {{backgroundColor:"black", pointerEvents: "none"}}>Under Development</button>
+                                        <button className = "project_link" style = {{backgroundColor:"black", pointerEvents: "none"}}><i class="far fa-keyboard"></i> Under Development</button>
                                     </div>
                                 </div>
                             </div>
@@ -484,7 +484,7 @@ const HomePage = (props) =>{
                                     <div className = "project_info">
                                         {/* <button className = "project_link">live demo</button> 
                                         <button className = "project_github">learn more</button> */}
-                                        <button className = "project_link" style = {{backgroundColor:"black", pointerEvents: "none"}}>Under Development</button>
+                                        <button className = "project_link" style = {{backgroundColor:"black", pointerEvents: "none"}}><i class="far fa-keyboard"></i> Under Development</button>
                                     </div>
                                 </div>
                             </div> 
