@@ -32,6 +32,9 @@ import gameVideo from '../images/2d_game/2dgame.mp4'
 
 const HomePage = (props) =>{
     const initialFormContent = {name: "", company : "", email: "", message: ""}
+    const fruitSkills = ["React.js", "JavaScript", "Express.js", "Node.js", "MongoDB", "VSCode", "NGINX", "AWS"]
+    const gameSKills = ["Java", "JVM", "JRE", "JDK", "Eclipse"]
+    const porfSkills = ["React.js", "GreenSock", "Node.js"]
     const [emailContent, setEmailContent] = useState(initialFormContent);
     const fruitImgs = [fruit1, fruit2, fruit3,fruit4,fruit5];
     const porfImgs = [porf1, porf2, porf3, porf4];
@@ -51,7 +54,6 @@ const HomePage = (props) =>{
     useEffect(()=>{
         gsap.from(intro, {duration: 1.5, ease: "bounce", y : -300, scale: 0.9, opacity: 0});
         gsap.from('#parallax h2',{duration: 2, ease: "bounce", x: 100, opacity: 0});
-
         gsap.from('.content img', 
             {scrollTrigger: {
                 trigger: '.timeline',
@@ -67,7 +69,7 @@ const HomePage = (props) =>{
 
         gsap.from('.skill_row', 
         {scrollTrigger: {
-            trigger: '#experience_start',
+            trigger: '.skills',
             start: "0px, 50%",
             end: "bottom, 40%",
             toggleActions: 'restart none reverse none',
@@ -144,13 +146,12 @@ const HomePage = (props) =>{
             </a> 
         </div>
         <div className = "body" style = {{overflow: "hidden"}}>
-            <ProjectWindow link = "https://github.com/Jorden-Tang/React-Scroll-Price" setOnChange = {setProjectModalOpen1} onChange = {projectModalOpen1} images = {fruitImgs} autoPlay = {true}content = {"with 126 active users, Scroll Guide project provides search & analysis functionality for in-game items. User can search items with multiple parameters in real time. Users can gain access to game party appointment system by register an account."}>
+            <ProjectWindow className = "project_window"  skills = {fruitSkills} link = "https://github.com/Jorden-Tang/React-Scroll-Price" setOnChange = {setProjectModalOpen1} onChange = {projectModalOpen1} images = {fruitImgs} autoPlay = {true} content = {"with 126 active users, Scroll Guide project provides search & analysis functionality for in-game items. User can search items with multiple parameters in real time. Users can gain access to game party appointment system by register an account. \n Test Email: test@test.com  Test Password: password "}>
             </ProjectWindow>
-            <ProjectWindow link= "https://github.com/Jorden-Tang/2d_platform_rpg" setOnChange = {setProjectModalOpen2} onChange = {projectModalOpen2} images = {[]} video = {gameVideo}>
+            <ProjectWindow className = "project_window" skills = {gameSKills} link= "https://github.com/Jorden-Tang/2d_platform_rpg" setOnChange = {setProjectModalOpen2} onChange = {projectModalOpen2} images = {[]} video = {gameVideo} content = {"This 2d platform game is developed using Eclipse and Java platform. Main Concepts such as Interface, Abstract Class, Dependency Injections are being practiced."}>
 
             </ProjectWindow>
-
-            <ProjectWindow link="https://github.com/Jorden-Tang/react-portfolio" setOnChange = {setProjectModalOpen3} onChange = {projectModalOpen3} images = {porfImgs} widthRatio = {40} autoPlay = {false}>
+            <ProjectWindow className = "project_window" skills = {porfSkills} title = "" link="https://github.com/Jorden-Tang/react-portfolio" setOnChange = {setProjectModalOpen3} onChange = {projectModalOpen3} images = {porfImgs} widthRatio = {40} autoPlay = {false} content = {"My portfolio site is developed using React.js.  Every component is coded from sratch. Animations and Effects are being achieved by GreenSock. Cracted with reponsive design in mind"}>
 
             </ProjectWindow>
             <div className = "menu_bar"     
@@ -422,7 +423,11 @@ const HomePage = (props) =>{
                                         <img src={require('../images/nodejs_logo.png')}></img>
                                     </div>
                                     <div className = "project_info">
-                                        <button className = "project_link" onClick = {()=>{setProjectModalOpen1(true)}}> <i class="fas fa-book-open"></i> Learn More</button>
+                                        <button className = "project_link" onClick = {()=>{
+                                                    setProjectModalOpen1(true);
+                                                    gsap.from('.project_window', {duration: 1.5, scale: 0.1, opacity: 0});
+
+                                        }}> <i class="fas fa-book-open"></i> Learn More</button>
                                         <button className = "project_link" onClick={()=> window.open("http://www.fruitscrollguide.ml", "_blank")}><i class="fas fa-external-link-alt"></i> Website Link</button>
                                     </div>
                                 </div>
@@ -513,6 +518,9 @@ const HomePage = (props) =>{
                     <hr></hr>
                     <button onClick={onFormSubmit}>Submit</button>
                 </form>  
+            </div>
+            <div id = "footer">
+                
             </div>
         </div>
         </>

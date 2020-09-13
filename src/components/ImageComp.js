@@ -5,7 +5,8 @@ const ImageComp = ({src, width}) =>{
 
     let imgStyle = {
         width: width == undefined ? '100%' : `${width}%`,
-        height: "100%"
+        height: "100%",
+        backgroundColor: "white",
     };
 
 

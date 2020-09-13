@@ -1,6 +1,6 @@
 .project_detail_window{
     width: 1000px;
-    height: 800px;
+    height: 900px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -17,24 +17,29 @@
 
 .project_description{
     width: 100%;
-    height: 160px;
-    background-color: rgba(200,200,200,0.3);
+    height: auto;
+    
     padding-top: 20px;
     padding-bottom: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    
 }
 
 .project_description p{
     width: 700px;
     height: auto;
-    padding: 15px;
-    font-size: 19px;
+    padding: 20px;
+    font-size: 20px;
     font-family: sans-serif;
     line-height: 1.5;
+    position: relative;
+    border-radius: 10px;
+    
 }
+
 
 .project_description div{
     display: flex;
@@ -54,7 +59,6 @@
     color: white;
     text-decoration: none; 
     transition: 0.3s;
-    margin-top: 15px;
 }
 
 .project_description a:hover{
@@ -63,10 +67,46 @@
     transition: 0.3s;
 }
 
+#skill_tag_section{
+    width: 60%;
+    margin: 30px auto 10px auto;
+    height: auto;
+}
+
+.skill_tag{
+    width: 80px;
+    height: 20px;
+    padding: 3px;
+    background-color: rgb(52 94 108);
+    color:  white;
+    border-radius: 5px;
+    font-family: 'Balsamiq Sans', cursive;
+    display: inline-block;
+    margin: 5px;
+}
+
+
 
 @media screen and (max-width: 1150px) {
     .project_detail_window{
         width: 500px;
         height: 700px;
     }
+
+    .project_description{
+        width: 100%;
+        height: 44%;
+        flex-direction: column;
+    }
+
+    .project_description p{
+        width: 90%;
+    }
+    .project_description div{
+        height: auto;
+    }
+    .project_description a{
+        margin-top: 0px;
+    }
+
 }
