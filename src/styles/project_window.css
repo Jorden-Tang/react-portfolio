@@ -10,8 +10,8 @@
     overflow: scroll;
     margin: 0px;
     padding: 0px;
-    background: rgb(186,185,205);
-background: linear-gradient(90deg, rgba(186,185,205,1) 0%, rgba(213,213,227,1) 19%, rgba(127,213,208,1) 100%);
+    background: rgb(221,221,221);
+    background: linear-gradient(270deg, rgba(221,221,221,1) 0%, rgba(213,213,227,1) 19%, rgba(153,195,193,1) 100%);
     z-index: 3;
     background-image: ();
 }
@@ -112,11 +112,15 @@ background: linear-gradient(90deg, rgba(186,185,205,1) 0%, rgba(213,213,227,1) 1
     .project_description p{
         width: 90%;
     }
-    .project_description div{
-        height: auto;
-    }
+
     .project_description a{
         margin-top: 0px;
+    }
+    .project_description div{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: auto;
     }
 
 }

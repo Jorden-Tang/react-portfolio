@@ -445,7 +445,6 @@ const HomePage = (props) =>{
                                                     gsap.from('.project_window', {duration: 1.5, scale: 0.1, opacity: 0});
 
                                         }}> <i class="fas fa-book-open"></i> Learn More</button>
-                                        <button className = "project_link" onClick={()=> window.open("http://www.fruitscrollguide.ml", "_blank")}><i class="fas fa-external-link-alt"></i> Website Link</button>
                                     </div>
                                 </div>
                             </div>
@@ -458,7 +457,6 @@ const HomePage = (props) =>{
                                     </div>
                                     <div className = "project_info">
                                         <button className = "project_link" onClick = {()=>{setProjectModalOpen2(true)}}> <i class="fas fa-book-open"></i> Learn More</button> 
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -473,7 +471,6 @@ const HomePage = (props) =>{
                                     </div>
                                     <div className = "project_info">
                                         <button className = "project_link" onClick = {()=>{setProjectModalOpen3(true)}}> <i class="fas fa-book-open"></i> Learn More</button> 
-                                        <button className = "project_link" onClick={()=>{window.scrollTo(0,0)}}><i class="fas fa-external-link-alt"></i> Website Link</button>
                                     </div>
                                 </div>
 
