@@ -532,7 +532,9 @@
     justify-content: space-evenly;
     border-radius: 10px;
     transition: 0.3s;
+    
 }
+
 
 .project_content:hover .project_inner{
     opacity : 0.9;

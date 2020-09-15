@@ -28,16 +28,38 @@ import gameVideo from '../images/2d_game/2dgame.mp4'
 
 
 
-
-
 const HomePage = (props) =>{
     const initialFormContent = {name: "", company : "", email: "", message: ""}
-    const fruitSkills = ["React.js", "JavaScript", "Express.js", "Node.js", "MongoDB", "VSCode", "NGINX", "AWS"]
-    const gameSKills = ["Java", "JVM", "JRE", "JDK", "Eclipse"]
-    const porfSkills = ["React.js", "GreenSock", "Node.js"]
+    const fruitProps = {
+        skills: ["React.js", "JavaScript", "Express.js", "Node.js", "MongoDB", "VSCode", "NGINX", "AWS"],
+        link: {website: "https://www.fruitscrollguide.ml", github: "https://github.com/Jorden-Tang/React-Scroll-Price"},
+        title: "Fruit Scroll Guide",
+        content : "with 126 active users, Scroll Guide project provides search & analysis functionality for in-game items. User can search items with multiple parameters in real time. Users can gain access to game party appointment system by register an account. \n Test Email: test@test.com  Test Password: password ",
+        images: [fruit1, fruit2, fruit3,fruit4,fruit5],
+        autoPlay: true,
+    }
+
+    const gameProps = {
+        skills: ["Java", "JVM", "JRE", "JDK", "Eclipse"],
+        link: {website: "", github: "https://github.com/Jorden-Tang/2d_platform_rpg"},
+        title: "Java Adventure Game",
+        content : "This 2d platform game is developed using Eclipse and Java platform. Main Concepts such as Interface, Abstract Class, Dependency Injections are being practiced.",
+        images: [],
+        video : gameVideo,
+        
+    }
+
+    const porfProps = {
+        skills: ["React.js", "GreenSock", "Node.js"],
+        link: {website: "", github: "https://github.com/Jorden-Tang/react-portfolio"},
+        title: "Porfolio",
+        content : "My portfolio site is developed using React.js.  Every component is coded from sratch. Animations and Effects are being achieved by GreenSock. Cracted with reponsive design in mind",
+        images : [porf1, porf2, porf3, porf4],
+        autoPlay: false,
+        widthRatio :40,
+    }
+
     const [emailContent, setEmailContent] = useState(initialFormContent);
-    const fruitImgs = [fruit1, fruit2, fruit3,fruit4,fruit5];
-    const porfImgs = [porf1, porf2, porf3, porf4];
     const [navBackground, setNavBackground] = useState(false)
     const [sideNavDisplay, setSideNavDisplay] = useState(true);
     const [projectModalOpen1, setProjectModalOpen1] = useState(false);
@@ -87,11 +109,6 @@ const HomePage = (props) =>{
         
     }, [])
 
-    if(fruitImgs == undefined){
-        return (
-            <div>Loading</div>
-        )
-    }
 
     const onHomeClick = () =>{
         window.scrollTo(0,0);
@@ -146,14 +163,14 @@ const HomePage = (props) =>{
             </a> 
         </div>
         <div className = "body" style = {{overflow: "hidden"}}>
-            <ProjectWindow className = "project_window"  skills = {fruitSkills} link = "https://github.com/Jorden-Tang/React-Scroll-Price" setOnChange = {setProjectModalOpen1} onChange = {projectModalOpen1} images = {fruitImgs} autoPlay = {true} content = {"with 126 active users, Scroll Guide project provides search & analysis functionality for in-game items. User can search items with multiple parameters in real time. Users can gain access to game party appointment system by register an account. \n Test Email: test@test.com  Test Password: password "}>
+            <ProjectWindow className = "project_window"   setOnChange = {setProjectModalOpen1} onChange = {projectModalOpen1} prop = {fruitProps}>
             </ProjectWindow>
-            <ProjectWindow className = "project_window" skills = {gameSKills} link= "https://github.com/Jorden-Tang/2d_platform_rpg" setOnChange = {setProjectModalOpen2} onChange = {projectModalOpen2} images = {[]} video = {gameVideo} content = {"This 2d platform game is developed using Eclipse and Java platform. Main Concepts such as Interface, Abstract Class, Dependency Injections are being practiced."}>
+            <ProjectWindow className = "project_window" setOnChange = {setProjectModalOpen2} onChange = {projectModalOpen2} prop = {gameProps}>
 
             </ProjectWindow>
-            <ProjectWindow className = "project_window" skills = {porfSkills} title = "" link="https://github.com/Jorden-Tang/react-portfolio" setOnChange = {setProjectModalOpen3} onChange = {projectModalOpen3} images = {porfImgs} widthRatio = {40} autoPlay = {false} content = {"My portfolio site is developed using React.js.  Every component is coded from sratch. Animations and Effects are being achieved by GreenSock. Cracted with reponsive design in mind"}>
-
+            <ProjectWindow className = "project_window" setOnChange = {setProjectModalOpen3} onChange = {projectModalOpen3}  prop = {porfProps}>
             </ProjectWindow>
+
             <div className = "menu_bar"     
                 style={{ transition: '1s ease' , backgroundColor: navBackground ? 'white' : 'transparent', color: navBackground ? 'black': 'white', boxShadow:  navBackground ? '0px 10px 30px 1px rgba(0,0,0,0.3)': ''}}>
                 <div id = "logo" onClick= {onHomeClick}>

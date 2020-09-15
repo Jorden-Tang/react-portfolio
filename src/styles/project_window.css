@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
 .project_detail_window{
     width: 1000px;
-    height: 900px;
+    height: auto;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -8,8 +10,10 @@
     overflow: scroll;
     margin: 0px;
     padding: 0px;
-    background-color: white;
+    background: rgb(186,185,205);
+background: linear-gradient(90deg, rgba(186,185,205,1) 0%, rgba(213,213,227,1) 19%, rgba(127,213,208,1) 100%);
     z-index: 3;
+    background-image: ();
 }
 .project_detail_window button:hover{
     color: black;   
@@ -18,9 +22,6 @@
 .project_description{
     width: 100%;
     height: auto;
-    
-    padding-top: 20px;
-    padding-bottom: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -33,7 +34,8 @@
     height: auto;
     padding: 20px;
     font-size: 20px;
-    font-family: sans-serif;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
     line-height: 1.5;
     position: relative;
     border-radius: 10px;
@@ -45,13 +47,14 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
+    height: auto;
 }
 
 .project_description a{
     width: 150px;
     height: 30px;
     border: 1px solid rgb(17, 24, 17);
+    margin: 5px;
     font-size: 20px;
     border-radius: 5px;
     padding: 5px;
@@ -68,8 +71,8 @@
 }
 
 #skill_tag_section{
-    width: 60%;
-    margin: 30px auto 10px auto;
+    width: 80%;
+    margin: 20px auto auto auto;
     height: auto;
 }
 
@@ -85,12 +88,19 @@
     margin: 5px;
 }
 
+.project_detail_window h2{
+    height: auto;
+    vertical-align: bottom;
+    font-family: 'Rock Salt', cursive;
+    font-size: 35px;
+}
+
 
 
 @media screen and (max-width: 1150px) {
     .project_detail_window{
         width: 500px;
-        height: 700px;
+        height: auto;
     }
 
     .project_description{

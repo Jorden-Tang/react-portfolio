@@ -7,10 +7,11 @@ const Carousel = ({imagesArr, widthRatio, autoPlay}) =>{
   
     const [x, setX] = useState(-100);
     const [activeIndex, setactiveIndex] = useState(0);
-
+    const [pause, setPause] = useState(!autoPlay);
     const autoPlayRef = useRef();
     const transitionRef = useRef();
     const totalLength = imagesArr.length;
+    let interval = undefined;
     const  [sliderArray, setSliderArray] = useState([<ImageComp width = {widthRatio} src = {imagesArr[imagesArr.length - 1]}></ImageComp>,
         <ImageComp width = {widthRatio} src = {imagesArr[0]}></ImageComp>, 
         <ImageComp width = {widthRatio} src = {imagesArr[1]}></ImageComp>]);
@@ -28,7 +29,9 @@ const Carousel = ({imagesArr, widthRatio, autoPlay}) =>{
     
     useEffect(()=>{
         const play = ()=>{
-            autoPlayRef.current();
+            if(!pause){
+                autoPlayRef.current();
+            }
         }
         // const smooth = ()=>{
         //     transitionRef.current();
@@ -36,14 +39,14 @@ const Carousel = ({imagesArr, widthRatio, autoPlay}) =>{
 
         // const transitionEnd = window.addEventListener('transitionend', smooth);
 
-        if(autoPlay){
-            const interval = setInterval(play, 3000)
+        if(play){
+            interval = setInterval(play, 3000)
             return ()=> clearInterval(interval);
         }
         // return () => { window.removeEventListener(transitionEnd)};
-    },[]);
+    },[pause]);
 
-    if(imagesArr == undefined){
+    if(imagesArr === undefined || pause === undefined){
         return (
             <div>Oops</div>
         )
@@ -59,15 +62,15 @@ const Carousel = ({imagesArr, widthRatio, autoPlay}) =>{
     const goLeft = () =>{ 
             setX(-(((activeIndex - 1 + totalLength) % totalLength) * 100));
             setactiveIndex((activeIndex - 1 + totalLength) % totalLength); 
-            
-            
-            
     }
 
     const goRight = () =>{
             setX(-(((activeIndex + 1) % totalLength) * 100));
             setactiveIndex((activeIndex + 1) % totalLength);   
-    
+    }
+
+    const handlePause = ()=>{
+        setPause(!pause);
     }
 
     return(
@@ -76,20 +79,24 @@ const Carousel = ({imagesArr, widthRatio, autoPlay}) =>{
                 return(
                     <>
                     <div className = "slide"  key={index} style = {{transform: `translateX(${x}%)`}}>
-                        {item} 
+                        {item}
+                            {
+                            autoPlay?
+                           <button id = "pause" onClick = {handlePause}> 
+                               {pause ? <i class="fas fa-play"></i> :  <i class="fas fa-pause"></i>
+
+                            }
+                            </button>
+
+                            :
+                            <></>
+                            }   
                     </div>
                     </>
                 )
             })}
-            {
-             autoPlay ? 
-             <></>
-             :
-             <>
             <button id = "left" onClick = {goLeft}><i class="fas fa-chevron-left" ></i></button>
             <button id = "right" onClick = {goRight}><i class="fas fa-chevron-right"></i></button>
-            </>
-            }   
         </div>   
     )
 }
