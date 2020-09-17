@@ -32,7 +32,7 @@ const HomePage = (props) =>{
     const initialFormContent = {name: "", company : "", email: "", message: ""}
     const fruitProps = {
         skills: ["React.js", "JavaScript", "Express.js", "Node.js", "MongoDB", "VSCode", "NGINX", "AWS"],
-        link: {website: "https://www.fruitscrollguide.ml", github: "https://github.com/Jorden-Tang/React-Scroll-Price"},
+        link: {website: "http://www.fruitscrollguide.ml", github: "https://github.com/Jorden-Tang/React-Scroll-Price"},
         title: "Fruit Scroll Guide",
         content : "with 126 active users, Scroll Guide project provides search & analysis functionality for in-game items. User can search items with multiple parameters in real time. Users can gain access to game party appointment system by register an account. \n Test Email: test@test.com  Test Password: password ",
         images: [fruit1, fruit2, fruit3,fruit4,fruit5],
@@ -177,7 +177,7 @@ const HomePage = (props) =>{
                     Tang
                 </div>
                 <div id = "nav_link" >
-                    <a href= "#experience_start" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>TimeLine
+                    <a href= "#experience_section" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>TimeLine
                     <img src={require('../images/down_arrow.svg')} />
                     </a>
                     <a href= "#project_section" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>Projects
@@ -201,10 +201,13 @@ const HomePage = (props) =>{
                         <h2><span style = {{color: "#dc143c"}}>PASSIONATE</span> web developer, software engineer residing in LA <i class="fas fa-city"></i></h2>
                 </div>
             </div>
-            <svg  style = {{backgroundColor: "#345e6c"}}  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300"><path fill="rgb(230 233 190)" fill-opacity="1" d="M0,192L60,192C120,192,240,192,360,197.3C480,203,600,213,720,234.7C840,256,960,288,1080,293.3C1200,299,1320,277,1380,266.7L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+
+            <svg id = "experience_start"style = {{backgroundColor: "#345e6c"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="rgb(230 233 190)" fill-opacity="1" d="M0,160L80,176C160,192,320,224,480,218.7C640,213,800,171,960,154.7C1120,139,1280,149,1360,154.7L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+            </svg>
             <div className = "section" id = "experience_section">
-                <div className = "timeline" id = "experience_start ">
-                    <h1 id = "experience_start"></h1>
+                <div className = "experience_background" ></div>
+                <div className = "timeline" >
                     <ul>
                         <li>
                             <div className = "content">
@@ -424,10 +427,11 @@ const HomePage = (props) =>{
                 </div>
             </div>
             <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style = {{ zIndex: "-2",position: "relative",backgroundColor: "rgb(230, 233, 190)"}}><path fill="rgb(63,68,77)" fill-opacity="1" d="M0,128L60,144C120,160,240,192,360,202.7C480,213,600,203,720,186.7C840,171,960,149,1080,138.7C1200,128,1320,128,1380,128L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
-            <div  className = "section" id = "project_section">
+            <  div  className = "section" id = "project_section">
                 <div  className = "project_container"  style = {{pointerEvents : projectModalOpen1 || projectModalOpen2 || projectModalOpen3 ? "none" : "all" , 
                                                                  filter: projectModalOpen1 || projectModalOpen2 || projectModalOpen3 ? "blur(30px)" : "blur(0px)", 
                                                                }}>
+                            <div id = "project_background"></div>
                             <div className = "project_content" style = {{backgroundImage: `url(${fruitGuideBackGround})`}}>
                                 <div id = "fruitScrollGuide" className = "project_inner"  >
                                     <h2>Game Price Guide</h2>
