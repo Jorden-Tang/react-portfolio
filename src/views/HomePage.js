@@ -92,7 +92,7 @@ const HomePage = (props) =>{
         gsap.from('.skill_row', 
         {scrollTrigger: {
             trigger: '.skills',
-            start: "0px, 50%",
+            start: "0px, 60%",
             end: "bottom, 40%",
             toggleActions: 'restart none reverse none',
         }, 
@@ -210,7 +210,7 @@ const HomePage = (props) =>{
                             <div className = "content">
                                 <img  src = {require('../images/leetcode_logo.png')}></img>
                                 <div>
-                                <h2> Seeking Opportunity</h2>
+                                <h2 className = "content_header"> Seeking Opportunity</h2>
                                 <span>Working on personal projects on Github, doing LeetCode questions</span>
                                 </div>
                                 <p>2020-Now</p>
@@ -220,7 +220,7 @@ const HomePage = (props) =>{
                             <div className = "content">
                                 <img src = {require('../images/dojo_logo.png')}></img>
                                 <div>
-                                <h2>Coding Dojo</h2>
+                                <h2 className = "content_header">Coding Dojo</h2>
                                 <span>Full-Stack Web Development BootCamp. 1000 hands-on hours on Django, SpringBoot, React.js Stacks</span>
                                 </div>
                                 <p>2019-2020</p>
@@ -230,7 +230,7 @@ const HomePage = (props) =>{
                             <div className = "content">
                                 <img  src = {require('../images/ucsd_logo.png')}></img>
                                 <div>
-                                <h2> UCSD Under Grad</h2>
+                                <h2 className = "content_header"> UCSD Under Grad</h2>
                                 <span> Bachelor Degree Of Science in Mathmatics-Computer Science, Focus on Software Engineering And Programming</span>
                                 </div>
                                 <p>2016-2019</p>
@@ -240,7 +240,7 @@ const HomePage = (props) =>{
                             <div className = "content">
                                 <img  src = {require('../images/citrus_college_logo.png')} ></img>
                                 <div>
-                                <h2> College Student</h2>
+                                <h2 className = "content_header"> College Student</h2>
                                 <span> Associate Degree Of  Mathmatics, Calculus, Linear Algebra, Introduction To Programming</span>
                                 </div>
                                 <p>2013-2015</p>
@@ -249,7 +249,7 @@ const HomePage = (props) =>{
                     </ul>
                 </div>
                 <div className = "skills" >
-                    <div>
+                    <div className = "skill_tags_section">
                     <div className = "skill_row row_odd" >
                         <img className = "skill_img si_java" src = {require('../images/java_logo.png')}></img>
                         <div className ="java_detail skill_details row_1" >

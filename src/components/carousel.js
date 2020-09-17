@@ -59,42 +59,52 @@ const Carousel = ({imagesArr, widthRatio, autoPlay}) =>{
     //     console.log(sliderArray);
     // }
 
-    const goLeft = () =>{ 
+    const goLeft = (e) =>{ 
+            if(e !== undefined){
+                e.preventDefault();
+            }
             setX(-(((activeIndex - 1 + totalLength) % totalLength) * 100));
             setactiveIndex((activeIndex - 1 + totalLength) % totalLength); 
     }
 
-    const goRight = () =>{
+    const goRight = (e) =>{
+            if(e !== undefined){
+                e.preventDefault();
+            }
             setX(-(((activeIndex + 1) % totalLength) * 100));
             setactiveIndex((activeIndex + 1) % totalLength);   
     }
 
-    const handlePause = ()=>{
+    const handlePause = (e)=>{
+        e.preventDefault();
         setPause(!pause);
     }
 
     return(
         <div className = "slider">
-            {_sliderArray.map((item,index)=>{
+                        {
+                autoPlay?
+                <button id = "pause" onClick = {handlePause}> 
+                    {pause ? <i class="fas fa-play"></i> :  <i class="fas fa-pause"></i>
+
+                }
+                </button>
+
+                :
+                <></>
+            }
+   
+                {_sliderArray.map((item,index)=>{
                 return(
                     <>
                     <div className = "slide"  key={index} style = {{transform: `translateX(${x}%)`}}>
                         {item}
-                            {
-                            autoPlay?
-                           <button id = "pause" onClick = {handlePause}> 
-                               {pause ? <i class="fas fa-play"></i> :  <i class="fas fa-pause"></i>
 
-                            }
-                            </button>
-
-                            :
-                            <></>
-                            }   
                     </div>
                     </>
                 )
             })}
+
             <button id = "left" onClick = {goLeft}><i class="fas fa-chevron-left" ></i></button>
             <button id = "right" onClick = {goRight}><i class="fas fa-chevron-right"></i></button>
         </div>   
