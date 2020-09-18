@@ -76,7 +76,7 @@ const HomePage = (props) =>{
     useEffect(()=>{
         gsap.from(intro, {duration: 1.5, ease: "bounce", y : -300, scale: 0.9, opacity: 0});
         gsap.from('#parallax h2',{duration: 2, ease: "bounce", x: 100, opacity: 0});
-        gsap.from('.content img', 
+        gsap.from('.content', 
             {scrollTrigger: {
                 trigger: '.timeline',
                 start: "0px, 50%",
@@ -92,7 +92,7 @@ const HomePage = (props) =>{
         gsap.from('.skill_row', 
         {scrollTrigger: {
             trigger: '.skills',
-            start: "0px, 60%",
+            start: "0px, 50%",
             end: "bottom, 40%",
             toggleActions: 'restart none reverse none',
         }, 
@@ -101,7 +101,7 @@ const HomePage = (props) =>{
         gsap.from('.project_content', 
         {scrollTrigger: {
             trigger: '#project_section',
-            start: "0px, 40%",
+            start: "0px, 60%",
             end: "bottom, 40%",
             toggleActions: 'restart none reverse none',
         }, 
@@ -202,9 +202,7 @@ const HomePage = (props) =>{
                 </div>
             </div>
 
-            <svg id = "experience_start"style = {{backgroundColor: "#345e6c"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                <path fill="rgb(230 233 190)" fill-opacity="1" d="M0,160L80,176C160,192,320,224,480,218.7C640,213,800,171,960,154.7C1120,139,1280,149,1360,154.7L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
-            </svg>
+   
             <div className = "section" id = "experience_section">
                 <div className = "experience_background" ></div>
                 <div className = "timeline" >
@@ -213,7 +211,7 @@ const HomePage = (props) =>{
                             <div className = "content">
                                 <img  src = {require('../images/leetcode_logo.png')}></img>
                                 <div>
-                                <h2 className = "content_header"> Seeking Opportunity</h2>
+                                <h2 className = "content_header">Seeking Position</h2>
                                 <span>Working on personal projects on Github, doing LeetCode questions</span>
                                 </div>
                                 <p>2020-Now</p>
@@ -426,7 +424,6 @@ const HomePage = (props) =>{
                     </div>
                 </div>
             </div>
-            <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style = {{ zIndex: "-2",position: "relative",backgroundColor: "rgb(230, 233, 190)"}}><path fill="rgb(63,68,77)" fill-opacity="1" d="M0,128L60,144C120,160,240,192,360,202.7C480,213,600,203,720,186.7C840,171,960,149,1080,138.7C1200,128,1320,128,1380,128L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
             <  div  className = "section" id = "project_section">
                 <div  className = "project_container"  style = {{pointerEvents : projectModalOpen1 || projectModalOpen2 || projectModalOpen3 ? "none" : "all" , 
                                                                  filter: projectModalOpen1 || projectModalOpen2 || projectModalOpen3 ? "blur(30px)" : "blur(0px)", 
