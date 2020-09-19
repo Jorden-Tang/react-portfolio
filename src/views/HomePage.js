@@ -1,5 +1,6 @@
 import React from 'react'
 import {useState, useRef, useEffect} from 'react'
+import Tilt from 'react-parallax-tilt'
 import  ProjectWindow from '../components/project_window'
 import '../styles/HomePageStyle.css'
 import '../styles/InteractiveBG.css'
@@ -429,6 +430,7 @@ const HomePage = (props) =>{
                                                                  filter: projectModalOpen1 || projectModalOpen2 || projectModalOpen3 ? "blur(30px)" : "blur(0px)", 
                                                                }}>
                             <div id = "project_background"></div>
+                            <Tilt style = {{width: "500px", display: "inline-block" }}>
                             <div className = "project_content" style = {{backgroundImage: `url(${fruitGuideBackGround})`}}>
                                 <div id = "fruitScrollGuide" className = "project_inner"  >
                                     <h2>Game Price Guide</h2>
@@ -449,6 +451,9 @@ const HomePage = (props) =>{
                                     </div>
                                 </div>
                             </div>
+                           </Tilt>
+
+                            <Tilt style = {{width: "500px", display: "inline-block" }}>
                             <div className = "project_content" style = {{backgroundImage: `url(${GameBackGround})`}}>
                                 <div id = "plat" className = "project_inner">
                                     <h2>Simple Platform Game</h2>                   
@@ -461,7 +466,9 @@ const HomePage = (props) =>{
                                     </div>
                                 </div>
                             </div>
-                             
+                            </Tilt>
+                            
+                            <Tilt style = {{width: "500px", display: "inline-block" }}>
                             <div className = "project_content" style = {{backgroundImage : `url(${portfolioBackGround})`}}>
                                 <div id = "2dplatform" className = "project_inner">
                                     <h2>Portfolio</h2>                                
@@ -475,7 +482,9 @@ const HomePage = (props) =>{
                                     </div>
                                 </div>
 
-                            </div> 
+                            </div>
+                            </Tilt>
+                            <Tilt style = {{width: "500px", display: "inline-block" }}> 
                             <div className = "project_content" style = {{backgroundImage : `url(${candyShopBackGround})`}}>
                                 <div id = "candyshop" className = "project_inner">
                                     <h2>Candy Shop</h2>   
@@ -492,6 +501,8 @@ const HomePage = (props) =>{
                                     </div>
                                 </div>
                             </div>
+                            </Tilt>
+                            <Tilt style = {{width: "500px", display: "inline-block" }}> 
                             <div className = "project_content" style = {{backgroundImage : `url(${blogBackGround})`}}>
                                 <div id = "candyshop" className = "project_inner">
                                     <h2>Personal Blog</h2>   
@@ -507,10 +518,14 @@ const HomePage = (props) =>{
                                         <button className = "project_link" style = {{backgroundColor:"black", pointerEvents: "none"}}><i class="far fa-keyboard"></i> Under Development</button>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
+                            </Tilt>
                 </div>
             </div>
-            <svg  style = {{backgroundColor: "cadetblue"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgb(63,68,77)" fill-opacity="1" d="M0,96L720,288L1440,128L1440,0L720,0L0,0Z"></path></svg>
+
+            <svg style = {{backgroundColor: "cadetblue"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="rgb(231, 229, 229)" fill-opacity="1" d="M0,64L720,160L1440,64L1440,0L720,0L0,0Z"></path>
+            </svg>
             <div className = "section" id = "contact_section"> 
                 <h1>Get In Touch</h1>
                 <form id = "contact_start">
