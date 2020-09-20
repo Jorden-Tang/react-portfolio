@@ -93,11 +93,11 @@ const HomePage = (props) =>{
         gsap.from('.skill_row', 
         {scrollTrigger: {
             trigger: '.skills',
-            start: "0px, 50%",
+            start: "0px, 60%",
             end: "bottom, 40%",
             toggleActions: 'restart none reverse none',
         }, 
-        duration: 1, ease: "power", y: 50, opacity: 0, stagger: 0.2})
+        duration: 1, ease: "power",  y: 40, opacity: 0, stagger: 0.2})
 
         gsap.from('.project_content', 
         {scrollTrigger: {
@@ -523,31 +523,35 @@ const HomePage = (props) =>{
                 </div>
             </div>
 
-            <svg style = {{backgroundColor: "cadetblue"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <svg  style = {{backgroundColor: "white"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path fill="rgb(231, 229, 229)" fill-opacity="1" d="M0,64L720,160L1440,64L1440,0L720,0L0,0Z"></path>
             </svg>
-            <div className = "section" id = "contact_section"> 
-                <h1>Get In Touch</h1>
-                <form id = "contact_start">
-                    <div id = "name_input">
-                        <label>Name :</label>
-                        <input type="text" name = "name" value = {emailContent.name} onChange = {onFormChange}></input>
+            <div className = "section" id = "contact_section">
+                <div id = "contact_start">
+                    <div id="contact_info">
+                         
                     </div>
-                    <div id = "company_input">
-                        <label>Company :</label>
-                        <input type="text" name = "company" value = {emailContent.company} onChange = {onFormChange}></input>
-                    </div>
-                    <div id = "email_input">
-                        <label>Email :</label>
-                        <input type="text" name = "email"  value = {emailContent.email} onChange = {onFormChange}></input>
-                    </div>
-                    <div id = "message_input">
-                        <label>Message :</label>
-                        <textarea name = "message" value = {emailContent.message} onChange = {onFormChange}></textarea>
-                    </div>
-                    <hr></hr>
-                    <button onClick={onFormSubmit}>Submit</button>
-                </form>  
+                    <form id = "contact_form">
+                        <h1>Let's Connect!</h1>
+                        <div>
+                            <label>TELL ME YOUR NAME *</label>
+                            <input placeholder = "(First Name, Last Name)"type="text" name = "name" value = {emailContent.name} onChange = {onFormChange}></input>
+                        </div>
+                        <div >
+                            <label>COMPANY *</label>
+                            <input placeholder = "Ex: Microsoft"type="text" name = "company" value = {emailContent.company} onChange = {onFormChange}></input>
+                        </div>
+                        <div >
+                            <label>ENTER YOUR EMAIL *</label>
+                            <input placeholder = "Ex: JordenTang@123.com"type="text" name = "email"  value = {emailContent.email} onChange = {onFormChange}></input>
+                        </div>
+                        <div >
+                            <label>MESSAGE *</label>
+                            <textarea placeholder = "Write A Message" name = "message" value = {emailContent.message} onChange = {onFormChange}></textarea>
+                        </div>
+                        <button id = "submit_button" onClick={onFormSubmit}>Submit</button>
+                    </form>  
+                </div>
             </div>
             <div id = "footer">
                 
