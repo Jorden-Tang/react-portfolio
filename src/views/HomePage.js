@@ -529,7 +529,24 @@ const HomePage = (props) =>{
             <div className = "section" id = "contact_section">
                 <div id = "contact_start">
                     <div id="contact_info">
-                         
+                        <div className = "contact_info_row">
+                              <div>
+                               <i class="fas fa-phone-volume"></i>    Lets Talk
+                              </div>
+                              <p>+1 626-354-4112</p>  
+                        </div>
+                        <div className = "contact_info_row">
+                              <div>
+                                <i class="fas fa-envelope"></i>    Send Email
+                              </div>
+                              <p>JordenTangwork@gmail.com</p>  
+                        </div>
+                        <div className = "contact_info_row">
+                              <div>
+                                <i class="fab fa-linkedin"></i>    Linkedin Message
+                              </div>
+                              <p>linkedin.com/in/jorden-tang-6b329a196</p>  
+                        </div>
                     </div>
                     <form id = "contact_form">
                         <h1>Let's Connect!</h1>
@@ -554,7 +571,7 @@ const HomePage = (props) =>{
                 </div>
             </div>
             <div id = "footer">
-                
+                    
             </div>
         </div>
         </>
