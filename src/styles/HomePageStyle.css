@@ -53,6 +53,15 @@
     transition: 0.2s;
 }
 
+
+
+.menu_bar_desktop_style{
+
+}
+.menu_bar_mobile_style{
+
+}
+
 #parallax{
     background-color: #345e6c;
     height: 100vh;
@@ -139,8 +148,6 @@
     padding-left: 5vw;
     padding-right: 5vw;
     height: 60px;
-    background-color: rgba(219, 212, 212, 0,5);
-    color: white;
     /* background-color: darkslategray; */
     display: flex;
     align-items: center;
@@ -148,7 +155,25 @@
     justify-content: space-between;
     position: fixed;
     z-index: 1;
+    transition: 0.5s;
+}
 
+.menu_bar_scrolled_style{
+    background-color:   rgb(42, 123, 124);
+    box-shadow: 0px 10px 30px 1px rgba(0,0,0,0.3);
+    color: white;
+    position: fixed;
+    z-index: 1;
+    
+
+}
+
+.menu_bar_static_style{
+    background-color: transparent;
+    color: white;
+    position: fixed;
+    z-index: 1;
+    height: 60px;
 }
 
 .menu_bar a{
@@ -212,7 +237,7 @@
     font-size: 3rem;
 }
 
-#nav_link{
+.nav_link{
     width: 350px;
     font-family: 'Lato', sans-serif, sans-serif;
     display: flex;
@@ -220,10 +245,52 @@
     flex-direction: row;
     justify-content: space-between;
     font-family: 'Ubuntu', sans-serif;
+    transition: 0.3s;
+    background-color: transparent;
 }
 
-#nav_link a{
+.nav_link_button_clicked{
+    transition: 0.5s;
+    
+}
+
+.nav_link_disable{
+    height: 0px;
+    display: none;
+}
+
+
+
+.nav_link a{
     font-size: 18px;
+    text-align:  left;
+}
+
+.menu_bar button{
+    width: 100%;
+    height: 50px;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    color:rgb(180, 175, 175);
+    display: none;
+    transition: 0.5s;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+   
+    padding-left: 20px;
+    text-align: left;
+}
+
+.menu_button_scrolled{
+    background-color: rgb(42, 123, 124); 
+}
+
+.menu_button_static{
+    background-color: transparent;
 }
 
 .nav_tab{
@@ -400,7 +467,8 @@
 
 .skill_details{
     width: 700px;
-    height: 500px;
+    max-height: auto;
+    min-height: 500px;
     background-color: transparent;
     position: absolute;
     opacity: 0;
@@ -421,7 +489,7 @@
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
     width: 500px;
-    height: 200px;
+    height: auto;
 }
 
 .skill_details p{
@@ -431,22 +499,22 @@
 }
 
 .row_1{
-    top: 392px;
+    top: 459px;
     left: -23px;
 }
 
 .row_2{
-    top: 294px;
+    top: 361px;
     left: -23px;
 }
 
 .row_3{
-    top: 196px;
+    top: 263px;
     left: -23px;
 }
 
 .row_4{
-    top: 98px;
+    top: 165px;
     left: -23px;
     
 }
@@ -720,7 +788,7 @@
     height: 700px;
     display: flex;
     position: relative;
-    bottom: 75px;
+    bottom: 125px;
     -webkit-box-shadow: -2px 10px 21px -3px rgba(0,0,0,0.45);
     -moz-box-shadow: -2px 10px 21px -3px rgba(0,0,0,0.45);
     box-shadow: -2px 10px 21px -3px rgba(0,0,0,0.45);
@@ -812,6 +880,7 @@
     border-bottom: 1px solid rgb(196, 193, 193);
     border-left: 1px solid rgb(196, 193, 193);
     border-right: 1px solid rgb(196, 193, 193);
+    resize: none;
 }
 
 #submit_button{
@@ -837,10 +906,20 @@
 
 #footer{
     width: 100%;
-    height: 200px;
+    height: 185px;
     background-color: rgb(64, 134, 136);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+
 }
 
+#footer p{
+    font-size: 12px;
+    color: white;
+}
 
 .skill_tags_section{
     height: 400px;
@@ -849,6 +928,51 @@
     justify-content: space-evenly;
 }
 
+
+.logo{
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.logo:hover{
+    transform: rotate(40deg);
+    transition: 0.3s;
+}
+
+#footer_social{
+    color: white;
+    width: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-evenly;
+}
+#up_arrow{
+    position: absolute;
+    top: -80px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    color: cadetblue;
+    transition: 0.3s;
+}
+
+#up_arrow:hover{
+    transform: translateY(-15px);
+    transition: 0.3s;
+}
 
 
 @media screen and (max-width: 1800px) {
@@ -917,7 +1041,37 @@
 }
 
 @media screen and (max-width: 1150px) {
+    .menu_bar button{
+        display: inline-block;
+    }
 
+    .menu_bar{
+        height: 60px;
+    }
+
+    .section{
+        height: auto;
+    }
+
+    .nav_link{
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        margin-top: 50px;
+        line-height: 2;
+    }
+
+    .nav_link a img{
+        display: none;
+    }
+
+    .nav_link a{
+        width: 100%;
+        height: 34px;
+    }
+    .menu_bar{
+        height: auto;
+    }
     #experience_section{
         display: flex; 
         flex-direction: column;
@@ -1085,7 +1239,9 @@
    }
 
    .project_container{
-    height: auto;
+        height: auto;
+        padding-top: 50px;
+        padding-bottom: 50px;
    }
 
     #social_media{
@@ -1098,6 +1254,80 @@
         max-width: 400px;
         max-height: 400px;
     }
+
+
+
+    #contact_section{
+        height: auto !important;
+    }
+
+    #contact_start{
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        bottom: 0px;
+        align-items: center;
+    }
+
+    #contact_info{
+        width: 100%;
+        padding-top: 30px;
+    }
+    
+    #contact_form{
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        height: 700px;
+        justify-content: space-evenly;
+        box-shadow: none;
+    }
+
+    #up_arrow{
+        display: none;
+    }
+
+
+ 
+    
+    #contact_form h1{
+     
+    }
+    
+    
+    #contact_form div {
+
+    }
+    
+    #contact_form div label{
+ 
+    }
+    
+    #contact_form div input{
+
+    }
+    
+    #contact_form div input::placeholder{
+       
+    }
+    
+    #contact_form div textarea::placeholder{
+     
+    }
+    
+    #contact_form div textarea{
+
+    }
+    
+    #submit_button{
+  
+    }
+    
+    #submit_button:active{
+ 
+    }
+    
+    
 }
 
 

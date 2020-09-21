@@ -66,6 +66,7 @@ const HomePage = (props) =>{
     const [projectModalOpen1, setProjectModalOpen1] = useState(false);
     const [projectModalOpen2, setProjectModalOpen2] = useState(false);
     const [projectModalOpen3, setProjectModalOpen3] = useState(false);
+    const [menuMode, setMenuMode] = useState(false);
 
     let tl = gsap.timeline();
     let intro = useRef(null)
@@ -144,7 +145,18 @@ const HomePage = (props) =>{
             setSideNavDisplay(true);
         }
     }
+
+    const onWindowResize = () =>{
+        if(window.innerWidth <= 1150){
+            setMenuMode(true);
+        }
+        else{
+            setMenuMode(false);
+        }
+    }
+
     window.addEventListener('scroll', onScrollYCheck);
+    window.addEventListener('resize', onWindowResize);
 
     return(
         <>
@@ -172,27 +184,28 @@ const HomePage = (props) =>{
             <ProjectWindow className = "project_window" setOnChange = {setProjectModalOpen3} onChange = {projectModalOpen3}  prop = {porfProps}>
             </ProjectWindow>
 
-            <div className = "menu_bar"     
-                style={{ transition: '1s ease' , backgroundColor: navBackground ? 'white' : 'transparent', color: navBackground ? 'black': 'white', boxShadow:  navBackground ? '0px 10px 30px 1px rgba(0,0,0,0.3)': ''}}>
-                <div id = "logo" onClick= {onHomeClick}>
-                    Tang
+            
+                <div className = { navBackground ? 'menu_bar menu_bar_scrolled_style' : 'menu_bar menu_bar_static_style'}>
+                    <div id = "logo" onClick= {onHomeClick}>
+                        Tang
+                    </div>
+                    <button className = {navBackground ?  " menu_button_scrolled" : "menu_button_scrolled"} onClick = {() =>{setMenuMode(!menuMode)}}> { menuMode ? <i class="fas fa-bars"></i> : <i class="fas fa-times"></i> }</button>
+                    <div  className = {menuMode ?  "nav_link nav_link_disable" : "nav_link nav_link_button_clicked"}>
+                        <a   href= "#experience_section" >TimeLine
+                        <img src={require('../images/down_arrow.svg')} />
+                        </a>
+                        <a  onClick =  {() => {setMenuMode(false)}} href= "#project_section" >Projects
+                        <img src={require('../images/down_arrow.svg')} />
+                        </a>
+                        <a onClick =  {() => {setMenuMode(false)}} href= "#contact_start_point" >Contact
+                        <img src={require('../images/down_arrow.svg')} />
+                        </a>
+                    </div>
+                    <div id = "blog">
+                        Blog
+                    </div>
                 </div>
-                <div id = "nav_link" >
-                    <a href= "#experience_section" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>TimeLine
-                    <img src={require('../images/down_arrow.svg')} />
-                    </a>
-                    <a href= "#project_section" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>Projects
-                    <img src={require('../images/down_arrow.svg')} />
-                    </a>
-                    <a href= "#contact_start" style = {{color : navBackground ? 'black' : 'white', transition: '1s ease'}}>Contact
-                    <img src={require('../images/down_arrow.svg')} />
-                    </a>
-                </div>
-
-                <div id = "blog">
-                    Blog
-                </div>
-            </div>
+            
 
             <div className = "section" >
                 
@@ -429,8 +442,10 @@ const HomePage = (props) =>{
                 <div  className = "project_container"  style = {{pointerEvents : projectModalOpen1 || projectModalOpen2 || projectModalOpen3 ? "none" : "all" , 
                                                                  filter: projectModalOpen1 || projectModalOpen2 || projectModalOpen3 ? "blur(30px)" : "blur(0px)", 
                                                                }}>
-                            <div id = "project_background"></div>
-                            <Tilt style = {{width: "500px", display: "inline-block" }}>
+                            <div id = "project_background">
+                            
+                            </div>
+                            <Tilt style = {{ display: "inline-block"}}>
                             <div className = "project_content" style = {{backgroundImage: `url(${fruitGuideBackGround})`}}>
                                 <div id = "fruitScrollGuide" className = "project_inner"  >
                                     <h2>Game Price Guide</h2>
@@ -523,7 +538,7 @@ const HomePage = (props) =>{
                 </div>
             </div>
 
-            <svg  style = {{backgroundColor: "white"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <svg  id = "contact_start_point" style = {{backgroundColor: "white"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path fill="rgb(231, 229, 229)" fill-opacity="1" d="M0,64L720,160L1440,64L1440,0L720,0L0,0Z"></path>
             </svg>
             <div className = "section" id = "contact_section">
@@ -539,7 +554,7 @@ const HomePage = (props) =>{
                               <div>
                                 <i class="fas fa-envelope"></i>    Send Email
                               </div>
-                              <p>JordenTangwork@gmail.com</p>  
+                              <p>JordenTangWork@gmail.com</p>  
                         </div>
                         <div className = "contact_info_row">
                               <div>
@@ -571,7 +586,24 @@ const HomePage = (props) =>{
                 </div>
             </div>
             <div id = "footer">
-                    
+                <div id = "up_arrow" onClick = {() => {window.scrollTo(0,0)}}>
+                    <i class="far fa-arrow-alt-circle-up"></i>
+                </div>
+                <div id = "footer_social">
+                    <div className = "logo" onClick = {()=>{window.open("https://www.linkedin.com/in/jorden-tang-6b329a196/", "_blank")}}>
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div className = "logo" onClick = {()=>{window.open("https://www.linkedin.com/in/jorden-tang-6b329a196/", "_blank")}}>
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div className = "logo" onClick = {()=>{window.open("https://www.linkedin.com/in/jorden-tang-6b329a196/", "_blank")}}>
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <div className = "logo" onClick = {()=>{window.open("https://www.linkedin.com/in/jorden-tang-6b329a196/", "_blank")}}>
+                        <i class="fab fa-weixin"></i>
+                    </div>
+                </div>
+                <p>Copyright © 2020 JordenTang</p>
             </div>
         </div>
         </>
