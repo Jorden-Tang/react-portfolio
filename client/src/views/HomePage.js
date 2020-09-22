@@ -5,6 +5,7 @@ import  ProjectWindow from '../components/project_window'
 import '../styles/HomePageStyle.css'
 import '../styles/InteractiveBG.css'
 
+import axios from 'axios'
 import fruitGuideBackGround from '../images/project_asset/fruitscrollguide.PNG'
 import GameBackGround from '../images/project_asset/2dgame.PNG'
 import candyShopBackGround from '../images/project_asset/candyshop.jpg'
@@ -60,17 +61,20 @@ const HomePage = (props) =>{
         widthRatio :40,
     }
 
+
     const [emailContent, setEmailContent] = useState(initialFormContent);
     const [navBackground, setNavBackground] = useState(false)
     const [sideNavDisplay, setSideNavDisplay] = useState(true);
     const [projectModalOpen1, setProjectModalOpen1] = useState(false);
     const [projectModalOpen2, setProjectModalOpen2] = useState(false);
     const [projectModalOpen3, setProjectModalOpen3] = useState(false);
+
+
     const [menuMode, setMenuMode] = useState(false);
 
     let tl = gsap.timeline();
     let intro = useRef(null)
-    let projectSection = useRef(false);
+
 
     gsap.registerPlugin(ScrollTrigger);
 
@@ -111,7 +115,6 @@ const HomePage = (props) =>{
         
     }, [])
 
-
     const onHomeClick = () =>{
         window.scrollTo(0,0);
     }
@@ -126,6 +129,10 @@ const HomePage = (props) =>{
 
     const onFormSubmit = (e) =>{
         e.preventDefault();
+        axios.post("http://localhost:8000/api/email", emailContent, {withCredentials: true})
+            .then((result)=>{
+                console.log(result)
+            })
         setEmailContent(initialFormContent);
     }
 
@@ -167,12 +174,15 @@ const HomePage = (props) =>{
                 <i class="fab fa-linkedin-in" style = {{width: "60px"}}></i>
             </a>                
             <a style = {{bottom: "260px", backgroundColor: "#3b5998"}}>
-            <button>Connect</button>
+            <button onClick = {()=>{window.open("https://www.facebook.com/martin.s.tang.58/", "_blank")}}>Connect</button>
             <i class="fab fa-facebook-f" style = {{width: "60px"}}></i>
             </a>
-            <a style = {{bottom: "320px", backgroundColor: "#00c80f"}}>
-            <button>Connect</button>
-            <i class="fab fa-weixin" style = {{width: "60px"}}></i>
+            
+            <a style = {{bottom: "320px", backgroundColor: "black"}}>
+            <button onClick = {()=>{window.open("https://github.com/Jorden-Tang", "_blank")}}>Connect</button>
+            <i class="fab fa-github" style = {{width: "60px"}}></i>
+
+
             </a> 
         </div>
         <div className = "body" style = {{overflow: "hidden"}}>
@@ -192,13 +202,13 @@ const HomePage = (props) =>{
                     <button className = {navBackground ?  " menu_button_scrolled" : "menu_button_scrolled"} onClick = {() =>{setMenuMode(!menuMode)}}> { menuMode ? <i class="fas fa-bars"></i> : <i class="fas fa-times"></i> }</button>
                     <div  className = {menuMode ?  "nav_link nav_link_disable" : "nav_link nav_link_button_clicked"}>
                         <a   href= "#experience_section" >TimeLine
-                        <img src={require('../images/down_arrow.svg')} />
+                        {/* <img src={require('../images/down_arrow.svg')} /> */}
                         </a>
                         <a  onClick =  {() => {setMenuMode(false)}} href= "#project_section" >Projects
-                        <img src={require('../images/down_arrow.svg')} />
+                        {/* <img src={require('../images/down_arrow.svg')} /> */}
                         </a>
                         <a onClick =  {() => {setMenuMode(false)}} href= "#contact_start_point" >Contact
-                        <img src={require('../images/down_arrow.svg')} />
+                        {/* <img src={require('../images/down_arrow.svg')} /> */}
                         </a>
                     </div>
                     <div id = "blog">
@@ -590,17 +600,14 @@ const HomePage = (props) =>{
                     <i class="far fa-arrow-alt-circle-up"></i>
                 </div>
                 <div id = "footer_social">
-                    <div className = "logo" onClick = {()=>{window.open("https://www.linkedin.com/in/jorden-tang-6b329a196/", "_blank")}}>
+                    <div className = "logo" onClick = {()=>{window.open("https://github.com/Jorden-Tang", "_blank")}}>
                         <i class="fab fa-github"></i>
                     </div>
                     <div className = "logo" onClick = {()=>{window.open("https://www.linkedin.com/in/jorden-tang-6b329a196/", "_blank")}}>
                         <i class="fab fa-linkedin"></i>
                     </div>
-                    <div className = "logo" onClick = {()=>{window.open("https://www.linkedin.com/in/jorden-tang-6b329a196/", "_blank")}}>
+                    <div className = "logo" onClick = {()=>{window.open("https://www.facebook.com/martin.s.tang.58/", "_blank")}}>
                         <i class="fab fa-facebook"></i>
-                    </div>
-                    <div className = "logo" onClick = {()=>{window.open("https://www.linkedin.com/in/jorden-tang-6b329a196/", "_blank")}}>
-                        <i class="fab fa-weixin"></i>
                     </div>
                 </div>
                 <p>Copyright © 2020 JordenTang</p>
