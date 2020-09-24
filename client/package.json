@@ -14,6 +14,7 @@
     "react-dom": "^16.12.0",
     "react-hover-video-player": "^6.6.2",
     "react-parallax-tilt": "^1.4.65",
+    "react-pdf": "^5.0.0",
     "react-player": "^2.6.2",
     "react-scripts": "^3.4.3",
     "use-dencrypt-effect": "^1.0.2"

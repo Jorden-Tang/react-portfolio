@@ -1,6 +1,8 @@
 import React from 'react'
 import {useState, useRef, useEffect} from 'react'
 import {useDencrypt} from 'use-dencrypt-effect'
+import {Document, Page} from 'react-pdf'
+
 import Tilt from 'react-parallax-tilt'
 import  ProjectWindow from '../components/project_window'
 import '../styles/HomePageStyle.css'
@@ -68,14 +70,17 @@ const HomePage = (props) =>{
     const [projectModalOpen1, setProjectModalOpen1] = useState(false);
     const [projectModalOpen2, setProjectModalOpen2] = useState(false);
     const [projectModalOpen3, setProjectModalOpen3] = useState(false);
-    const values = ["SOFTWARE ENGINEER", "PROBLEM SOLVER", "FULL-STACK WEB DEVELOPER"]
+    const [nameInput, setNameInput] = useState(false);
+    const [companyInput, setCompanyInput] = useState(false);
+    const [messageInput, setMessageInput] = useState(false);
+    const [emailInput, setEmailInput] = useState(false);
+    const [formSent, setFormSent] = useState(false);
 
+    const values = ["SOFTWARE ENGINEER", "PROBLEM SOLVER", "FULL-STACK WEB DEVELOPER"]
     const [menuMode, setMenuMode] = useState(false);
 
     let tl = gsap.timeline();
     let intro = useRef(null)
-
-
     gsap.registerPlugin(ScrollTrigger);
 
     const { result, dencrypt } = useDencrypt();
@@ -133,17 +138,40 @@ const HomePage = (props) =>{
 
     const onFormChange = (e) =>{
         e.preventDefault();
+        if(formSent){
+            setFormSent(false);
+        }
+        if(emailContent['company'] !== ""){
+            setCompanyInput(true);
+        }
+        if(emailContent['name'] !== ""){
+            setNameInput(true);
+        }
+        if(emailContent['message'] !== ""){
+            setMessageInput(true);
+        }
+        if(emailContent['email'] !== ""){
+            setEmailInput(true);
+        }
         const {name, value} = e.target;
         setEmailContent({...emailContent, [name]: value});
         console.log(emailContent);
     }
 
     const onFormSubmit = (e) =>{
-        axios.post("http://localhost:8000/api/email", emailContent, {withCredentials: true})
-            .then((result)=>{
-                console.log(result)
-            })
-        setEmailContent(initialFormContent);
+        e.preventDefault();
+        if(nameInput && messageInput && emailInput && companyInput){
+            axios.post("http://localhost:8000/api/email", emailContent, {withCredentials: true})
+                .then((result)=>{
+                    console.log(result)
+                })
+            setEmailContent(initialFormContent);
+            setEmailInput(false);
+            setCompanyInput(false);
+            setNameInput(false);
+            setMessageInput(false);
+            setFormSent(true);
+        }
     }
 
     const onScrollYCheck = () =>{
@@ -172,6 +200,13 @@ const HomePage = (props) =>{
         }
     }
 
+    const [numPages, setNumPages] = useState(null);
+    const [pageNumber, setPageNumber] = useState(1);
+
+    function onDocumentLoadSuccess({ numPages }) {
+        setNumPages(numPages);
+      }
+
     window.addEventListener('scroll', onScrollYCheck);
     window.addEventListener('resize', onWindowResize);
 
@@ -199,7 +234,6 @@ const HomePage = (props) =>{
             <ProjectWindow className = "project_window"   setOnChange = {setProjectModalOpen1} onChange = {projectModalOpen1} prop = {fruitProps}>
             </ProjectWindow>
             <ProjectWindow className = "project_window" setOnChange = {setProjectModalOpen2} onChange = {projectModalOpen2} prop = {gameProps}>
-
             </ProjectWindow>
             <ProjectWindow className = "project_window" setOnChange = {setProjectModalOpen3} onChange = {projectModalOpen3}  prop = {porfProps}>
             </ProjectWindow>
@@ -209,13 +243,16 @@ const HomePage = (props) =>{
                     </div>
                     <button className = {navBackground ?  " menu_button_scrolled" : "menu_button_scrolled"} onClick = {() =>{setMenuMode(!menuMode)}}> { menuMode ? <i class="fas fa-bars"></i> : <i class="fas fa-times"></i> }</button>
                     <div  className = {menuMode ?  "nav_link nav_link_disable" : "nav_link nav_link_button_clicked"}>
-                        <a   href= "#experience_section" >TimeLine
+                        <a href= "#experience_section" >TimeLine
                         {/* <img src={require('../images/down_arrow.svg')} /> */}
                         </a>
-                        <a  onClick =  {() => {setMenuMode(false)}} href= "#project_section" >Projects
+                        <a   href= "#project_section" >Projects
                         {/* <img src={require('../images/down_arrow.svg')} /> */}
                         </a>
-                        <a onClick =  {() => {setMenuMode(false)}} href= "#contact_start_point" >Contact
+                        <a href= "#contact_start_point" >Contact
+                        {/* <img src={require('../images/down_arrow.svg')} /> */}
+                        </a>
+                        <a onClick = {()=>{window.open("https://www.docdroid.net/jERyZ8g/jordentangresume-pdf", "_blank")}}>Resume 
                         {/* <img src={require('../images/down_arrow.svg')} /> */}
                         </a>
                     </div>
@@ -223,8 +260,6 @@ const HomePage = (props) =>{
                         Blog
                     </div>
                 </div>
-            
-
             <div className = "section" >
                 <div id = "parallax">
                         <div id = "parallax_background"></div>
@@ -235,11 +270,9 @@ const HomePage = (props) =>{
                                 <h2><span style = {{color: "#dc143c", fontSize: "40px"}}>PASSIONATE</span>{result ? result: "FULL-STACK WEB DEVELOPER"}</h2>
                                 <h2> residing in Los Angeles <i class="fas fa-city"></i></h2>
                                 <div id = "header_button_section">
-                                    <button className = "header_button">RPOJECTS  <i style = {{fontSize: "16px"}} class="fas fa-arrow-right"></i></button>
-                                    <button className = "header_button">RESUME</button>
+                                    <a   href= "#project_section" className = "header_button">RPOJECTS  <i style = {{fontSize: "16px"}} class="fas fa-arrow-right"></i></a>
                                 </div>
                             </div>
-
                         </div>
 
                 </div>
@@ -572,6 +605,9 @@ const HomePage = (props) =>{
             </svg>
             <div className = "section" id = "contact_section">
                 <div id = "contact_start">
+                    {formSent?
+                    <p style = {{color: "rgb(64, 134, 136)", position: "absolute", top: "-40px", fontSize: "20px"}}>Thanks For Connecting! I will be contact with you shortly!</p>
+                    : <></>}
                     <div id="contact_info">
                         <div className = "contact_info_row">
                               <div>
@@ -592,27 +628,27 @@ const HomePage = (props) =>{
                               <p>linkedin.com/in/jorden-tang-6b329a196</p>  
                         </div>
                     </div>
-                    <form id = "contact_form">
+                    <form id = "contact_form" >
                         <h1>Let's Connect!</h1>
                         <div>
-                            <label>TELL ME YOUR NAME *</label>
+                            <label>TELL ME YOUR NAME  {nameInput ? "" : <span style = {{color: "red"}}> *Required </span>}</label>
                             <input  placeholder = "(First Name, Last Name)"type="text" name = "name" value = {emailContent.name} onChange = {onFormChange}></input>
                         </div>
                         <div >
-                            <label>COMPANY *</label>
+                            <label>COMPANY  {companyInput ? "" : <span style = {{color: "red"}}> *Required </span>} </label>
                             <input  placeholder = "Ex: Microsoft"type="text" name = "company" value = {emailContent.company} onChange = {onFormChange}></input>
                         </div>
                         <div >
-                            <label>ENTER YOUR EMAIL *</label>
+                            <label>ENTER YOUR EMAIL {emailInput ? "" : <span style = {{color: "red"}}> *Required </span>}</label>
                             <input  placeholder = "Ex: JordenTang@123.com"type="text" name = "email"  value = {emailContent.email} onChange = {onFormChange}></input>
                         </div>
                         <div >
-                            <label>MESSAGE *</label>
+                            <label>MESSAGE {messageInput ? "" : <span style = {{color: "red"}}> *Required </span>}</label>
                             <textarea  placeholder = "Write A Message" name = "message" value = {emailContent.message} onChange = {onFormChange}></textarea>
                         </div>
                         <button id = "submit_button" onClick={onFormSubmit}>Submit</button>
-                    </form>  
-                </div>
+                    </form> 
+                </div>                 
             </div>
             <div id = "footer">
                 <div id = "up_arrow" onClick = {() => {window.scrollTo(0,0)}}>
