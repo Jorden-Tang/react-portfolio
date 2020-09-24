@@ -32,12 +32,14 @@
     width: 700px;
     height: auto;
     padding: 20px;
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     line-height: 1.5;
     position: relative;
     border-radius: 10px;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
     
 }
 

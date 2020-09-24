@@ -11,7 +11,6 @@ import GameBackGround from '../images/project_asset/2dgame.PNG'
 import candyShopBackGround from '../images/project_asset/candyshop.jpg'
 import blogBackGround from '../images/project_asset/blog.jpg'
 import portfolioBackGround from '../images/project_asset/portfolio.PNG'
-import treeBackGround from '../images/tree_background.png'
 import {TweenMax, Power3, TimelineLite,TweenLite, gsap} from 'gsap/all'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import fruit1 from '../images/fruitscrollguide/fruit_1.PNG'
@@ -80,8 +79,8 @@ const HomePage = (props) =>{
 
   
     useEffect(()=>{
-        gsap.from(intro, {duration: 1.5, ease: "bounce", y : -300, scale: 0.9, opacity: 0});
-        gsap.from('#parallax h2',{duration: 2, ease: "bounce", x: 100, opacity: 0});
+        // gsap.from(intro, {duration: 1.5, ease: "bounce", y : -300, scale: 0.9, opacity: 0});
+        // gsap.from('#parallax h2',{duration: 2, ease: "bounce", x: 100, opacity: 0});
         gsap.from('.content', 
             {scrollTrigger: {
                 trigger: '.timeline',
@@ -193,8 +192,6 @@ const HomePage = (props) =>{
             </ProjectWindow>
             <ProjectWindow className = "project_window" setOnChange = {setProjectModalOpen3} onChange = {projectModalOpen3}  prop = {porfProps}>
             </ProjectWindow>
-
-            
                 <div className = { navBackground ? 'menu_bar menu_bar_scrolled_style' : 'menu_bar menu_bar_static_style'}>
                     <div id = "logo" onClick= {onHomeClick}>
                         Tang
@@ -220,9 +217,20 @@ const HomePage = (props) =>{
             <div className = "section" >
                 
                 <div id = "parallax">
-                        <div id = "background_tree"></div>
-                        <h1 ref={el =>{intro = el}}>Hello I'm <span style = {{color: "pink"}}>Jorden Tang</span></h1> 
-                        <h2><span style = {{color: "#dc143c"}}>PASSIONATE</span> web developer, software engineer residing in LA <i class="fas fa-city"></i></h2>
+                        <div id = "parallax_background"></div>
+                        <div id = "header_content">
+                            <img src={require('../images/self.png')}/>
+                            <div id = "header_info">
+                                <h1 ref={el =>{intro = el}}>Hello I'm <span style = {{fontSize: "40px", fontStyle: "italic"}}>Jorden Tang</span></h1> 
+                                <h2><span style = {{color: "#dc143c", fontSize: "40px"}}>PASSIONATE</span> Full-Stack Web Developer, software engineer residing in Los Angeles <i class="fas fa-city"></i></h2>
+                                <div id = "header_button_section">
+                                    <button className = "header_button">RPOJECTS  <i style = {{fontSize: "16px"}} class="fas fa-arrow-right"></i></button>
+                                    <button className = "header_button">RESUME</button>
+                                </div>
+                            </div>
+
+                        </div>
+
                 </div>
             </div>
 
