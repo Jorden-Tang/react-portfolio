@@ -15,7 +15,8 @@
     "react-hover-video-player": "^6.6.2",
     "react-parallax-tilt": "^1.4.65",
     "react-player": "^2.6.2",
-    "react-scripts": "^3.4.3"
+    "react-scripts": "^3.4.3",
+    "use-dencrypt-effect": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",

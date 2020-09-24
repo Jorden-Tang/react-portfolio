@@ -1,5 +1,6 @@
 import React from 'react'
 import {useState, useRef, useEffect} from 'react'
+import {useDencrypt} from 'use-dencrypt-effect'
 import Tilt from 'react-parallax-tilt'
 import  ProjectWindow from '../components/project_window'
 import '../styles/HomePageStyle.css'
@@ -67,7 +68,7 @@ const HomePage = (props) =>{
     const [projectModalOpen1, setProjectModalOpen1] = useState(false);
     const [projectModalOpen2, setProjectModalOpen2] = useState(false);
     const [projectModalOpen3, setProjectModalOpen3] = useState(false);
-
+    const values = ["SOFTWARE ENGINEER", "PROBLEM SOLVER", "FULL-STACK WEB DEVELOPER"]
 
     const [menuMode, setMenuMode] = useState(false);
 
@@ -77,8 +78,18 @@ const HomePage = (props) =>{
 
     gsap.registerPlugin(ScrollTrigger);
 
-  
+    const { result, dencrypt } = useDencrypt();
+
     useEffect(()=>{
+       
+        let i = 0;
+        const action = setInterval(() => {
+        dencrypt(values[i]);
+
+        i = i === values.length - 1 ? 0 : i + 1;
+        }, 4000);
+
+        
         // gsap.from(intro, {duration: 1.5, ease: "bounce", y : -300, scale: 0.9, opacity: 0});
         // gsap.from('#parallax h2',{duration: 2, ease: "bounce", x: 100, opacity: 0});
         gsap.from('.content', 
@@ -111,7 +122,8 @@ const HomePage = (props) =>{
             toggleActions: 'restart none reverse none',
         }, 
         duration: 1, ease: "power", y: 50, opacity: 0, stagger: 0.2})
-        
+
+        return () => clearInterval(action);
     }, [])
 
     const onHomeClick = () =>{
@@ -127,7 +139,6 @@ const HomePage = (props) =>{
     }
 
     const onFormSubmit = (e) =>{
-        e.preventDefault();
         axios.post("http://localhost:8000/api/email", emailContent, {withCredentials: true})
             .then((result)=>{
                 console.log(result)
@@ -215,14 +226,14 @@ const HomePage = (props) =>{
             
 
             <div className = "section" >
-                
                 <div id = "parallax">
                         <div id = "parallax_background"></div>
                         <div id = "header_content">
                             <img src={require('../images/self.png')}/>
                             <div id = "header_info">
                                 <h1 ref={el =>{intro = el}}>Hello I'm <span style = {{fontSize: "40px", fontStyle: "italic"}}>Jorden Tang</span></h1> 
-                                <h2><span style = {{color: "#dc143c", fontSize: "40px"}}>PASSIONATE</span> Full-Stack Web Developer, software engineer residing in Los Angeles <i class="fas fa-city"></i></h2>
+                                <h2><span style = {{color: "#dc143c", fontSize: "40px"}}>PASSIONATE</span>{result ? result: "FULL-STACK WEB DEVELOPER"}</h2>
+                                <h2> residing in Los Angeles <i class="fas fa-city"></i></h2>
                                 <div id = "header_button_section">
                                     <button className = "header_button">RPOJECTS  <i style = {{fontSize: "16px"}} class="fas fa-arrow-right"></i></button>
                                     <button className = "header_button">RESUME</button>
@@ -585,19 +596,19 @@ const HomePage = (props) =>{
                         <h1>Let's Connect!</h1>
                         <div>
                             <label>TELL ME YOUR NAME *</label>
-                            <input placeholder = "(First Name, Last Name)"type="text" name = "name" value = {emailContent.name} onChange = {onFormChange}></input>
+                            <input  placeholder = "(First Name, Last Name)"type="text" name = "name" value = {emailContent.name} onChange = {onFormChange}></input>
                         </div>
                         <div >
                             <label>COMPANY *</label>
-                            <input placeholder = "Ex: Microsoft"type="text" name = "company" value = {emailContent.company} onChange = {onFormChange}></input>
+                            <input  placeholder = "Ex: Microsoft"type="text" name = "company" value = {emailContent.company} onChange = {onFormChange}></input>
                         </div>
                         <div >
                             <label>ENTER YOUR EMAIL *</label>
-                            <input placeholder = "Ex: JordenTang@123.com"type="text" name = "email"  value = {emailContent.email} onChange = {onFormChange}></input>
+                            <input  placeholder = "Ex: JordenTang@123.com"type="text" name = "email"  value = {emailContent.email} onChange = {onFormChange}></input>
                         </div>
                         <div >
                             <label>MESSAGE *</label>
-                            <textarea placeholder = "Write A Message" name = "message" value = {emailContent.message} onChange = {onFormChange}></textarea>
+                            <textarea  placeholder = "Write A Message" name = "message" value = {emailContent.message} onChange = {onFormChange}></textarea>
                         </div>
                         <button id = "submit_button" onClick={onFormSubmit}>Submit</button>
                     </form>  
