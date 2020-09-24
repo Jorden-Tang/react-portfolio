@@ -30,8 +30,6 @@ import porf4 from '../images/portfolio/por_4.png'
 
 import gameVideo from '../images/2d_game/2dgame.mp4'
 
-
-
 const HomePage = (props) =>{
     const initialFormContent = {name: "", company : "", email: "", message: ""}
     const fruitProps = {
