@@ -1,8 +1,5 @@
 import React from 'react'
 import {useState, useRef, useEffect} from 'react'
-import {useDencrypt} from 'use-dencrypt-effect'
-import {Document, Page} from 'react-pdf'
-
 import Tilt from 'react-parallax-tilt'
 import  ProjectWindow from '../components/project_window'
 import '../styles/HomePageStyle.css'
@@ -14,7 +11,8 @@ import GameBackGround from '../images/project_asset/2dgame.PNG'
 import candyShopBackGround from '../images/project_asset/candyshop.jpg'
 import blogBackGround from '../images/project_asset/blog.jpg'
 import portfolioBackGround from '../images/project_asset/portfolio.PNG'
-import {TweenMax, Power3, TimelineLite,TweenLite, gsap} from 'gsap/all'
+import {gsap} from 'gsap/all'
+import TextScramble, { ScrambleTexts } from '@twistezo/react-text-scramble'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import fruit1 from '../images/fruitscrollguide/fruit_1.PNG'
 import fruit2 from '../images/fruitscrollguide/fruit_2.PNG'
@@ -74,23 +72,12 @@ const HomePage = (props) =>{
     const [emailInput, setEmailInput] = useState(false);
     const [formSent, setFormSent] = useState(false);
 
-    const values = ["SOFTWARE ENGINEER", "PROBLEM SOLVER", "FULL-STACK WEB DEVELOPER"]
+    const results =  ["SOFTWARE ENGINEER", "PROBLEM SOLVER", "FULL-STACK WEB DEVELOPER"];
     const [menuMode, setMenuMode] = useState(false);
     let intro = useRef(null)
     gsap.registerPlugin(ScrollTrigger);
 
-    const { result, dencrypt } = useDencrypt();
-
     useEffect(()=>{
-        let i = 0;
-        const action = setInterval(() => {
-        dencrypt(values[i]);
-
-        i = i === values.length - 1 ? 0 : i + 1;
-        }, 3000);
-
-        // gsap.from(intro, {duration: 1.5, ease: "bounce", y : -300, scale: 0.9, opacity: 0});
-        // gsap.from('#parallax h2',{duration: 2, ease: "bounce", x: 100, opacity: 0});
         gsap.from('.content', 
             {scrollTrigger: {
                 trigger: '.timeline',
@@ -122,7 +109,6 @@ const HomePage = (props) =>{
         }, 
         duration: 1, ease: "power", y: 50, opacity: 0, stagger: 0.2})
 
-        // return () => clearInterval(action);
     }, [])
 
     const onHomeClick = () =>{
@@ -194,12 +180,6 @@ const HomePage = (props) =>{
         }
     }
 
-    const [numPages, setNumPages] = useState(null);
-    const [pageNumber, setPageNumber] = useState(1);
-
-    function onDocumentLoadSuccess({ numPages }) {
-        setNumPages(numPages);
-      }
 
     window.addEventListener('scroll', onScrollYCheck);
     window.addEventListener('resize', onWindowResize);
@@ -261,7 +241,13 @@ const HomePage = (props) =>{
                             <img src={require('../images/self.png')}/>
                             <div id = "header_info">
                                 <h1 ref={el =>{intro = el}}>Hello I'm <span style = {{fontSize: "40px", fontStyle: "italic"}}>Jorden Tang</span></h1> 
-                                <h2><span style = {{color: "#dc143c", fontSize: "40px"}}>PASSIONATE</span>{result ? result: "FULL-STACK WEB DEVELOPER"}</h2>
+                                <h2><span style = {{color: "#dc143c", fontSize: "40px"}}>PASSIONATE</span>        <TextScramble
+                                                                                                                    texts={results}
+                                                                                                                    letterSpeed={30}
+                                                                                                                    nextLetterSpeed={100}
+                                                                                                                    pauseTime={3000}
+                                                                                
+                                                                                                                    /></h2>
                                 <h2> residing in Los Angeles <i class="fas fa-city"></i></h2>
                                 <div id = "header_button_section">
                                     <a   href= "#project_section" className = "header_button">RPOJECTS  <i style = {{fontSize: "16px"}} class="fas fa-arrow-right"></i></a>
