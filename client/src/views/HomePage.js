@@ -76,23 +76,19 @@ const HomePage = (props) =>{
 
     const values = ["SOFTWARE ENGINEER", "PROBLEM SOLVER", "FULL-STACK WEB DEVELOPER"]
     const [menuMode, setMenuMode] = useState(false);
-
-    let tl = gsap.timeline();
     let intro = useRef(null)
     gsap.registerPlugin(ScrollTrigger);
 
     const { result, dencrypt } = useDencrypt();
 
     useEffect(()=>{
-       
         let i = 0;
         const action = setInterval(() => {
         dencrypt(values[i]);
 
         i = i === values.length - 1 ? 0 : i + 1;
-        }, 4000);
+        }, 3000);
 
-        
         // gsap.from(intro, {duration: 1.5, ease: "bounce", y : -300, scale: 0.9, opacity: 0});
         // gsap.from('#parallax h2',{duration: 2, ease: "bounce", x: 100, opacity: 0});
         gsap.from('.content', 
@@ -126,7 +122,7 @@ const HomePage = (props) =>{
         }, 
         duration: 1, ease: "power", y: 50, opacity: 0, stagger: 0.2})
 
-        return () => clearInterval(action);
+        // return () => clearInterval(action);
     }, [])
 
     const onHomeClick = () =>{
