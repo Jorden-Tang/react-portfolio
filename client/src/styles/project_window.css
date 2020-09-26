@@ -98,10 +98,10 @@
 
 
 
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 900px) {
     .project_detail_window{
-        width: 500px;
-        height: auto;
+        width: 418px;
+        height: 60vh;
     }
 
     .project_description{
@@ -124,4 +124,8 @@
         height: auto;
     }
 
+    .project_detail_window h2{
+        font-size: 30px;
+    }
+    
 }

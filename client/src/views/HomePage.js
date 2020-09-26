@@ -73,7 +73,7 @@ const HomePage = (props) =>{
     const [formSent, setFormSent] = useState(false);
 
     const results =  ["SOFTWARE ENGINEER", "PROBLEM SOLVER", "FULL-STACK WEB DEVELOPER"];
-    const [menuMode, setMenuMode] = useState(true);
+    const [menuMode, setMenuMode] = useState(false);
     let intro = useRef(null)
     gsap.registerPlugin(ScrollTrigger);
 
@@ -83,9 +83,9 @@ const HomePage = (props) =>{
                 trigger: '.timeline',
                 start: "0px, 50%",
                 end: "bottom, 40%",
-                toggleActions: 'restart none reverse none',
+      
             },
-            duration: 2, 
+            duration: 1, 
             opacity: 0,
             y: 40, 
             delay: 0.5,
@@ -96,7 +96,6 @@ const HomePage = (props) =>{
             trigger: '.skills',
             start: "0px, 60%",
             end: "bottom, 40%",
-            toggleActions: 'restart none reverse none',
         }, 
         duration: 1, ease: "power",  y: 40, opacity: 0, stagger: 0.2})
 
@@ -105,10 +104,13 @@ const HomePage = (props) =>{
             trigger: '#project_section',
             start: "0px, 60%",
             end: "bottom, 40%",
-            toggleActions: 'restart none reverse none',
         }, 
         duration: 1, ease: "power", y: 50, opacity: 0, stagger: 0.2})
-
+        if(window.innerWidth > 1150){
+            setMenuMode(true);
+        }else{
+            setMenuMode(false);
+        }
     }, [])
 
     const onHomeClick = () =>{
@@ -171,12 +173,12 @@ const HomePage = (props) =>{
     }
 
     const onWindowResize = () =>{
-        if(window.innerWidth <= 1150){
+        if(window.innerWidth > 1150){
             setMenuMode(true);
-        }
-        else{
+       }
+       else{
             setMenuMode(false);
-        }
+       }
     }
 
 
@@ -214,8 +216,8 @@ const HomePage = (props) =>{
                     <div id = "logo" onClick= {onHomeClick}>
                         Tang
                     </div>
-                    <button className = {navBackground ?  " menu_button_scrolled" : "menu_button_scrolled"} onClick = {() =>{setMenuMode(!menuMode)}}> { menuMode ? <i class="fas fa-bars"></i> : <i class="fas fa-times"></i> }</button>
-                    <div  className = {menuMode ?  "nav_link nav_link_disable" : "nav_link nav_link_button_clicked"}>
+                    <button className = {navBackground ?  " menu_button_scrolled" : "menu_button_scrolled"} onClick = {() =>{setMenuMode(!menuMode)}}> { menuMode ? <i class="fas fa-times"></i> : <i class="fas fa-bars"></i> }</button>
+                    <div  className = {menuMode ?   "nav_link  " : "nav_link nav_link_disable"}>
                         <a href= "#experience_section" >TimeLine
                         {/* <img src={require('../images/down_arrow.svg')} /> */}
                         </a>
