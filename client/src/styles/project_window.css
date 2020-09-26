@@ -13,6 +13,7 @@
     background: rgb(253, 250, 250);
     z-index: 3;
     background-image: ();
+    overflow-x: hidden;
 }
 .project_detail_window button:hover{
     color: black;   

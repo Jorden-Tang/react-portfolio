@@ -19,6 +19,7 @@
     width: 100vw;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 /* width */
@@ -1156,7 +1157,7 @@
     #header_content img{
         width: 250px;
         height: 250px;
- 
+        margin: 0px;
     }
 
     #header_info{
@@ -1210,12 +1211,13 @@
     }
 
     .timeline{
-        width:  80vw;
-        min-width:414px;
+        width: 100vw;
         height: auto;
     }
 
     .content{
+        width: 70vw;
+        min-width: 400px;
         margin-top: 20px;
         min-height: 120px;
     }
@@ -1266,7 +1268,7 @@
         padding: 0;
     }
     #header_info h1{
-        font-size: 30px;
+        font-size: 20px;
         background-color: rgba(199, 209, 199, 0.144);
         position: relative;
         width: 80vw;
@@ -1275,16 +1277,16 @@
 
 
     #header_info h2 span{
-        font-size: 30px;
+        font-size: 20px;
     }
 
     #header_info h1 span{
-        font-size: 40px;
+        font-size: 30px;
         font-style: italic;
         color: black;        
     }
     #parallax h2{
-        font-size: 20px;
+        font-size: 15px;
         width: 80vw;
     }
 
