@@ -73,7 +73,7 @@ const HomePage = (props) =>{
     const [formSent, setFormSent] = useState(false);
 
     const results =  ["SOFTWARE ENGINEER", "PROBLEM SOLVER", "FULL-STACK WEB DEVELOPER"];
-    const [menuMode, setMenuMode] = useState(false);
+    const [menuMode, setMenuMode] = useState(true);
     let intro = useRef(null)
     gsap.registerPlugin(ScrollTrigger);
 
@@ -135,7 +135,6 @@ const HomePage = (props) =>{
         }
         const {name, value} = e.target;
         setEmailContent({...emailContent, [name]: value});
-        console.log(emailContent);
     }
 
     const onFormSubmit = (e) =>{
@@ -240,8 +239,8 @@ const HomePage = (props) =>{
                         <div id = "header_content">
                             <img src={require('../images/self.png')}/>
                             <div id = "header_info">
-                                <h1 ref={el =>{intro = el}}>Hello I'm <span style = {{fontSize: "40px", fontStyle: "italic"}}>Jorden Tang</span></h1> 
-                                <h2><span style = {{color: "#dc143c", fontSize: "40px"}}>PASSIONATE</span>        <TextScramble
+                                <h1 ref={el =>{intro = el}}>Hello I'm <span>Jorden Tang</span></h1> 
+                                <h2><span style = {{color: "#dc143c"}}>PASSIONATE</span>        <TextScramble
                                                                                                                     texts={results}
                                                                                                                     letterSpeed={30}
                                                                                                                     nextLetterSpeed={100}
